@@ -1,0 +1,824 @@
+ <!DOCTYPE html>
+    <html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!--=============== FAVICON ===============-->
+        <link rel="shortcut icon" href="assets/img/Silhueta 03.png" type="image/x-icon">
+
+        <!--=============== BOXICONS ===============-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+
+        <!--=============== SWIPER CSS ===============--> 
+        <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+
+        <!--=============== CSS ===============-->
+        <link rel="stylesheet" href="assets/css/styles.css">
+
+
+        <title>Lumine</title>
+    </head>
+    <body>
+        <!--==================== HEADER ====================-->
+        <header class="header" id="header">
+            <nav class="nav container">
+                <a href="index.html" class="nav__logo">
+                    <img src="./assets/img/Silhueta png 01.png" alt="Lumine" class="nav__logo-icon" onerror="this.style.display='none'">
+                    <span>Lumine</span>
+                </a>
+
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+                        <li class="nav__item">
+                            <a href="#home" class="nav__link active-link">Inicio</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#sobre" class="nav__link">Sobre Mim</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="produtos.html" class="nav__link">Produtos</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#new" class="nav__link">Destaques</a>
+                        </li>
+                    </ul>
+
+                    <div class="nav__close" id="nav-close">
+                        <i class='bx bx-x' ></i>
+                    </div>
+                </div>
+
+                <div class="nav__btns">
+                    <!-- Theme change button -->
+                    <i class='bx bx-moon change-theme' id="theme-button"></i>
+
+                    <div class="nav__shop" id="cart-shop">
+                        <i class='bx bx-shopping-bag' ></i>
+                    </div>
+
+                    <div class="nav__toggle" id="nav-toggle">
+                        <i class='bx bx-grid-alt' ></i>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <!--==================== CART ====================-->
+        <div class="cart" id="cart">
+            <i class='bx bx-x cart__close' id="cart-close"></i>
+
+            <h2 class="cart__title-center">Meu Carrinho</h2>
+
+            <div class="cart__container">
+                <article class="cart__card">
+                    <div class="cart__box">
+                        <img src="assets/img/featured1.png" alt="" class="cart__img">
+                    </div>
+
+                    <div class="cart__details">
+                        <h3 class="cart__title">Jazzmaster</h3>
+                        <span class="cart__price">R$1050</span>
+
+                        <div class="cart__amount">
+                            <div class="cart__amount-content">
+                                <span class="cart__amount-box">
+                                    <i class='bx bx-minus' ></i>
+                                </span>
+
+                                <span class="cart__amount-number">1</span>
+
+                                <span class="cart__amount-box">
+                                    <i class='bx bx-plus' ></i>
+                                </span>
+                            </div>
+
+                            <i class='bx bx-trash-alt cart__amount-trash' ></i>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="cart__card">
+                    <div class="cart__box">
+                        <img src="assets/img/featured3.png" alt="" class="cart__img">
+                    </div>
+
+                    <div class="cart__details">
+                        <h3 class="cart__title">Rose Gold</h3>
+                        <span class="cart__price">R$850</span>
+
+                        <div class="cart__amount">
+                            <div class="cart__amount-content">
+                                <span class="cart__amount-box">
+                                    <i class='bx bx-minus' ></i>
+                                </span>
+
+                                <span class="cart__amount-number">1</span>
+
+                                <span class="cart__amount-box">
+                                    <i class='bx bx-plus' ></i>
+                                </span>
+                            </div>
+
+                            <i class='bx bx-trash-alt cart__amount-trash' ></i>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="cart__card">
+                    <div class="cart__box">
+                        <img src="assets/img/new1.png" alt="" class="cart__img">
+                    </div>
+
+                    <div class="cart__details">
+                        <h3 class="cart__title">Longines Rose</h3>
+                        <span class="cart__price">R$980</span>
+
+                        <div class="cart__amount">
+                            <div class="cart__amount-content">
+                                <span class="cart__amount-box">
+                                    <i class='bx bx-minus' ></i>
+                                </span>
+
+                                <span class="cart__amount-number">1</span>
+
+                                <span class="cart__amount-box">
+                                    <i class='bx bx-plus' ></i>
+                                </span>
+                            </div>
+
+                            <i class='bx bx-trash-alt cart__amount-trash' ></i>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <div class="cart__prices">
+                <span class="cart__prices-item">3 items</span>
+                <span class="cart__prices-total">R$2880</span>
+            </div>
+        </div>
+
+        <!--==================== MAIN ====================-->
+        <main class="main">
+            <!--==================== HOME ====================-->
+            <section class="home" id="home">
+                <div class="home__container container grid">
+                    <div class="home__img-bg">
+                        <img src="assets/img/Mirlleiny foto 01.png" alt="" class="home__img">
+                    </div>
+    
+                    <div class="home__social">
+                        <a href="https://www.facebook.com/" target="_blank" class="home__social-link">
+                            Facebook
+                        </a>
+                        <a href="https://twitter.com/" target="_blank" class="home__social-link">
+                            Twitter
+                        </a>
+                        <a href="https://www.instagram.com/_luminebe/" target="_blank" class="home__social-link">
+                            Instagram
+                        </a>
+                    </div>
+    
+                    <div class="home__data">
+                        <h1 class="home__title">BEM-VINDO <br>À LUMINE<br>BELEZA & ESTETICA</h1>
+                        <p class="home__description">
+                            Somos a Lumine empresa especializada em estetica e beleza,
+                            com anos de experiências no mercado, com os melhores produtos e serviços.
+                        </p>
+                        <span class="home__price">Clique para saber mais</span>
+
+                        <div class="home__btns">
+                            <a href="#" class="button button--gray button--small">
+                                Saiba Mais
+                            </a>
+
+                            <!-- <button class="button home__button">ADD TO CART</button> -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!--==================== FEATURED ====================-->
+            <section class="featured section container" id="featured">
+                <h2 class="section__title">
+                    Mais Vendidos
+                </h2>
+
+                <div class="featured__container grid">
+                    <article class="featured__card">
+                        <span class="featured__tag">Mais vendido</span>
+
+                        <img src="assets/img/featured1.png" alt="" class="featured__img">
+
+                        <div class="featured__data">
+                            <h3 class="featured__title">Sabonete Regenerador<br>150g</h3>
+                            <span class="featured__price">R$ 49,00</span>
+                        </div>
+
+                        <button class="button featured__button">ADD AO CARRINHO</button>
+                    </article>
+
+                    <article class="featured__card">
+                        <span class="featured__tag">Mais vendido</span>
+
+                        <img src="assets/img/featured2.png" alt="" class="featured__img">
+
+                        <div class="featured__data">
+                            <h3 class="featured__title">Esfoliante Com Hamamélis<br>50g</h3>
+                            <span class="featured__price">R$ 31,50</span>
+                        </div>
+
+                        <button class="button featured__button">ADD AO CARRINHO</button>
+                    </article>
+
+                    <article class="featured__card">
+                        <span class="featured__tag">Mais vendido</span>
+
+                        <img src="assets/img/featured3.png" alt="" class="featured__img">
+
+                        <div class="featured__data">
+                            <h3 class="featured__title">Hidratante Facial<br>30g</h3>
+                            <span class="featured__price">R$ 65,50</span>
+                        </div>
+
+                        <button class="button featured__button">ADD AO CARRINHO</button>
+                    </article>
+                </div>
+            </section>
+
+            <!--==================== STORY ====================-->
+            <section class="story section container" id="sobre">
+                <div class="story__container grid">
+                    <div class="story__data" >
+                        <h2 class="section__title story__section-title">
+                           Sobre mim
+                        </h2>
+    
+                        <h1 class="story__title">
+                            Olá, meu nome é<br> Mirlleiny Oliveira
+                        </h1>
+    
+                        <p class="story__description">
+                            Fundadora da Lumine e especialista em estética. 
+                            Ofereço tratamentos faciais e corporais personalizados com tecnologia avançada.
+                             Meu objetivo é realçar sua beleza natural com excelência e cuidado.
+                        </p>
+            
+    
+                        <a href="sobre.html" class="button button--small">Clique Para Saber Mais</a>
+                    </div>
+
+                    <div class="story__images">
+                        <img src="assets/img/Mir-foto3.jpg" alt="" class="story__img">
+                        <div class="story__square"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!--==================== PRODUCTS ====================-->
+            <section class="products section container" id="products">
+                <h2 class="section__title">
+                    Products
+                </h2>
+
+                <div class="products__container grid">
+                    <article class="products__card">
+                        <img src="assets/img/product1.png" alt="" class="products__img">
+
+                        <h3 class="products__title">Spirit rose</h3>
+                        <span class="products__price">R$1500</span>
+
+                        <button class="products__button">
+                            <i class='bx bx-shopping-bag'></i>
+                        </button>
+                    </article>
+
+                    <article class="products__card">
+                        <img src="assets/img/product2.png" alt="" class="products__img">
+
+                        <h3 class="products__title">Khaki pilot</h3>
+                        <span class="products__price">R$1350</span>
+
+                        <button class="products__button">
+                            <i class='bx bx-shopping-bag'></i>
+                        </button>
+                    </article>
+
+                    <article class="products__card">
+                        <img src="assets/img/product3.png" alt="" class="products__img">
+
+                        <h3 class="products__title">Jubilee black</h3>
+                        <span class="products__price">R$870</span>
+
+                        <button class="products__button">
+                            <i class='bx bx-shopping-bag'></i>
+                        </button>
+                    </article>
+
+                    <article class="products__card">
+                        <img src="assets/img/product4.png" alt="" class="products__img">
+
+                        <h3 class="products__title">Fosil me3</h3>
+                        <span class="products__price">R$650</span>
+
+                        <button class="products__button">
+                            <i class='bx bx-shopping-bag'></i>
+                        </button>
+                    </article>
+
+                    <article class="products__card">
+                        <img src="assets/img/product5.png" alt="" class="products__img">
+
+                        <h3 class="products__title">Duchen</h3>
+                        <span class="products__price">R$950</span>
+
+                        <button class="products__button">
+                            <i class='bx bx-shopping-bag'></i>
+                        </button>
+                    </article>
+                </div>
+            </section>
+
+            <!--==================== TESTIMONIAL ====================-->
+            <section class="testimonial section container">
+                <div class="testimonial__container grid">
+                    <div class="swiper testimonial-swiper">
+                        <div class="swiper-wrapper">
+                            <div class="testimonial__card swiper-slide">
+                                <div class="testimonial__quote">
+                                    <i class='bx bxs-quote-alt-left' ></i>
+                                </div>
+                                <p class="testimonial__description">
+                                    They are the best watches that one acquires, also they are always with the latest 
+                                    news and trends, with a very comfortable price and especially with the attention 
+                                    you receive, they are always attentive to your questions.
+                                </p>
+                                <h3 class="testimonial__date">March 27. 2021</h3>
+        
+                                <div class="testimonial__perfil">
+                                    <img src="assets/img/testimonial1.jpg" alt="" class="testimonial__perfil-img">
+        
+                                    <div class="testimonial__perfil-data">
+                                        <span class="testimonial__perfil-name">Lee Doe</span>
+                                        <span class="testimonial__perfil-detail">Director of a company</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="testimonial__card swiper-slide">
+                                <div class="testimonial__quote">
+                                    <i class='bx bxs-quote-alt-left' ></i>
+                                </div>
+                                <p class="testimonial__description">
+                                    They are the best watches that one acquires, also they are always with the latest 
+                                    news and trends, with a very comfortable price and especially with the attention 
+                                    you receive, they are always attentive to your questions.
+                                </p>
+                                <h3 class="testimonial__date">March 27. 2021</h3>
+        
+                                <div class="testimonial__perfil">
+                                    <img src="assets/img/testimonial2.jpg" alt="" class="testimonial__perfil-img">
+        
+                                    <div class="testimonial__perfil-data">
+                                        <span class="testimonial__perfil-name">Samantha Mey</span>
+                                        <span class="testimonial__perfil-detail">Director of a company</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="testimonial__card swiper-slide">
+                                <div class="testimonial__quote">
+                                    <i class='bx bxs-quote-alt-left' ></i>
+                                </div>
+                                <p class="testimonial__description">
+                                    They are the best watches that one acquires, also they are always with the latest 
+                                    news and trends, with a very comfortable price and especially with the attention 
+                                    you receive, they are always attentive to your questions.
+                                </p>
+                                <h3 class="testimonial__date">March 27. 2021</h3>
+        
+                                <div class="testimonial__perfil">
+                                    <img src="assets/img/testimonial3.jpg" alt="" class="testimonial__perfil-img">
+        
+                                    <div class="testimonial__perfil-data">
+                                        <span class="testimonial__perfil-name">Raul Zaman</span>
+                                        <span class="testimonial__perfil-detail">Director of a company</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="swiper-button-next">
+                            <i class='bx bx-right-arrow-alt' ></i>
+                        </div>
+                        <div class="swiper-button-prev">
+                            <i class='bx bx-left-arrow-alt' ></i>
+                        </div>
+                    </div>
+
+                    <div class="testimonial__images">
+                        <div class="testimonial__square"></div>
+                        <img src="assets/img/testimonial.png" alt="" class="testimonial__img">
+                    </div>
+                </div>
+            </section>
+
+            <!--==================== NEW ====================-->
+            <section class="new section container" id="new">
+                <h2 class="section__title">
+                    Produtos Destaques<br>
+                   <span>Passe para o lado>>></span>
+                </h2>
+                
+                <div class="new__container">
+                    <div class="swiper new-swiper">
+                        <div class="swiper-wrapper">
+                            <article class="new__card swiper-slide">
+                                <span class="new__tag">Destaques</span>
+        
+                                <img src="assets/img/new1.png" alt="" class="new__img">
+        
+                                <div class="new__data">
+                                    <h3 class="new__title">Longines rose</h3>
+                                    <span class="new__price">R$ 980</span>
+                                </div>
+        
+                                <button class="button new__button">ADD AO CARRINHO</button>
+                            </article>
+
+                            <article class="new__card swiper-slide">
+                                <span class="new__tag">Destaques</span>
+        
+                                <img src="assets/img/new2.png" alt="" class="new__img">
+        
+                                <div class="new__data">
+                                    <h3 class="new__title">Jazzmaster</h3>
+                                    <span class="new__price">R$ 1150</span>
+                                </div>
+        
+                                <button class="button new__button">ADD AO CARRINHO</button>
+                            </article>
+
+                            <article class="new__card swiper-slide">
+                                <span class="new__tag">Destaques</span>
+        
+                                <img src="assets/img/new3.png" alt="" class="new__img">
+        
+                                <div class="new__data">
+                                    <h3 class="new__title">Dreyfuss gold</h3>
+                                    <span class="new__price">R$ 750</span>
+                                </div>
+        
+                                <button class="button new__button">ADD AO CARRINHO</button>
+                            </article>
+
+                            <article class="new__card swiper-slide">
+                                <span class="new__tag">Destaques</span>
+        
+                                <img src="assets/img/new4.png" alt="" class="new__img">
+        
+                                <div class="new__data">
+                                    <h3 class="new__title">Portuguese rose</h3>
+                                    <span class="new__price">R$ 1590</span>
+                                </div>
+        
+                                <button class="button new__button">ADD AO CARRINHO</button>
+                            </article>                       
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!--==================== NEWSLETTER ====================-->
+          <!--==================== CONTACT FORM ====================-->
+<!--==================== FORMULÁRIO SIMPLIFICADO ====================-->
+<section class="contact-form section container" id="contato-simples">
+    <div class="contact-form__container">
+        <h2 class="contact-form__title">Fale Conosco</h2>
+
+        <form action="" class="contact-form__form">
+            <div class="contact-form__field">
+                <input type="text" placeholder="Seu nome completo" class="contact-form__input" required>
+            </div>
+            
+            <div class="contact-form__field">
+                <input type="email" placeholder="Seu melhor email" class="contact-form__input" required>
+            </div>
+            
+            <div class="contact-form__field">
+                <textarea placeholder="Sua mensagem..." class="contact-form__textarea" rows="4" required></textarea>
+            </div>
+
+            <button type="submit" class="contact-form__button">
+                Enviar Mensagem <i class='bx bx-send'></i>
+            </button>
+        </form>
+    </div>
+</section>
+        </main>
+
+        <!--==================== FOOTER ====================-->
+        <footer class="footer section">
+            <div class="footer__container container grid">
+                <div class="footer__content">
+                    <h3 class="footer__title">Localização</h3>
+
+                    <ul class="footer__list">
+                        <li>João Pessoa PB</li>
+                        <li>La Libertad 43210</li>
+                        <li>123-456-789</li>
+                    </ul>
+                </div>
+                <div class="footer__content">
+                    <h3 class="footer__title">About Us</h3>
+
+                    <ul class="footer__links">
+                        <li>
+                            <a href="#" class="footer__link">Support Center</a>
+                        </li>
+                        <li>
+                            <a href="#" class="footer__link">Customer Support</a>
+                        </li>
+                        <li>
+                            <a href="#" class="footer__link">About Us</a>
+                        </li>
+                        <li>
+                            <a href="#" class="footer__link">Copy Right</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="footer__content">
+                    <h3 class="footer__title">Product</h3>
+
+                    <ul class="footer__links">
+                        <li>
+                            <a href="#" class="footer__link">Road bikes</a>
+                        </li>
+                        <li>
+                            <a href="#" class="footer__link">Mountain bikes</a>
+                        </li>
+                        <li>
+                            <a href="#" class="footer__link">Electric</a>
+                        </li>
+                        <li>
+                            <a href="#" class="footer__link">Accesories</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="footer__content">
+                    <h3 class="footer__title">Social</h3>
+
+                    <ul class="footer__social">
+                        <a href="https://www.facebook.com/" target="_blank" class="footer__social-link">
+                            <i class='bx bxl-facebook'></i>
+                        </a>
+
+                        <a href="https://twitter.com/" target="_blank" class="footer__social-link">
+                            <i class='bx bxl-twitter' ></i>
+                        </a>
+
+                        <a href="https://www.instagram.com/" target="_blank" class="footer__social-link">
+                            <i class='bx bxl-instagram' ></i>
+                        </a>
+                    </ul>
+                </div>
+            </div>
+
+            <span class="footer__copy">&#169; Site feito por Milton Albuquerque. Todos os direitos reservados</span>
+        </footer>
+
+        <!--=============== SCROLL UP ===============-->
+        <a href="#" class="scrollup" id="scroll-up"> 
+            <i class='bx bx-up-arrow-alt scrollup__icon' ></i>
+        </a>
+
+        <!--=============== SWIPER JS ===============-->
+        <script src="assets/js/swiper-bundle.min.js"></script>
+
+        <!--=============== MAIN JS ===============-->
+        <script src="assets/js/main.js"></script>
+
+        <script>
+// Carrinho de Compras - Funcionalidades
+document.addEventListener('DOMContentLoaded', function() {
+    // Variáveis do carrinho - Agora carrega do localStorage
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const cartContainer = document.querySelector('.cart__container');
+    const cartTotalItems = document.querySelector('.cart__prices-item');
+    const cartTotalPrice = document.querySelector('.cart__prices-total');
+    const cartShop = document.getElementById('cart-shop');
+    const cartClose = document.getElementById('cart-close');
+    const cartElement = document.getElementById('cart');
+    
+    // Função para salvar o carrinho no localStorage
+    function saveCart() {
+        localStorage.setItem('cart', JSON.stringify(cart));
+    }
+
+    // Abrir/Fechar carrinho
+    cartShop.addEventListener('click', () => {
+        cartElement.classList.add('show-cart');
+        updateCart();
+    });
+    
+    cartClose.addEventListener('click', () => {
+        cartElement.classList.remove('show-cart');
+    });
+    
+    // Adicionar produto ao carrinho
+    function addToCart(name, price, img) {
+        const existingItem = cart.find(item => item.name === name);
+        
+        if (existingItem) {
+            existingItem.quantity += 1;
+        } else {
+            cart.push({
+                name: name,
+                price: price,
+                img: img,
+                quantity: 1
+            });
+        }
+        
+        saveCart(); // Salva no localStorage
+        updateCart();
+    }
+    
+    // Remover produto do carrinho
+    function removeFromCart(name) {
+        cart = cart.filter(item => item.name !== name);
+        saveCart(); // Salva no localStorage
+        updateCart();
+    }
+    
+    // Atualizar quantidade
+    function updateQuantity(name, newQuantity) {
+        const item = cart.find(item => item.name === name);
+        if (item) {
+            item.quantity = Math.max(1, newQuantity);
+            saveCart(); // Salva no localStorage
+            updateCart();
+        }
+    }
+    
+    // Atualizar visualização do carrinho
+    function updateCart() {
+        // Limpar carrinho
+        cartContainer.innerHTML = '';
+        
+        let totalItems = 0;
+        let totalPrice = 0;
+        
+        // Adicionar itens ao carrinho
+        cart.forEach(item => {
+            totalItems += item.quantity;
+            totalPrice += item.price * item.quantity;
+            
+            const cartItem = document.createElement('article');
+            cartItem.classList.add('cart__card');
+            
+            cartItem.innerHTML = `
+                <div class="cart__box">
+                    <img src="${item.img}" alt="${item.name}" class="cart__img">
+                </div>
+                
+                <div class="cart__details">
+                    <h3 class="cart__title">${item.name}</h3>
+                    <span class="cart__price">R$ ${item.price.toFixed(2).replace('.', ',')}</span>
+                    
+                    <div class="cart__amount">
+                        <div class="cart__amount-content">
+                            <span class="cart__amount-box minus" data-name="${item.name}">
+                                <i class='bx bx-minus'></i>
+                            </span>
+                            
+                            <span class="cart__amount-number">${item.quantity}</span>
+                            
+                            <span class="cart__amount-box plus" data-name="${item.name}">
+                                <i class='bx bx-plus'></i>
+                            </span>
+                        </div>
+                        
+                        <i class='bx bx-trash-alt cart__amount-trash' data-name="${item.name}"></i>
+                    </div>
+                </div>
+            `;
+            
+            cartContainer.appendChild(cartItem);
+        });
+        
+        // Atualizar totais
+        cartTotalItems.textContent = `${totalItems} ${totalItems === 1 ? 'item' : 'items'}`;
+        cartTotalPrice.textContent = `R$ ${totalPrice.toFixed(2).replace('.', ',')}`;
+        
+        // Adicionar botão finalizar compra se houver itens
+        if (cart.length > 0) {
+            const checkoutBtn = document.createElement('button');
+            checkoutBtn.classList.add('button', 'cart__checkout');
+            checkoutBtn.textContent = 'Finalizar Compra';
+            checkoutBtn.addEventListener('click', checkout);
+            
+            if (!document.querySelector('.cart__checkout')) {
+                cartContainer.parentNode.insertBefore(checkoutBtn, cartContainer.nextElementSibling);
+            }
+        } else {
+            const existingCheckoutBtn = document.querySelector('.cart__checkout');
+            if (existingCheckoutBtn) {
+                existingCheckoutBtn.remove();
+            }
+        }
+        
+        // Adicionar eventos aos botões
+        addCartEvents();
+    }
+    
+    // Adicionar eventos aos botões do carrinho
+    function addCartEvents() {
+        // Botões de quantidade
+        document.querySelectorAll('.minus').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const name = this.getAttribute('data-name');
+                const item = cart.find(item => item.name === name);
+                if (item && item.quantity > 1) {
+                    updateQuantity(name, item.quantity - 1);
+                }
+            });
+        });
+        
+        document.querySelectorAll('.plus').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const name = this.getAttribute('data-name');
+                const item = cart.find(item => item.name === name);
+                if (item) {
+                    updateQuantity(name, item.quantity + 1);
+                }
+            });
+        });
+        
+        // Botões de remover
+        document.querySelectorAll('.cart__amount-trash').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const name = this.getAttribute('data-name');
+                removeFromCart(name);
+            });
+        });
+    }
+    
+    // Finalizar compra - WhatsApp
+    function checkout() {
+        let message = "Olá, gostaria de comprar os seguintes itens:\n\n";
+        
+        cart.forEach(item => {
+            message += `- ${item.name} (${item.quantity}x): R$ ${(item.price * item.quantity).toFixed(2).replace('.', ',')}\n`;
+        });
+        
+        message += `\nTotal: R$ ${cart.reduce((total, item) => total + (item.price * item.quantity), 0).toFixed(2).replace('.', ',')}`;
+        
+        // Codificar a mensagem para URL
+        const encodedMessage = encodeURIComponent(message);
+        
+        // Abrir WhatsApp
+        window.open(`https://wa.me/5583999844101?text=${encodedMessage}`, '_blank');
+        
+        // Limpar carrinho após finalizar
+        cart = [];
+        saveCart();
+        updateCart();
+    }
+    
+    // Adicionar eventos aos botões "Add to Cart"
+    document.querySelectorAll('.featured__button, .new__button, .products__button, .home__button').forEach(button => {
+        button.addEventListener('click', function() {
+            // Encontrar os dados do produto
+            const card = this.closest('.featured__card, .new__card, .products__card, .home__container');
+            let name, price, img;
+            
+            if (card.classList.contains('featured__card') || card.classList.contains('new__card')) {
+                name = card.querySelector('.featured__title, .new__title').textContent;
+                price = parseFloat(card.querySelector('.featured__price, .new__price').textContent.replace('R$', '').replace('.', '').replace(',', '.'));
+                img = card.querySelector('.featured__img, .new__img').src;
+            } else if (card.classList.contains('products__card')) {
+                name = card.querySelector('.products__title').textContent;
+                price = parseFloat(card.querySelector('.products__price').textContent.replace('R$', '').replace('.', '').replace(',', '.'));
+                img = card.querySelector('.products__img').src;
+            } else if (card.classList.contains('home__container')) {
+                name = "NEW WATCH COLLECTIONS B720";
+                price = parseFloat(document.querySelector('.home__price').textContent.replace('R$', '').replace('.', '').replace(',', '.'));
+                img = document.querySelector('.home__img').src;
+            }
+            
+            addToCart(name, price, img);
+            cartElement.classList.add('show-cart');
+        });
+    });
+    
+    // Inicializar carrinho (agora carrega do localStorage)
+    updateCart();
+});
+</script>
+<script src="assets/js/botao.js"></script>
+    </body>
+</html>

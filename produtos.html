@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!--=============== FAVICON ===============-->
+        <link rel="shortcut icon" href="assets/img/Silhueta 03.png" type="image/x-icon">
+
+        <!--=============== BOXICONS ===============-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+
+        <!--=============== SWIPER CSS ===============--> 
+        <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+
+        <!--=============== CSS ===============-->
+        <link rel="stylesheet" href="assets/css/styles.css">
+
+        <!-- produtos  -->
+        <title>Lumine</title>
+    </head>
+    <body>
+        <!--==================== HEADER ====================-->
+        <header class="header" id="header">
+            <nav class="nav container">
+                <a href="index.html" class="nav__logo">
+                    <i class='bx bxs-watch nav__logo-icon'></i> Lumine
+                </a>
+
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+                        <li class="nav__item">
+                            <a href="index.html" class="nav__link active-link">Inicio</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="sobre.html" class="nav__link">Sobre Mim</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="produtos.html" class="nav__link">Produtos</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#new" class="nav__link"></a>
+                        </li>
+                    </ul>
+
+                    <div class="nav__close" id="nav-close">
+                        <i class='bx bx-x' ></i>
+                    </div>
+                </div>
+
+                <div class="nav__btns">
+                    <!-- Theme change button -->
+                    <i class='bx bx-moon change-theme' id="theme-button"></i>
+
+                    <div class="nav__shop" id="cart-shop">
+                        <i class='bx bx-shopping-bag' ></i>
+                    </div>
+
+                    <div class="nav__toggle" id="nav-toggle">
+                        <i class='bx bx-grid-alt' ></i>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+    <!--==================== CART ====================-->
+    <div class="cart" id="cart">
+        <i class='bx bx-x cart__close' id="cart-close"></i>
+        <h2 class="cart__title-center">Meu Carrinho</h2>
+        <div class="cart__container">
+            <!-- Itens do carrinho serão adicionados dinamicamente aqui -->
+        </div>
+        <div class="cart__prices">
+            <span class="cart__prices-item">0 items</span>
+            <span class="cart__prices-total">$0</span>
+        </div>
+    </div>
+
+    <!--==================== MAIN - APENAS PRODUTOS ====================-->
+    <main class="main">
+        <!--==================== PRODUTOS ====================-->
+        <section class="products section container" id="products">
+            <h2 class="section__title">
+                Nossos Produtos
+            </h2>
+
+            <div class="products__container grid">
+                <article class="products__card">
+                    <img src="assets/img/product1.png" alt="Spirit rose" class="products__img">
+                    <h3 class="products__title">Spirit rose</h3>
+                    <span class="products__price">R$ 1500</span>
+                    <button class="products__button">
+                        <i class='bx bx-shopping-bag'></i>
+                    </button>
+                </article>
+
+                <article class="products__card">
+                    <img src="assets/img/product2.png" alt="Khaki pilot" class="products__img">
+                    <h3 class="products__title">Khaki pilot</h3>
+                    <span class="products__price">R$ 1350</span>
+                    <button class="products__button">
+                        <i class='bx bx-shopping-bag'></i>
+                    </button>
+                </article>
+
+                <article class="products__card">
+                    <img src="assets/img/product3.png" alt="Jubilee black" class="products__img">
+                    <h3 class="products__title">Jubilee black</h3>
+                    <span class="products__price">R$ 870</span>
+                    <button class="products__button">
+                        <i class='bx bx-shopping-bag'></i>
+                    </button>
+                </article>
+
+                <article class="products__card">
+                    <img src="assets/img/product4.png" alt="Fosil me3" class="products__img">
+                    <h3 class="products__title">Fosil me3</h3>
+                    <span class="products__price">R$ 650</span>
+                    <button class="products__button">
+                        <i class='bx bx-shopping-bag'></i>
+                    </button>
+                </article>
+
+                <article class="products__card">
+                    <img src="assets/img/product5.png" alt="Duchen" class="products__img">
+                    <h3 class="products__title">Duchen</h3>
+                    <span class="products__price">R$ 950</span>
+                    <button class="products__button">
+                        <i class='bx bx-shopping-bag'></i>
+                    </button>
+                </article>
+
+                <article class="products__card">
+                    <img src="assets/img/featured1.png" alt="Jazzmaster" class="products__img">
+                    <h3 class="products__title">Jazzmaster</h3>
+                    <span class="products__price">R$ 1050</span>
+                    <button class="products__button">
+                        <i class='bx bx-shopping-bag'></i>
+                    </button>
+                </article>
+
+                <article class="products__card">
+                    <img src="assets/img/featured2.png" alt="Ingersoll" class="products__img">
+                    <h3 class="products__title">Ingersoll</h3>
+                    <span class="products__price">R$ 250</span>
+                    <button class="products__button">
+                        <i class='bx bx-shopping-bag'></i>
+                    </button>
+                </article>
+
+                <article class="products__card">
+                    <img src="assets/img/featured3.png" alt="Rose gold" class="products__img">
+                    <h3 class="products__title">Rose gold</h3>
+                    <span class="products__price">R$ 890</span>
+                    <button class="products__button">
+                        <i class='bx bx-shopping-bag'></i>
+                    </button>
+                </article>
+
+                <article class="products__card">
+                    <img src="assets/img/featured3.png" alt="Rose Prata" class="products__img">
+                    <h3 class="products__title">Rose Prata</h3>
+                    <span class="products__price">R$ 890</span>
+                    <button class="products__button">
+                        <i class='bx bx-shopping-bag'></i>
+                    </button>
+                </article>
+                
+                <article class="products__card">
+                    <img src="assets/img/featured2.png" alt="Ingersoll" class="products__img">
+                    <h3 class="products__title">Ingersoll</h3>
+                    <span class="products__price">R$ 250</span>
+                    <button class="products__button">
+                        <i class='bx bx-shopping-bag'></i>
+                    </button>
+                </article>
+
+                <article class="products__card">
+                    <img src="assets/img/featured3.png" alt="Rose gold" class="products__img">
+                    <h3 class="products__title">Rose gold</h3>
+                    <span class="products__price">R$ 890</span>
+                    <button class="products__button">
+                        <i class='bx bx-shopping-bag'></i>
+                    </button>
+                </article>
+
+                <article class="products__card">
+                    <img src="assets/img/featured3.png" alt="Rose Prata" class="products__img">
+                    <h3 class="products__title">Rose Prata</h3>
+                    <span class="products__price">R$ 890</span>
+                    <button class="products__button">
+                        <i class='bx bx-shopping-bag'></i>
+                    </button>
+                </article>
+                
+                <article class="products__card">
+                    <img src="assets/img/featured2.png" alt="Ingersoll" class="products__img">
+                    <h3 class="products__title">Ingersoll</h3>
+                    <span class="products__price">R$ 250</span>
+                    <button class="products__button">
+                        <i class='bx bx-shopping-bag'></i>
+                    </button>
+                </article>
+
+                <article class="products__card">
+                    <img src="assets/img/featured3.png" alt="Rose gold" class="products__img">
+                    <h3 class="products__title">Rose gold</h3>
+                    <span class="products__price">R$ 890</span>
+                    <button class="products__button">
+                        <i class='bx bx-shopping-bag'></i>
+                    </button>
+                </article>
+
+                <article class="products__card">
+                    <img src="assets/img/featured3.png" alt="Rose Prata" class="products__img">
+                    <h3 class="products__title">Rose Prata</h3>
+                    <span class="products__price">R$ 890</span>
+                    <button class="products__button">
+                        <i class='bx bx-shopping-bag'></i>
+                    </button>
+                </article>
+
+                <article class="products__card">
+                    <img src="assets/img/featured2.png" alt="Ingersoll" class="products__img">
+                    <h3 class="products__title">Ingersoll</h3>
+                    <span class="products__price">R$ 250</span>
+                    <button class="products__button">
+                        <i class='bx bx-shopping-bag'></i>
+                    </button>
+                </article>
+
+                <article class="products__card">
+                    <img src="assets/img/featured3.png" alt="Rose gold" class="products__img">
+                    <h3 class="products__title">Rose gold</h3>
+                    <span class="products__price">R$ 890</span>
+                    <button class="products__button">
+                        <i class='bx bx-shopping-bag'></i>
+                    </button>
+                </article>
+
+                <article class="products__card">
+                    <img src="assets/img/featured3.png" alt="Rose Prata" class="products__img">
+                    <h3 class="products__title">Rose Prata</h3>
+                    <span class="products__price">R$ 890</span>
+                    <button class="products__button">
+                        <i class='bx bx-shopping-bag'></i>
+                    </button>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <!--==================== FOOTER SIMPLIFICADO ====================-->
+    <footer class="footer section">
+        <div class="footer__container container grid">
+            <div class="footer__content">
+                <h3 class="footer__title">Informações</h3>
+                <ul class="footer__list">
+                    <li>1234 - Brasil</li>
+                    <li>São Paulo - SP</li>
+                    <li>123-456-789</li>
+                </ul>
+            </div>
+            
+            <div class="footer__content">
+                <h3 class="footer__title">Redes Sociais</h3>
+                <ul class="footer__social">
+                    <a href="https://www.facebook.com/" target="_blank" class="footer__social-link">
+                        <i class='bx bxl-facebook'></i>
+                    </a>
+                    <a href="https://www.instagram.com/" target="_blank" class="footer__social-link">
+                        <i class='bx bxl-instagram'></i>
+                    </a>
+                    <a href="https://wa.me/5511999999999" target="_blank" class="footer__social-link">
+                        <i class='bx bxl-whatsapp'></i>
+                    </a>
+                </ul>
+            </div>
+        </div>
+        <span class="footer__copy">&#169; Lumine. Todos os direitos reservados</span>
+    </footer>
+     <script src="assets/js/swiper-bundle.min.js"></script>
+
+        <!--=============== MAIN JS ===============-->
+        <script src="assets/js/main.js"></script>
+
+    <!--=============== MAIN JS ===============-->
+    <script>
+ // Carrinho de Compras - Funcionalidades
+document.addEventListener('DOMContentLoaded', function() {
+    // Variáveis do carrinho - Agora carrega do localStorage
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const cartContainer = document.querySelector('.cart__container');
+    const cartTotalItems = document.querySelector('.cart__prices-item');
+    const cartTotalPrice = document.querySelector('.cart__prices-total');
+    const cartShop = document.getElementById('cart-shop');
+    const cartClose = document.getElementById('cart-close');
+    const cartElement = document.getElementById('cart');
+    
+    // Função para salvar o carrinho no localStorage
+    function saveCart() {
+        localStorage.setItem('cart', JSON.stringify(cart));
+    }
+
+    // Abrir/Fechar carrinho
+    cartShop.addEventListener('click', () => {
+        cartElement.classList.add('show-cart');
+        updateCart();
+    });
+    
+    cartClose.addEventListener('click', () => {
+        cartElement.classList.remove('show-cart');
+    });
+    
+    // Adicionar produto ao carrinho
+    function addToCart(name, price, img) {
+        const existingItem = cart.find(item => item.name === name);
+        
+        if (existingItem) {
+            existingItem.quantity += 1;
+        } else {
+            cart.push({
+                name: name,
+                price: price,
+                img: img,
+                quantity: 1
+            });
+        }
+        
+        saveCart(); // Salva no localStorage
+        updateCart();
+    }
+    
+    // Remover produto do carrinho
+    function removeFromCart(name) {
+        cart = cart.filter(item => item.name !== name);
+        saveCart(); // Salva no localStorage
+        updateCart();
+    }
+    
+    // Atualizar quantidade
+    function updateQuantity(name, newQuantity) {
+        const item = cart.find(item => item.name === name);
+        if (item) {
+            item.quantity = Math.max(1, newQuantity);
+            saveCart(); // Salva no localStorage
+            updateCart();
+        }
+    }
+    
+    // Atualizar visualização do carrinho
+    function updateCart() {
+        // Limpar carrinho
+        cartContainer.innerHTML = '';
+        
+        let totalItems = 0;
+        let totalPrice = 0;
+        
+        // Adicionar itens ao carrinho
+        cart.forEach(item => {
+            totalItems += item.quantity;
+            totalPrice += item.price * item.quantity;
+            
+            const cartItem = document.createElement('article');
+            cartItem.classList.add('cart__card');
+            
+            cartItem.innerHTML = `
+                <div class="cart__box">
+                    <img src="${item.img}" alt="${item.name}" class="cart__img">
+                </div>
+                
+                <div class="cart__details">
+                    <h3 class="cart__title">${item.name}</h3>
+                    <span class="cart__price">R$ ${item.price.toFixed(2).replace('.', ',')}</span>
+                    
+                    <div class="cart__amount">
+                        <div class="cart__amount-content">
+                            <span class="cart__amount-box minus" data-name="${item.name}">
+                                <i class='bx bx-minus'></i>
+                            </span>
+                            
+                            <span class="cart__amount-number">${item.quantity}</span>
+                            
+                            <span class="cart__amount-box plus" data-name="${item.name}">
+                                <i class='bx bx-plus'></i>
+                            </span>
+                        </div>
+                        
+                        <i class='bx bx-trash-alt cart__amount-trash' data-name="${item.name}"></i>
+                    </div>
+                </div>
+            `;
+            
+            cartContainer.appendChild(cartItem);
+        });
+        
+        // Atualizar totais
+        cartTotalItems.textContent = `${totalItems} ${totalItems === 1 ? 'item' : 'items'}`;
+        cartTotalPrice.textContent = `R$ ${totalPrice.toFixed(2).replace('.', ',')}`;
+        
+        // Adicionar botão finalizar compra se houver itens
+        if (cart.length > 0) {
+            const checkoutBtn = document.createElement('button');
+            checkoutBtn.classList.add('button', 'cart__checkout');
+            checkoutBtn.textContent = 'Finalizar Compra';
+            checkoutBtn.addEventListener('click', checkout);
+            
+            if (!document.querySelector('.cart__checkout')) {
+                cartContainer.parentNode.insertBefore(checkoutBtn, cartContainer.nextElementSibling);
+            }
+        } else {
+            const existingCheckoutBtn = document.querySelector('.cart__checkout');
+            if (existingCheckoutBtn) {
+                existingCheckoutBtn.remove();
+            }
+        }
+        
+        // Adicionar eventos aos botões
+        addCartEvents();
+    }
+    
+    // Adicionar eventos aos botões do carrinho
+    function addCartEvents() {
+        // Botões de quantidade
+        document.querySelectorAll('.minus').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const name = this.getAttribute('data-name');
+                const item = cart.find(item => item.name === name);
+                if (item && item.quantity > 1) {
+                    updateQuantity(name, item.quantity - 1);
+                }
+            });
+        });
+        
+        document.querySelectorAll('.plus').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const name = this.getAttribute('data-name');
+                const item = cart.find(item => item.name === name);
+                if (item) {
+                    updateQuantity(name, item.quantity + 1);
+                }
+            });
+        });
+        
+        // Botões de remover
+        document.querySelectorAll('.cart__amount-trash').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const name = this.getAttribute('data-name');
+                removeFromCart(name);
+            });
+        });
+    }
+    
+    // Finalizar compra - WhatsApp
+    function checkout() {
+        let message = "Olá, gostaria de comprar os seguintes itens:\n\n";
+        
+        cart.forEach(item => {
+            message += `- ${item.name} (${item.quantity}x): R$ ${(item.price * item.quantity).toFixed(2).replace('.', ',')}\n`;
+        });
+        
+        message += `\nTotal: R$ ${cart.reduce((total, item) => total + (item.price * item.quantity), 0).toFixed(2).replace('.', ',')}`;
+        
+        // Codificar a mensagem para URL
+        const encodedMessage = encodeURIComponent(message);
+        
+        // Abrir WhatsApp
+        window.open(`https://wa.me/5583999844101?text=${encodedMessage}`, '_blank');
+        
+        // Limpar carrinho após finalizar
+        cart = [];
+        saveCart();
+        updateCart();
+    }
+    
+    // Adicionar eventos aos botões "Add to Cart"
+    document.querySelectorAll('.featured__button, .new__button, .products__button, .home__button').forEach(button => {
+        button.addEventListener('click', function() {
+            // Encontrar os dados do produto
+            const card = this.closest('.featured__card, .new__card, .products__card, .home__container');
+            let name, price, img;
+            
+            if (card.classList.contains('featured__card') || card.classList.contains('new__card')) {
+                name = card.querySelector('.featured__title, .new__title').textContent;
+                price = parseFloat(card.querySelector('.featured__price, .new__price').textContent.replace('R$', '').replace('.', '').replace(',', '.'));
+                img = card.querySelector('.featured__img, .new__img').src;
+            } else if (card.classList.contains('products__card')) {
+                name = card.querySelector('.products__title').textContent;
+                price = parseFloat(card.querySelector('.products__price').textContent.replace('R$', '').replace('.', '').replace(',', '.'));
+                img = card.querySelector('.products__img').src;
+            } else if (card.classList.contains('home__container')) {
+                name = "NEW WATCH COLLECTIONS B720";
+                price = parseFloat(document.querySelector('.home__price').textContent.replace('R$', '').replace('.', '').replace(',', '.'));
+                img = document.querySelector('.home__img').src;
+            }
+            
+            addToCart(name, price, img);
+            cartElement.classList.add('show-cart');
+        });
+    });
+    
+    // Inicializar carrinho (agora carrega do localStorage)
+    updateCart();
+});
+    </script>
+</body>
+</html>
