@@ -145,37 +145,34 @@
 }
 
 /* RESPONSIVIDADE */
-@media (min-width: 576px) {
-    .footer__container {
-        grid-template-columns: repeat(2, 1fr);
-    }
+.footer__container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
 }
 
-@media (min-width: 768px) {
-    .footer__container {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
-@media (min-width: 992px) {
-    .footer__container {
-        grid-template-columns: repeat(4, 1fr);
-    }
-}
-
+/* Ajustes para telas pequenas (opcional) */
 @media (max-width: 575px) {
+    .footer__container {
+        flex-direction: row; /* Garante alinhamento horizontal */
+        overflow-x: auto; /* Permite rolagem horizontal se necessário */
+        padding-bottom: 1rem; /* Espaço para scroll */
+    }
+    
+    .footer__container > * {
+        flex: 0 0 auto; /* Impede que os itens encolham */
+        white-space: nowrap; /* Mantém o conteúdo em uma linha */
+    }
+    
     .footer__form {
-        flex-direction: column;
+        flex-direction: row; /* Mantém o formulário horizontal */
     }
-
+    
     .footer__input {
-        border-radius: 4px;
-        margin-bottom: 0.5rem;
-    }
-
-    .footer__button {
-        border-radius: 4px;
-        padding: 0.6rem;
+        margin-bottom: 0;
+        margin-right: 0.5rem;
     }
 }
 
