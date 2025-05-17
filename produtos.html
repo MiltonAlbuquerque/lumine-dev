@@ -15,6 +15,8 @@
 
         <!--=============== CSS ===============-->
         <link rel="stylesheet" href="assets/css/styles.css">
+        <!-- rodape -->
+         <link rel="stylesheet" href="rodape.css">
 
         <!-- produtos  -->
         <title>Lumine</title>
@@ -23,8 +25,9 @@
         <!--==================== HEADER ====================-->
         <header class="header" id="header">
             <nav class="nav container">
-                <a href="index.html" class="nav__logo">
-                    <i class='bx bxs-watch nav__logo-icon'></i> Lumine
+                 <a href="index.html" class="nav__logo">
+                    <img src="./assets/img/Silhueta png 01.png" alt="Lumine" class="nav__logo-icon" onerror="this.style.display='none'">
+                    <span>Lumine</span>
                 </a>
 
                 <div class="nav__menu" id="nav-menu">
@@ -77,208 +80,308 @@
     </div>
 
     <!--==================== MAIN - APENAS PRODUTOS ====================-->
-    <main class="main">
-        <!--==================== PRODUTOS ====================-->
-        <section class="products section container" id="products">
-            <h2 class="section__title">
-                Nossos Produtos
-            </h2>
+<main class="main">
+    <!--==================== PRODUTOS ====================-->
+    <section class="products section container" id="products">
+        <h2 class="section__title">
+            Nossos Produtos
+        </h2>
 
-            <div class="products__container grid">
-                <article class="products__card">
-                    <img src="assets/img/product1.png" alt="Spirit rose" class="products__img">
-                    <h3 class="products__title">Spirit rose</h3>
-                    <span class="products__price">R$ 1500</span>
-                    <button class="products__button">
-                        <i class='bx bx-shopping-bag'></i>
-                    </button>
-                </article>
+        <!-- Abas de Categorias (Responsivas) -->
+     <div class="products__tabs">
+    <button class="products__tab active" data-category="facial">Facial</button>
+    <button class="products__tab" data-category="corporal">Corporal</button>
+    <button class="products__tab" data-category="capilar">Capilar</button>
+</div>
 
-                <article class="products__card">
-                    <img src="assets/img/product2.png" alt="Khaki pilot" class="products__img">
-                    <h3 class="products__title">Khaki pilot</h3>
-                    <span class="products__price">R$ 1350</span>
-                    <button class="products__button">
-                        <i class='bx bx-shopping-bag'></i>
-                    </button>
-                </article>
+<style>
+.products__tabs {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+}
 
-                <article class="products__card">
-                    <img src="assets/img/product3.png" alt="Jubilee black" class="products__img">
-                    <h3 class="products__title">Jubilee black</h3>
-                    <span class="products__price">R$ 870</span>
-                    <button class="products__button">
-                        <i class='bx bx-shopping-bag'></i>
-                    </button>
-                </article>
+.products__tab {
+    padding: 0.75rem 2rem;
+    background: var(--button-color); /* Cor normal dos botões inativos */
+    color: var(--text-color);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
 
-                <article class="products__card">
-                    <img src="assets/img/product4.png" alt="Fosil me3" class="products__img">
-                    <h3 class="products__title">Fosil me3</h3>
-                    <span class="products__price">R$ 650</span>
-                    <button class="products__button">
-                        <i class='bx bx-shopping-bag'></i>
-                    </button>
-                </article>
+.products__tab:hover {
+    background: var(--button-color-alt); /* Cor de hover */
+    color: var(--title-color);
+}
 
-                <article class="products__card">
-                    <img src="assets/img/product5.png" alt="Duchen" class="products__img">
-                    <h3 class="products__title">Duchen</h3>
-                    <span class="products__price">R$ 950</span>
-                    <button class="products__button">
-                        <i class='bx bx-shopping-bag'></i>
-                    </button>
-                </article>
+.products__tab.active {
+    background: var(--first-color) !important; /* Cor destacada */
+    color: var(--body-color) !important;
+    font-weight: 600;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+}
 
-                <article class="products__card">
-                    <img src="assets/img/featured1.png" alt="Jazzmaster" class="products__img">
-                    <h3 class="products__title">Jazzmaster</h3>
-                    <span class="products__price">R$ 1050</span>
-                    <button class="products__button">
-                        <i class='bx bx-shopping-bag'></i>
-                    </button>
-                </article>
+/* Efeito de pressionado */
+.products__tab:active {
+    transform: scale(0.98);
+}
+</style>
 
-                <article class="products__card">
-                    <img src="assets/img/featured2.png" alt="Ingersoll" class="products__img">
-                    <h3 class="products__title">Ingersoll</h3>
-                    <span class="products__price">R$ 250</span>
-                    <button class="products__button">
-                        <i class='bx bx-shopping-bag'></i>
-                    </button>
-                </article>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const tabs = document.querySelectorAll('.products__tab');
+    
+    tabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+            // Remove a classe active de todos os botões
+            tabs.forEach(t => {
+                t.classList.remove('active');
+                t.style.backgroundColor = ''; // Reseta estilos inline
+            });
+            
+            // Adiciona a classe active apenas no botão clicado
+            this.classList.add('active');
+            
+            // Força a cor do tema usando !important no CSS
+            // Não é necessário JavaScript para mudar a cor, apenas a classe
+        });
+    });
+});
+</script>
+        <!-- Container dos Produtos (Mantenha suas classes) -->
+        <div class="products__container grid">
+            <!-- Produtos Faciais -->
+            <article class="products__card facial" style="display: block;">
+                <img src="assets/img/product1.png" alt="Spirit rose" class="products__img">
+                <h3 class="products__title">Spirit rose</h3>
+                <span class="products__price">R$ 1500</span>
+                <button class="products__button">
+                    <i class='bx bx-shopping-bag'></i>
+                </button>
+            </article>
+            <article class="products__card facial" style="display: block;">
+                <img src="assets/img/product1.png" alt="Spirit rose" class="products__img">
+                <h3 class="products__title">Spirit rose</h3>
+                <span class="products__price">R$ 1500</span>
+                <button class="products__button">
+                    <i class='bx bx-shopping-bag'></i>
+                </button>
+            </article>
+            <article class="products__card facial" style="display: block;">
+                <img src="assets/img/product1.png" alt="Spirit rose" class="products__img">
+                <h3 class="products__title">Spirit rose</h3>
+                <span class="products__price">R$ 1500</span>
+                <button class="products__button">
+                    <i class='bx bx-shopping-bag'></i>
+                </button>
+            </article>
+            <article class="products__card facial" style="display: block;">
+                <img src="assets/img/product1.png" alt="Spirit rose" class="products__img">
+                <h3 class="products__title">Spirit rose</h3>
+                <span class="products__price">R$ 1500</span>
+                <button class="products__button">
+                    <i class='bx bx-shopping-bag'></i>
+                </button>
+            </article>
+            <article class="products__card facial" style="display: block;">
+                <img src="assets/img/product1.png" alt="Spirit rose" class="products__img">
+                <h3 class="products__title">Spirit rose</h3>
+                <span class="products__price">R$ 1500</span>
+                <button class="products__button">
+                    <i class='bx bx-shopping-bag'></i>
+                </button>
+            </article>
+            <article class="products__card facial" style="display: block;">
+                <img src="assets/img/product1.png" alt="Spirit rose" class="products__img">
+                <h3 class="products__title">Spirit rose</h3>
+                <span class="products__price">R$ 1500</span>
+                <button class="products__button">
+                    <i class='bx bx-shopping-bag'></i>
+                </button>
+            </article>
 
-                <article class="products__card">
-                    <img src="assets/img/featured3.png" alt="Rose gold" class="products__img">
-                    <h3 class="products__title">Rose gold</h3>
-                    <span class="products__price">R$ 890</span>
-                    <button class="products__button">
-                        <i class='bx bx-shopping-bag'></i>
-                    </button>
-                </article>
+            <!-- Produtos Corporais -->
+            <article class="products__card corporal" style="display: none;">
+                <img src="assets/img/product2.png" alt="Khaki pilot" class="products__img">
+                <h3 class="products__title">Khaki pilot</h3>
+                <span class="products__price">R$ 1350</span>
+                <button class="products__button">
+                    <i class='bx bx-shopping-bag'></i>
+                </button>
+            </article>
+            <article class="products__card corporal" style="display: none;">
+                <img src="assets/img/product2.png" alt="Khaki pilot" class="products__img">
+                <h3 class="products__title">Khaki pilot</h3>
+                <span class="products__price">R$ 1350</span>
+                <button class="products__button">
+                    <i class='bx bx-shopping-bag'></i>
+                </button>
+            </article>
+            <article class="products__card corporal" style="display: none;">
+                <img src="assets/img/product2.png" alt="Khaki pilot" class="products__img">
+                <h3 class="products__title">Khaki pilot</h3>
+                <span class="products__price">R$ 1350</span>
+                <button class="products__button">
+                    <i class='bx bx-shopping-bag'></i>
+                </button>
+            </article>
+            <article class="products__card corporal" style="display: none;">
+                <img src="assets/img/product2.png" alt="Khaki pilot" class="products__img">
+                <h3 class="products__title">Khaki pilot</h3>
+                <span class="products__price">R$ 1350</span>
+                <button class="products__button">
+                    <i class='bx bx-shopping-bag'></i>
+                </button>
+            </article>
+            <article class="products__card corporal" style="display: none;">
+                <img src="assets/img/product2.png" alt="Khaki pilot" class="products__img">
+                <h3 class="products__title">Khaki pilot</h3>
+                <span class="products__price">R$ 1350</span>
+                <button class="products__button">
+                    <i class='bx bx-shopping-bag'></i>
+                </button>
+            </article>
+            <article class="products__card corporal" style="display: none;">
+                <img src="assets/img/product2.png" alt="Khaki pilot" class="products__img">
+                <h3 class="products__title">Khaki pilot</h3>
+                <span class="products__price">R$ 1350</span>
+                <button class="products__button">
+                    <i class='bx bx-shopping-bag'></i>
+                </button>
+            </article>
 
-                <article class="products__card">
-                    <img src="assets/img/featured3.png" alt="Rose Prata" class="products__img">
-                    <h3 class="products__title">Rose Prata</h3>
-                    <span class="products__price">R$ 890</span>
-                    <button class="products__button">
-                        <i class='bx bx-shopping-bag'></i>
-                    </button>
-                </article>
-                
-                <article class="products__card">
-                    <img src="assets/img/featured2.png" alt="Ingersoll" class="products__img">
-                    <h3 class="products__title">Ingersoll</h3>
-                    <span class="products__price">R$ 250</span>
-                    <button class="products__button">
-                        <i class='bx bx-shopping-bag'></i>
-                    </button>
-                </article>
+            <!-- Produtos Capilares -->
+            <article class="products__card capilar" style="display: none;">
+                <img src="assets/img/product3.png" alt="Jubilee black" class="products__img">
+                <h3 class="products__title">Jubilee black</h3>
+                <span class="products__price">R$ 870</span>
+                <button class="products__button">
+                    <i class='bx bx-shopping-bag'></i>
+                </button>
+            </article>
+            <article class="products__card capilar" style="display: none;">
+                <img src="assets/img/product3.png" alt="Jubilee black" class="products__img">
+                <h3 class="products__title">Jubilee black</h3>
+                <span class="products__price">R$ 870</span>
+                <button class="products__button">
+                    <i class='bx bx-shopping-bag'></i>
+                </button>
+            </article>
+            <article class="products__card capilar" style="display: none;">
+                <img src="assets/img/product3.png" alt="Jubilee black" class="products__img">
+                <h3 class="products__title">Jubilee black</h3>
+                <span class="products__price">R$ 870</span>
+                <button class="products__button">
+                    <i class='bx bx-shopping-bag'></i>
+                </button>
+            </article>
+            <article class="products__card capilar" style="display: none;">
+                <img src="assets/img/product3.png" alt="Jubilee black" class="products__img">
+                <h3 class="products__title">Jubilee black</h3>
+                <span class="products__price">R$ 870</span>
+                <button class="products__button">
+                    <i class='bx bx-shopping-bag'></i>
+                </button>
+            </article>
+            <article class="products__card capilar" style="display: none;">
+                <img src="assets/img/product3.png" alt="Jubilee black" class="products__img">
+                <h3 class="products__title">Jubilee black</h3>
+                <span class="products__price">R$ 870</span>
+                <button class="products__button">
+                    <i class='bx bx-shopping-bag'></i>
+                </button>
+            </article>
+            <article class="products__card capilar" style="display: none;">
+                <img src="assets/img/product3.png" alt="Jubilee black" class="products__img">
+                <h3 class="products__title">Jubilee black</h3>
+                <span class="products__price">R$ 870</span>
+                <button class="products__button">
+                    <i class='bx bx-shopping-bag'></i>
+                </button>
+            </article>
+            <article class="products__card capilar" style="display: none;">
+                <img src="assets/img/product3.png" alt="Jubilee black" class="products__img">
+                <h3 class="products__title">Jubilee black</h3>
+                <span class="products__price">R$ 870</span>
+                <button class="products__button">
+                    <i class='bx bx-shopping-bag'></i>
+                </button>
+            </article>
+            <article class="products__card capilar" style="display: none;">
+                <img src="assets/img/product3.png" alt="Jubilee black" class="products__img">
+                <h3 class="products__title">Jubilee black</h3>
+                <span class="products__price">R$ 870</span>
+                <button class="products__button">
+                    <i class='bx bx-shopping-bag'></i>
+                </button>
+            </article>
 
-                <article class="products__card">
-                    <img src="assets/img/featured3.png" alt="Rose gold" class="products__img">
-                    <h3 class="products__title">Rose gold</h3>
-                    <span class="products__price">R$ 890</span>
-                    <button class="products__button">
-                        <i class='bx bx-shopping-bag'></i>
-                    </button>
-                </article>
-
-                <article class="products__card">
-                    <img src="assets/img/featured3.png" alt="Rose Prata" class="products__img">
-                    <h3 class="products__title">Rose Prata</h3>
-                    <span class="products__price">R$ 890</span>
-                    <button class="products__button">
-                        <i class='bx bx-shopping-bag'></i>
-                    </button>
-                </article>
-                
-                <article class="products__card">
-                    <img src="assets/img/featured2.png" alt="Ingersoll" class="products__img">
-                    <h3 class="products__title">Ingersoll</h3>
-                    <span class="products__price">R$ 250</span>
-                    <button class="products__button">
-                        <i class='bx bx-shopping-bag'></i>
-                    </button>
-                </article>
-
-                <article class="products__card">
-                    <img src="assets/img/featured3.png" alt="Rose gold" class="products__img">
-                    <h3 class="products__title">Rose gold</h3>
-                    <span class="products__price">R$ 890</span>
-                    <button class="products__button">
-                        <i class='bx bx-shopping-bag'></i>
-                    </button>
-                </article>
-
-                <article class="products__card">
-                    <img src="assets/img/featured3.png" alt="Rose Prata" class="products__img">
-                    <h3 class="products__title">Rose Prata</h3>
-                    <span class="products__price">R$ 890</span>
-                    <button class="products__button">
-                        <i class='bx bx-shopping-bag'></i>
-                    </button>
-                </article>
-
-                <article class="products__card">
-                    <img src="assets/img/featured2.png" alt="Ingersoll" class="products__img">
-                    <h3 class="products__title">Ingersoll</h3>
-                    <span class="products__price">R$ 250</span>
-                    <button class="products__button">
-                        <i class='bx bx-shopping-bag'></i>
-                    </button>
-                </article>
-
-                <article class="products__card">
-                    <img src="assets/img/featured3.png" alt="Rose gold" class="products__img">
-                    <h3 class="products__title">Rose gold</h3>
-                    <span class="products__price">R$ 890</span>
-                    <button class="products__button">
-                        <i class='bx bx-shopping-bag'></i>
-                    </button>
-                </article>
-
-                <article class="products__card">
-                    <img src="assets/img/featured3.png" alt="Rose Prata" class="products__img">
-                    <h3 class="products__title">Rose Prata</h3>
-                    <span class="products__price">R$ 890</span>
-                    <button class="products__button">
-                        <i class='bx bx-shopping-bag'></i>
-                    </button>
-                </article>
-            </div>
-        </section>
-    </main>
+            <!-- Adicione os demais produtos com suas classes e style="display: none;" -->
+        </div>
+    </section>
+</main>
 
     <!--==================== FOOTER SIMPLIFICADO ====================-->
-    <footer class="footer section">
-        <div class="footer__container container grid">
-            <div class="footer__content">
-                <h3 class="footer__title">Informações</h3>
-                <ul class="footer__list">
-                    <li>1234 - Brasil</li>
-                    <li>São Paulo - SP</li>
-                    <li>123-456-789</li>
-                </ul>
-            </div>
-            
-            <div class="footer__content">
-                <h3 class="footer__title">Redes Sociais</h3>
-                <ul class="footer__social">
-                    <a href="https://www.facebook.com/" target="_blank" class="footer__social-link">
-                        <i class='bx bxl-facebook'></i>
-                    </a>
-                    <a href="https://www.instagram.com/" target="_blank" class="footer__social-link">
-                        <i class='bx bxl-instagram'></i>
-                    </a>
-                    <a href="https://wa.me/5511999999999" target="_blank" class="footer__social-link">
-                        <i class='bx bxl-whatsapp'></i>
-                    </a>
-                </ul>
-            </div>
+  <footer class="footer section">
+    <div class="footer__container container grid">
+        <div class="footer__content">
+            <h3 class="footer__title">Localização</h3>
+            <ul class="footer__list">
+                <li><i class='bx bx-map'></i> João Pessoa - PB</li>
+                <li><i class='bx bx-building-house'></i> La Libertad 43210</li>
+                <li><i class='bx bx-phone'></i> (83) 1234-5678</li>
+            </ul>
         </div>
-        <span class="footer__copy">&#169; Lumine. Todos os direitos reservados</span>
-    </footer>
+        
+        <div class="footer__content">
+            <h3 class="footer__title">Horários</h3>
+            <ul class="footer__links">
+                <li><i class='bx bx-time'></i> Seg-Sex: 9h-18h</li>
+                <li><i class='bx bx-time-five'></i> Sáb: 9h-14h</li>
+                <li><i class='bx bx-calendar-x'></i> Dom: Fechado</li>
+            </ul>
+        </div>
+
+        <div class="footer__content">
+            <h3 class="footer__title">Produtos</h3>
+            <ul class="footer__links">
+                <li><a href="#" class="footer__link"><i class='bx bx-chevron-right'></i> Road bikes</a></li>
+                <li><a href="#" class="footer__link"><i class='bx bx-chevron-right'></i> Mountain bikes</a></li>
+                <li><a href="#" class="footer__link"><i class='bx bx-chevron-right'></i> Electric</a></li>
+                <li><a href="#" class="footer__link"><i class='bx bx-chevron-right'></i> Acessórios</a></li>
+            </ul>
+        </div>
+
+        <div class="footer__content">
+            <h3 class="footer__title">Social</h3>
+            <ul class="footer__social">
+                <li><a href="https://www.facebook.com/" target="_blank" class="footer__social-link" aria-label="Facebook">
+                    <i class='bx bxl-facebook'></i>
+                </a></li>
+                <li><a href="https://wa.me/5583999844101" target="_blank" class="footer__social-link" aria-label="WhatsApp">
+                    <i class='bx bxl-whatsapp'></i>
+                </a></li>
+                <li><a href="https://www.instagram.com/_luminebe/" target="_blank" class="footer__social-link" aria-label="Instagram">
+                    <i class='bx bxl-instagram'></i>
+                </a></li>
+            </ul>
+            
+           
+        </div>
+    </div>
+
+    <div class="footer__bottom">
+        <span class="footer__copy">&#169; <span id="current-year"></span> Site feito por Milton Albuquerque. Todos os direitos reservados</span>
+    </div>
+</footer>
      <script src="assets/js/swiper-bundle.min.js"></script>
 
         <!--=============== MAIN JS ===============-->
@@ -503,5 +606,27 @@ document.addEventListener('DOMContentLoaded', function() {
     updateCart();
 });
     </script>
+    <!-- Abas dos produtos -->
+     <script>
+         document.querySelectorAll('.products__tab').forEach(tab => {
+        tab.addEventListener('click', () => {
+            // Ativa a aba clicada
+            document.querySelectorAll('.products__tab').forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+            tab.style.background = '#333'; // Cor quando ativo (ajuste conforme seu tema)
+            tab.style.color = 'white';
+
+            // Filtra os produtos
+            const category = tab.dataset.category;
+            document.querySelectorAll('.products__card').forEach(card => {
+                if (category === 'all' || card.classList.contains(category)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    });
+     </script>
 </body>
 </html>
