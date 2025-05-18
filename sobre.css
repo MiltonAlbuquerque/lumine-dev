@@ -1,16 +1,19 @@
 /*==================== ABOUT ====================*/
 /* Fix para ícones durante scroll no modo escuro */
-.dark-theme .header {
-    --icon-color: var(--icon-color-light);
+/* Adicione isso no seu arquivo CSS */
+.nav__btns i {
+    color: var(--text-color); /* Usa a cor do texto definida no tema */
+    transition: color 0.3s ease;
 }
 
-.header {
-    --icon-color: var(--icon-color-dark);
+/* No modo noturno, mesmo no topo da página */
+.dark-theme .nav__btns i {
+    color: var(--text-color); /* Garante que a cor será visível */
 }
 
-.nav__btns i,
-.nav__shop i {
-    color: var(--icon-color) !important;
+/* Quando houver scroll */
+.scroll-header .nav__btns i {
+    color: var(--text-color); /* Mantém a cor consistente */
 }
 
 .about__container {
