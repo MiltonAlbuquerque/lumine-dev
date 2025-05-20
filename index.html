@@ -282,7 +282,7 @@
             <!--==================== PRODUCTS ====================-->
             <section class="products section container" id="products">
                 <h2 class="section__title">
-                    Produtos
+                    Alguns de nossos <br>Produtos
                 </h2>
 
                 <div class="products__container grid">
@@ -295,6 +295,14 @@
                         <button class="products__button">
                             <i class='bx bx-shopping-bag'></i>
                         </button>
+                        <!-- Botão de Informações -->
+                <button class="info-button" aria-label="Informações do produto">
+                     <i class='bx bx-info-circle'></i>
+                </button>
+                 <div class="product-info">
+                   <p>Pigmentada, blendável, versátil, acessível, vibrante.!</p>
+                 </div>
+                <!-- Fim Botão de informação -->
                     </article>
 
                     <article class="products__card">
@@ -306,6 +314,14 @@
                         <button class="products__button">
                             <i class='bx bx-shopping-bag'></i>
                         </button>
+                        <!-- Botão de Informações -->
+                <button class="info-button" aria-label="Informações do produto">
+                     <i class='bx bx-info-circle'></i>
+                </button>
+                 <div class="product-info">
+                   <p>Pigmentada, blendável, versátil, acessível, vibrante.!</p>
+                 </div>
+                <!-- Fim Botão de informação -->
                     </article>
 
                     <article class="products__card">
@@ -317,6 +333,14 @@
                         <button class="products__button">
                             <i class='bx bx-shopping-bag'></i>
                         </button>
+                        <!-- Botão de Informações -->
+                <button class="info-button" aria-label="Informações do produto">
+                     <i class='bx bx-info-circle'></i>
+                </button>
+                 <div class="product-info">
+                   <p>Pigmentada, blendável, versátil, acessível, vibrante.!</p>
+                 </div>
+                <!-- Fim Botão de informação -->
                     </article>
 
                     <article class="products__card">
@@ -328,6 +352,14 @@
                         <button class="products__button">
                             <i class='bx bx-shopping-bag'></i>
                         </button>
+                        <!-- Botão de Informações -->
+                <button class="info-button" aria-label="Informações do produto">
+                     <i class='bx bx-info-circle'></i>
+                </button>
+                 <div class="product-info">
+                   <p>Pigmentada, blendável, versátil, acessível, vibrante.!</p>
+                 </div>
+                <!-- Fim Botão de informação -->
                     </article>
 
                     <article class="products__card">
@@ -339,6 +371,14 @@
                         <button class="products__button">
                             <i class='bx bx-shopping-bag'></i>
                         </button>
+                        <!-- Botão de Informações -->
+                <button class="info-button" aria-label="Informações do produto">
+                     <i class='bx bx-info-circle'></i>
+                </button>
+                 <div class="product-info">
+                   <p>Pigmentada, blendável, versátil, acessível, vibrante.!</p>
+                 </div>
+                <!-- Fim Botão de informação -->
                     </article>
 
                     <article class="products__card">
@@ -350,6 +390,14 @@
                         <button class="products__button">
                             <i class='bx bx-shopping-bag'></i>
                         </button>
+                        <!-- Botão de Informações -->
+                <button class="info-button" aria-label="Informações do produto">
+                     <i class='bx bx-info-circle'></i>
+                </button>
+                 <div class="product-info">
+                   <p>Pigmentada, blendável, versátil, acessível, vibrante.!</p>
+                 </div>
+                <!-- Fim Botão de informação -->
                     </article>
                 </div>
                    <div class="compra_mais">
@@ -834,5 +882,16 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 <script src="assets/js/botao.js"></script>
+ <!-- Efeitos 3d card -->
+      <script>
+          document.querySelectorAll('.products__card').forEach(card => {
+    const infoButton = card.querySelector('.info-button');
+    const infoBox = card.querySelector('.product-info');
+
+    infoButton.addEventListener('click', () => {
+      card.classList.toggle('show-info');
+    });
+  });
+      </script>
     </body>
 </html>

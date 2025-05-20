@@ -62,6 +62,14 @@
   padding: 0;
   margin: 0;
 }
+/* Incio Efeito body */
+.products__card {
+    position: relative; /* Importante para posicionar os elementos absolutos */
+    overflow: hidden; /* Mantém tudo contido no card */
+    padding-bottom: 50px; /* Espaço para os botões */
+    transition: height 0.3s ease; /* Suaviza a expansão */
+}
+/* fim Efeito body */
 
 html {
   scroll-behavior: smooth;
