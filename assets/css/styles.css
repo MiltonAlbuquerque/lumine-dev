@@ -99,6 +99,7 @@ ul {
   list-style: none;
 }
 
+
 a {
   text-decoration: none;
 }
@@ -126,6 +127,8 @@ body.dark-theme {
   --container-color: hsl(0, 0%, 16%);
   --border-color: hsl(0, 0%, 20%);
 }
+
+
 
 /*========== Button Dark/Light ==========*/
 .change-theme {
@@ -208,8 +211,9 @@ body.dark-theme {
   left: 0;
   z-index: var(--z-fixed);
   /*For animation dark mode*/
-  transition: .4s;
+  transition: .4s;;
 }
+
 
 .nav {
   height: var(--header-height);
@@ -217,6 +221,7 @@ body.dark-theme {
   justify-content: space-between;
   align-items: center;
 }
+
 
 .nav__logo, 
 .nav__toggle, 
@@ -260,14 +265,18 @@ body.dark-theme {
     height: 100%;
     padding: 6rem 2rem 3.5rem;
     transition: .3s;
+    
   }
 }
+
+
 
 .nav__list {
   display: flex;
   flex-direction: column;
   align-items: center;
   row-gap: 2rem;
+ 
 }
 
 .nav__link {
@@ -277,9 +286,104 @@ body.dark-theme {
   font-size: var(--h2-font-size);
   transition: .3s;
 }
+.nav__linke{
+  color: var(--title-color);
+  font-weight: var(--font-bold);
+}
 
 .nav__link:hover {
   color: var(--first-color);
+}
+/* EFEITOS PARA OS LINKS DO MENU */
+.nav__link {
+  color: var(--title-color);
+  font-weight: var(--font-medium);
+  text-transform: uppercase;
+  font-size: var(--h2-font-size);
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  position: relative;
+  padding: 0.5rem 0;
+}
+
+/* 1. Efeito de sublinhado delicado */
+.nav__link::before {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--first-color);
+  transition: all 0.4s ease;
+  opacity: 0;
+}
+
+.nav__link:hover::before {
+  width: 100%;
+  opacity: 1;
+}
+
+/* 2. Efeito de brilho suave no dark mode */
+.dark-theme .nav__link:hover {
+  text-shadow: 0 0 8px rgba(var(--first-color-rgb), 0.4);
+}
+
+/* 3. Transformação sutil do texto */
+.nav__link:hover {
+  color: var(--first-color);
+  transform: translateY(-2px);
+}
+
+/* 4. Efeito de "respiração" para o item ativo */
+.active-link {
+  position: relative;
+}
+
+.active-link::after {
+  content: '';
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: var(--first-color);
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: breath 2s infinite ease-in-out;
+}
+
+@keyframes breath {
+  0%, 100% { opacity: 0.5; transform: translateX(-50%) scale(0.8); }
+  50% { opacity: 1; transform: translateX(-50%) scale(1.2); }
+}
+
+/* 5. Efeito de desfoque suave nos outros links ao passar o mouse */
+@media screen and (min-width: 768px) {
+  .nav__list:hover .nav__link:not(:hover) {
+    opacity: 0.6;
+    filter: blur(1px);
+    transition: all 0.3s ease;
+  }
+}
+
+/* Versão mobile - efeito mais discreto */
+@media screen and (max-width: 767px) {
+  .nav__link {
+    font-size: 1.2rem;
+    padding: 0.8rem 0;
+  }
+  
+  .nav__link:hover {
+    transform: translateX(5px);
+  }
+  
+  .active-link::after {
+    left: -10px;
+    top: 50%;
+    transform: translateY(-50%);
+    bottom: auto;
+  }
 }
 
 .nav__close {
@@ -1464,3 +1568,4 @@ body.dark-theme {
       min-height: 120px;
   }
 }
+

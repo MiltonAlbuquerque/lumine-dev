@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--=============== FAVICON ===============-->
+    <link rel="shortcut icon" href="assets/img/Silhueta 03.png" type="image/x-icon">
+
+    <!--=============== BOXICONS ===============-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+
+    <!--=============== SWIPER CSS ===============--> 
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+
+    <!--=============== CSS ===============-->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    
+    <!-- CSS específico para serviços -->
+    <link rel="stylesheet" href="assets/css/servicos.css">
+    <link rel="stylesheet" href="servicos.css">
+    <link rel="stylesheet" href="rodape.css">
+
+    <title>Serviços - Lumine</title>
+</head>
+<body>
+    <!--==================== HEADER ====================-->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="index.html" class="nav__logo">
+                <img src="./assets/img/Silhueta png 01.png" alt="Lumine" class="nav__logo-icon" onerror="this.style.display='none'">
+                <span>Lumine</span>
+            </a>
+
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="index.html" class="nav__link">Inicio</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="sobre.html" class="nav__link">Sobre Mim</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="produtos.html" class="nav__link">Produtos</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="servicos.html" class="nav__link active-link">Serviços</a>
+                    </li>
+                </ul>
+
+                <div class="nav__close" id="nav-close">
+                    <i class='bx bx-x'></i>
+                </div>
+            </div>
+
+            <div class="nav__btns">
+                <!-- Theme change button -->
+                <i class='bx bx-moon change-theme' id="theme-button"></i>
+
+                <div class="nav__shop" id="cart-shop">
+                    <i class='bx bx-shopping-bag'></i>
+                </div>
+
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class='bx bx-grid-alt'></i>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!--==================== CART ====================-->
+    <div class="cart" id="cart">
+        <i class='bx bx-x cart__close' id="cart-close"></i>
+        <h2 class="cart__title-center">Minha Sacola</h2>
+        <div class="cart__container">
+            <!-- Itens do carrinho serão adicionados dinamicamente -->
+        </div>
+        <div class="cart__prices">
+            <span class="cart__prices-item">0 items</span>
+            <span class="cart__prices-total">R$ 0</span>
+        </div>
+    </div>
+
+    <!--==================== MAIN ====================-->
+    <main class="main">
+        <!--==================== SERVIÇOS ====================-->
+        <section class="services section container" id="services">
+            <h2 class="section__title">
+                Nossos Serviços <br> Lumine
+            </h2>
+
+            <div class="services__container grid">
+                <!-- Serviços de Estética -->
+                <article class="services__card">
+                    <div class="services__content">
+                        <!-- <img src="assets/img/estetica-icon.png" alt="Estética" class="services__icon"> -->
+                        <h3 class="services__title">SERVIÇOS ESTÉTICA</h3>
+                        
+                        <div class="services__group">
+                            <h4 class="services__subtitle">Corporal</h4>
+                            <ul class="services__list">
+                                <li class="services__item">
+                                    <i class='bx bx-check services__check'></i>
+                                    <span>Drenagem Linfática</span>
+                                </li>
+                                <li class="services__item">
+                                    <i class='bx bx-check services__check'></i>
+                                    <span>Massagem Relaxante</span>
+                                </li>
+                                <li class="services__item">
+                                    <i class='bx bx-check services__check'></i>
+                                    <span>Massagem Modeladora</span>
+                                </li>
+                            </ul>
+                            
+                            <h4 class="services__subtitle">Facial</h4>
+                            <ul class="services__list">
+                                <li class="services__item">
+                                    <i class='bx bx-check services__check'></i>
+                                    <span>Limpeza de Pele</span>
+                                </li>
+                                <li class="services__item">
+                                    <i class='bx bx-check services__check'></i>
+                                    <span>Peeling Químico</span>
+                                </li>
+                                <li class="services__item">
+                                    <i class='bx bx-check services__check'></i>
+                                    <span>Hidratação Facial</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <button class="button services__button">
+                        Agendar <i class='bx bx-calendar'></i>
+                    </button>
+                </article>
+
+                <!-- Serviços de Cabelo -->
+                <article class="services__card">
+                    <div class="services__content">
+                        <!-- <img src="assets/img/cabelo-icon.png" alt="Cabelo" class="services__icon"> -->
+                        <h3 class="services__title">Cabelo</h3>
+                        
+                        <div class="services__group">
+                            <h4 class="services__subtitle">Cabeleireiro</h4>
+                            <ul class="services__list">
+                                <li class="services__item">
+                                    <i class='bx bx-check services__check'></i>
+                                    <span>Corte Feminino</span>
+                                </li>
+                                <li class="services__item">
+                                    <i class='bx bx-check services__check'></i>
+                                    <span>Corte Masculino</span>
+                                </li>
+                                <li class="services__item">
+                                    <i class='bx bx-check services__check'></i>
+                                    <span>Coloração</span>
+                                </li>
+                            </ul>
+                            
+                            <h4 class="services__subtitle">Tratamentos</h4>
+                            <ul class="services__list">
+                                <li class="services__item">
+                                    <i class='bx bx-check services__check'></i>
+                                    <span>Hidratação Capilar</span>
+                                </li>
+                                <li class="services__item">
+                                    <i class='bx bx-check services__check'></i>
+                                    <span>Reconstrução Capilar</span>
+                                </li>
+                                <li class="services__item">
+                                    <i class='bx bx-check services__check'></i>
+                                    <span>Cauterização</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <button class="button services__button">
+                        Agendar <i class='bx bx-calendar'></i>
+                    </button>
+                </article>
+
+                <!-- Serviços Especiais -->
+                <article class="services__card">
+                    <div class="services__content">
+                        <!-- <img src="assets/img/especial-icon.png" alt="Especiais" class="services__icon"> -->
+                        <h3 class="services__title">Especiais</h3>
+                        
+                        <div class="services__group">
+                            <h4 class="services__subtitle">Labial</h4>
+                            <ul class="services__list">
+                                <li class="services__item">
+                                    <i class='bx bx-check services__check'></i>
+                                    <span>Hidratação Labial</span>
+                                </li>
+                                <li class="services__item">
+                                    <i class='bx bx-check services__check'></i>
+                                    <span>Esfoliação Labial</span>
+                                </li>
+                            </ul>
+                            
+                            <h4 class="services__subtitle">Pacotes</h4>
+                            <ul class="services__list">
+                                <li class="services__item">
+                                    <i class='bx bx-check services__check'></i>
+                                    <span>Dia de Spa Completo</span>
+                                </li>
+                                <li class="services__item">
+                                    <i class='bx bx-check services__check'></i>
+                                    <span>Noiva</span>
+                                </li>
+                                <li class="services__item">
+                                    <i class='bx bx-check services__check'></i>
+                                    <span>Relaxamento Total</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <button class="button services__button">
+                        Agendar <i class='bx bx-calendar'></i>
+                    </button>
+                </article>
+                <article class="services__card">
+                    <div class="services__content">
+                        <!-- <img src="assets/img/especial-icon.png" alt="Especiais" class="services__icon"> -->
+                        <h3 class="services__title">Especiais</h3>
+                        
+                        <div class="services__group">
+                            <h4 class="services__subtitle">Labial</h4>
+                            <ul class="services__list">
+                                <li class="services__item">
+                                    <i class='bx bx-check services__check'></i>
+                                    <span>Hidratação Labial</span>
+                                </li>
+                                <li class="services__item">
+                                    <i class='bx bx-check services__check'></i>
+                                    <span>Esfoliação Labial</span>
+                                </li>
+                            </ul>
+                            
+                            <h4 class="services__subtitle">Pacotes</h4>
+                            <ul class="services__list">
+                                <li class="services__item">
+                                    <i class='bx bx-check services__check'></i>
+                                    <span>Dia de Spa Completo</span>
+                                </li>
+                                <li class="services__item">
+                                    <i class='bx bx-check services__check'></i>
+                                    <span>Noiva</span>
+                                </li>
+                                <li class="services__item">
+                                    <i class='bx bx-check services__check'></i>
+                                    <span>Relaxamento Total</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <button class="button services__button">
+                        Agendar <i class='bx bx-calendar'></i>
+                    </button>
+                </article>
+            </div>
+        </section>
+
+        <!--==================== AGENDAMENTO ====================-->
+        <section class="contact-form section container" id="agendamento">
+            <div class="contact-form__container">
+                <h2 class="contact-form__title">Agende Seu Horário</h2>
+
+                <form action="" class="contact-form__form">
+                    <div class="contact-form__field">
+                        <input type="text" placeholder="Seu nome completo" class="contact-form__input" required>
+                    </div>
+                    
+                    <div class="contact-form__field">
+                        <input type="tel" placeholder="Seu telefone" class="contact-form__input" required>
+                    </div>
+                    
+                    <div class="contact-form__field">
+                        <select class="contact-form__input" required>
+                            <option value="" disabled selected>Selecione o serviço</option>
+                            <option>Drenagem Linfática</option>
+                            <option>Massagem Relaxante</option>
+                            <option>Limpeza de Pele</option>
+                            <option>Hidratação Capilar</option>
+                            <option>Corte Feminino</option>
+                            <option>Outro serviço</option>
+                        </select>
+                    </div>
+                    
+                    <div class="contact-form__field">
+                        <input type="date" class="contact-form__input" required>
+                    </div>
+                    
+                    <div class="contact-form__field">
+                        <textarea placeholder="Observações ou preferências..." class="contact-form__textarea" rows="3"></textarea>
+                    </div>
+
+                    <button type="submit" class="button contact-form__button">
+                        Enviar Agendamento <i class='bx bx-calendar-check'></i>
+                    </button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!--==================== FOOTER ====================-->
+      <!--==================== FOOTER ====================-->
+    <footer class="footer section">
+    <div class="footer__container container grid">
+        <div class="footer__content">
+            <h3 class="footer__title">Localização</h3>
+            <ul class="footer__list">
+                <li><i class='bx bx-map'></i> João Pessoa - PB</li>
+                <li><i class='bx bx-building-house'></i> Av. Maximiano Figueiredo, 29-2, Centro</li>
+                <li><i class='bx bx-phone'></i> (83) 9 9984-4101</li>
+            </ul>
+        </div>
+        
+        <div class="footer__content">
+            <h3 class="footer__title">Horários</h3>
+            <ul class="footer__links">
+                <li><i class='bx bx-time'></i> Seg-Sex: 9h-19h</li>
+                <li><i class='bx bx-calendar'></i> Sáb: Sob Agendamento</li>
+                <li><i class='bx bx-calendar'></i> Dom: Sob Agendamento</li>
+            </ul>
+        </div>
+
+        <div class="footer__content">
+            <h3 class="footer__title">Produtos</h3>
+            <ul class="footer__links">
+                <li><a href="#" class="footer__link"><i class='bx bx-chevron-right'></i> Facial</a></li>
+                <li><a href="#" class="footer__link"><i class='bx bx-chevron-right'></i> Capilar</a></li>
+                <li><a href="#" class="footer__link"><i class='bx bx-chevron-right'></i> Corporal</a></li>
+                <li><a href="#" class="footer__link"><i class='bx bx-chevron-right'></i> E Muito mais</a></li>
+            </ul>
+        </div>
+
+        <div class="footer__content">
+            <h3 class="footer__title">Social</h3>
+            <ul class="footer__social">
+                <li><a href="https://wa.me/5583999844101" target="_blank" class="footer__social-link" aria-label="WhatsApp">
+                    <i class='bx bxl-whatsapp'></i>
+                </a></li>
+                <li><a href="https://www.instagram.com/_luminebe/" target="_blank" class="footer__social-link" aria-label="Instagram">
+                    <i class='bx bxl-instagram'></i>
+                </a></li>
+            </ul>
+            
+           
+        </div>
+    </div>
+
+    <div class="footer__bottom">
+        <span class="footer__copy">&#169; <span id="current-year"></span> Site feito por Milton Albuquerque. Todos os direitos reservados</span>
+    </div>
+</footer>
+    <!--=============== SCROLL UP ===============-->
+    <a href="#" class="scrollup" id="scroll-up"> 
+        <i class='bx bx-up-arrow-alt scrollup__icon'></i>
+    </a>
+
+    <!--=============== SWIPER JS ===============-->
+    <script src="assets/js/swiper-bundle.min.js"></script>
+
+    <!--=============== MAIN JS ===============-->
+    <script src="assets/js/main.js"></script>
+
+    <!--=============== SERVIÇOS JS ===============-->
+    <script>
+        // Agendamento via WhatsApp
+        document.querySelector('.contact-form__form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            let message = "Olá, gostaria de agendar um horário:\n\n";
+            
+            message += `*Nome:* ${formData.get('name')}\n`;
+            message += `*Telefone:* ${formData.get('phone')}\n`;
+            message += `*Serviço:* ${formData.get('service')}\n`;
+            message += `*Data:* ${formData.get('date')}\n`;
+            message += `*Observações:* ${formData.get('notes')}\n`;
+            
+            const encodedMessage = encodeURIComponent(message);
+            window.open(`https://wa.me/5583999844101?text=${encodedMessage}`, '_blank');
+        });
+
+        // Botões de agendamento
+        document.querySelectorAll('.services__button').forEach(button => {
+            button.addEventListener('click', function() {
+                const service = this.closest('.services__card').querySelector('.services__title').textContent;
+                const message = `Olá, gostaria de agendar um horário para *${service}*`;
+                const encodedMessage = encodeURIComponent(message);
+                window.open(`https://wa.me/5583999844101?text=${encodedMessage}`, '_blank');
+            });
+        });
+
+        // Atualizar ano no footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
