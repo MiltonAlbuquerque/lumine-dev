@@ -25,6 +25,61 @@
     <title>Serviços - Lumine</title>
 </head>
 <body>
+    <style>
+        /* Adicione isso no seu arquivo CSS */
+.nav__btns i {
+    color: var(--text-color); /* Usa a cor do texto definida no tema */
+    transition: color 0.3s ease;
+}
+
+/* No modo noturno, mesmo no topo da página */
+.dark-theme .nav__btns i {
+    color: var(--text-color); /* Garante que a cor será visível */
+}
+
+/* Quando houver scroll */
+.scroll-header .nav__btns i {
+    color: var(--text-color); /* Mantém a cor consistente */
+}
+.products__tabs {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+}
+
+.products__tab {
+    padding: 0.75rem 2rem;
+    background: var(--button-color); /* Cor normal dos botões inativos */
+    color: var(--text-color);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.products__tab:hover {
+    background: var(--button-color-alt); /* Cor de hover */
+    color: var(--title-color);
+}
+
+.products__tab.active {
+    background: var(--first-color) !important; /* Cor destacada */
+    color: var(--body-color) !important;
+    font-weight: 600;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+}
+
+/* Efeito de pressionado */
+.products__tab:active {
+    transform: scale(0.98);
+}
+    </style>
     <!--==================== HEADER ====================-->
     <header class="header" id="header">
         <nav class="nav container">
@@ -68,6 +123,7 @@
             </div>
         </nav>
     </header>
+    
 
     <!--==================== CART ====================-->
     <div class="cart" id="cart">
