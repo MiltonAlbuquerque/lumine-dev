@@ -45,9 +45,7 @@
                         <li class="nav__item">
                             <a href="#new" class="nav__link">Destaques</a>
                         </li>
-                        <li class="nav__item">
-                            <a href="servicos.html" class="nav__link">Serviços</a>
-                        </li>
+                     
                     </ul>
 
                     <div class="nav__close" id="nav-close">
@@ -580,22 +578,31 @@
     <div class="contact-form__container">
         <h2 class="contact-form__title">Fale Comigo</h2>
 
-        <form action="" class="contact-form__form">
+        <form action="" class="contact-form__form" onsubmit="enviarWhats(event)">
             <div class="contact-form__field">
-                <input type="text" placeholder="Seu nome completo" class="contact-form__input" required>
+                <input type="text" placeholder="Seu Nome" class="contact-form__input" required id="nome">
             </div>
             
             <div class="contact-form__field">
-                <input type="email" placeholder="Seu melhor email" class="contact-form__input" required>
+                <input type="email" placeholder="Seu Email" class="contact-form__input" required id="email">
             </div>
             
             <div class="contact-form__field">
-                <textarea placeholder="Sua mensagem..." class="contact-form__textarea" rows="4" required></textarea>
+                <textarea placeholder="Digite Sua Mensagem" class="contact-form__textarea" rows="4" required id="mensagem"></textarea>
             </div>
 
             <button type="submit" class="contact-form__button">
                 Enviar Mensagem <i class='bx bx-send'></i>
             </button>
+            <div class="loading-overlay" id="loadingOverlay">
+             <div class="loading-spinner">
+               <div class="spinner-circle"></div>
+               <div class="spinner-circle"></div>
+               <div class="spinner-circle"></div>
+            <div class="spinner-circle"></div>
+           </div>
+          <p class="loading-text">Enviando mensagem...</p>
+           </div>
         </form>
     </div>
 </section>
@@ -893,5 +900,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
       </script>
+      <script src="formulario.js"></script>
     </body>
 </html>
