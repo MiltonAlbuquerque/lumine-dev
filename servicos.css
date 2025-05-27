@@ -1,0 +1,262 @@
+/* ==================== SERVIÇOS ==================== */
+.services__container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem 1rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.services__card {
+    background-color: var(--container-color);
+    border: 1px solid var(--border-color);
+    border-radius: 0.75rem;
+    padding: 2rem;
+    transition: all 0.3s ease-out;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Elementos decorativos minimalistas */
+.services__card::before,
+.services__card::after {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 2px;
+    background: var(--first-color);
+    transition: all 0.3s ease;
+    opacity: 0.8;
+}
+
+.services__card::before {
+    top: 1.5rem;
+    left: 1.5rem;
+    transform: rotate(-45deg);
+    transform-origin: left;
+}
+
+.services__card::after {
+    bottom: 1.5rem;
+    right: 1.5rem;
+    transform: rotate(-45deg);
+    transform-origin: right;
+}
+
+.services__card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    border-color: var(--first-color);
+}
+
+.services__card:hover::before,
+.services__card:hover::after {
+    width: 60px;
+    opacity: 1;
+}
+
+.services__content {
+    margin-bottom: 1.25rem;
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+.services__icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 1.25rem;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+    transition: all 0.3s ease;
+}
+
+.services__card:hover .services__icon {
+    transform: scale(1.05);
+    filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.25));
+}
+
+.services__title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--title-color);
+    position: relative;
+    padding-bottom: 0.5rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.services__title::after {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 2px;
+    background: var(--first-color);
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.services__card:hover .services__title::after {
+    width: 50px;
+}
+
+.services__subtitle {
+    font-size: 1rem;
+    color: var(--first-color);
+    margin: 1rem 0;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.services__description {
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+.services__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    list-style: none;
+    padding: 0;
+    margin-bottom: 1.5rem;
+    justify-content: center;
+}
+
+.services__item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--text-color);
+    background: var(--button-color);
+    padding: 0.5rem 0.9rem;
+    border-radius: 50px;
+    border: 1px solid var(--border-color);
+    transition: all 0.2s ease;
+}
+
+.services__item:hover {
+    background-color: var(--first-color);
+    color: var(--button-color);
+    transform: translateY(-1px);
+}
+
+.services__check {
+    color: var(--first-color);
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+}
+
+.services__item:hover .services__check {
+    color: var(--button-color);
+}
+
+.services__button {
+    width: 100%;
+    max-width: 200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.9rem;
+    background: var(--first-color);
+    color: var(--button-color);
+    border-radius: 50px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.services__button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.services__button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(255, 255, 255, 0.15), 
+        transparent);
+    transition: 0.4s;
+}
+
+.services__button:hover::after {
+    left: 100%;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .services__container {
+        padding: 1.5rem 0.75rem;
+        gap: 1.5rem;
+    }
+    
+    .services__card {
+        padding: 1.75rem 1.25rem;
+    }
+    
+    .services__title {
+        font-size: 1.3rem;
+    }
+    
+    .services__icon {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .services__card::before,
+    .services__card::after {
+        width: 35px;
+        top: 1.25rem;
+        left: 1.25rem;
+        bottom: 1.25rem;
+        right: 1.25rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .services__container {
+        padding: 1.25rem 0.5rem;
+        gap: 1.25rem;
+    }
+    
+    .services__card {
+        padding: 1.5rem 1rem;
+    }
+    
+    .services__title {
+        font-size: 1.2rem;
+    }
+    
+    .services__button {
+        padding: 0.8rem;
+        font-size: 0.9rem;
+    }
+    
+    .services__card::before,
+    .services__card::after {
+        width: 25px;
+        height: 1px;
+    }
+}
+
