@@ -837,27 +837,182 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Finalizar compra - WhatsApp
-    function checkout() {
-        let message = "Olá, gostaria de comprar os seguintes itens:\n\n";
+  // Finalizar compra - WhatsApp ANIMAÇÃO
+       function checkout() {
+        // Criar overlay e container da animação
+        const overlay = document.createElement('div');
+        overlay.style.position = 'fixed';
+        overlay.style.top = '0';
+        overlay.style.left = '0';
+        overlay.style.width = '100%';
+        overlay.style.height = '100%';
+        overlay.style.backgroundColor = 'var(--body-color)';
+        overlay.style.display = 'flex';
+        overlay.style.justifyContent = 'center';
+        overlay.style.alignItems = 'center';
+        overlay.style.zIndex = '9999';
+        overlay.style.flexDirection = 'column';
+        overlay.style.fontFamily = "'Poppins', sans-serif";
         
-        cart.forEach(item => {
-            message += `- ${item.name} (${item.quantity}x): R$ ${(item.price * item.quantity).toFixed(2).replace('.', ',')}\n`;
-        });
+        // Container principal da animação
+        const animationContainer = document.createElement('div');
+        animationContainer.style.position = 'relative';
+        animationContainer.style.width = '200px';
+        animationContainer.style.height = '250px';
+        animationContainer.style.display = 'flex';
+        animationContainer.style.flexDirection = 'column';
+        animationContainer.style.alignItems = 'center';
         
-        message += `\nTotal: R$ ${cart.reduce((total, item) => total + (item.price * item.quantity), 0).toFixed(2).replace('.', ',')}`;
+        // Sacola minimalista
+        const bag = document.createElement('div');
+        bag.style.width = '120px';
+        bag.style.height = '160px';
+        bag.style.backgroundColor = 'transparent';
+        bag.style.border = '2px solid var(--border-color)';
+        bag.style.borderRadius = '4px 4px 20px 20px';
+        bag.style.position = 'relative';
+        bag.style.overflow = 'hidden';
         
-        // Codificar a mensagem para URL
-        const encodedMessage = encodeURIComponent(message);
+        // Detalhe superior da sacola (alça)
+        const bagTop = document.createElement('div');
+        bagTop.style.width = '140px';
+        bagTop.style.height = '20px';
+        bagTop.style.backgroundColor = 'transparent';
+        bagTop.style.border = '2px solid var(--border-color)';
+        bagTop.style.borderBottom = 'none';
+        bagTop.style.borderRadius = '20px 20px 0 0';
+        bagTop.style.position = 'absolute';
+        bagTop.style.top = '-10px';
+        bagTop.style.left = '50%';
+        bagTop.style.transform = 'translateX(-50%)';
         
-        // Abrir WhatsApp
-        window.open(`https://wa.me/5583999844101?text=${encodedMessage}`, '_blank');
+        // Efeito de preenchimento sutil
+        const filling = document.createElement('div');
+        filling.style.width = '100%';
+        filling.style.height = '0%';
+        filling.style.background = 'var(--first-color)';
+        filling.style.position = 'absolute';
+        filling.style.bottom = '0';
+        filling.style.transition = 'height 2s cubic-bezier(0.19, 1, 0.22, 1)';
+        filling.style.opacity = '0.7';
         
-        // Limpar carrinho após finalizar
-        cart = [];
-        saveCart();
-        updateCart();
+        // Linhas de detalhe na sacola
+        for (let i = 1; i <= 3; i++) {
+            const line = document.createElement('div');
+            line.style.width = '100%';
+            line.style.height = '1px';
+            line.style.backgroundColor = 'var(--border-color)';
+            line.style.position = 'absolute';
+            line.style.top = `${i * 25}%`;
+            line.style.opacity = '0.3';
+            bag.appendChild(line);
+        }
+        
+        // Texto de status
+        const text = document.createElement('p');
+        text.textContent = 'Finalizando seu pedido';
+        text.style.color = 'var(--text-color)';
+        text.style.fontSize = '0.9rem';
+        text.style.marginTop = '25px';
+        text.style.letterSpacing = '1px';
+        text.style.opacity = '0';
+        text.style.transition = 'opacity 0.8s ease';
+        
+        // Pontos animados
+        const dots = document.createElement('div');
+        dots.innerHTML = '<span>.</span><span>.</span><span>.</span>';
+        dots.style.color = 'var(--first-color)';
+        dots.style.fontSize = '1.2rem';
+        dots.style.marginTop = '10px';
+        dots.style.opacity = '0';
+        
+        // Adicionando elementos
+        bag.appendChild(bagTop);
+        bag.appendChild(filling);
+        animationContainer.appendChild(bag);
+        animationContainer.appendChild(text);
+        animationContainer.appendChild(dots);
+        overlay.appendChild(animationContainer);
+        document.body.appendChild(overlay);
+        
+        // Animação dos pontos
+        const style = document.createElement('style');
+        style.innerHTML = `
+            @keyframes blink {
+                0%, 100% { opacity: 0.2; }
+                50% { opacity: 1; }
+            }
+            #checkout-dots span {
+                animation: blink 1.4s infinite;
+            }
+            #checkout-dots span:nth-child(1) { animation-delay: 0s; }
+            #checkout-dots span:nth-child(2) { animation-delay: 0.2s; }
+            #checkout-dots span:nth-child(3) { animation-delay: 0.4s; }
+        `;
+        dots.id = 'checkout-dots';
+        document.head.appendChild(style);
+        
+        // Iniciar animação
+        setTimeout(() => {
+            // Mostrar texto e pontos
+            text.style.opacity = '1';
+            dots.style.opacity = '1';
+            
+            // Preencher a sacola
+            filling.style.height = '100%';
+            
+            // Mudar texto ao finalizar
+            setTimeout(() => {
+                text.textContent = 'Pedido confirmado';
+                text.style.color = 'var(--first-color)';
+                
+                // Adicionar checkmark sutil
+                const checkmark = document.createElement('div');
+                checkmark.style.width = '30px';
+                checkmark.style.height = '30px';
+                checkmark.style.borderLeft = '2px solid var(--first-color)';
+                checkmark.style.borderBottom = '2px solid var(--first-color)';
+                checkmark.style.position = 'absolute';
+                checkmark.style.top = '50%';
+                checkmark.style.left = '50%';
+                checkmark.style.transform = 'translate(-50%, -75%) rotate(-45deg)';
+                checkmark.style.opacity = '0';
+                checkmark.style.transition = 'opacity 0.8s';
+                bag.appendChild(checkmark);
+                
+                setTimeout(() => {
+                    checkmark.style.opacity = '1';
+                }, 300);
+            }, 1800);
+        }, 300);
+        
+        // Após animação, redirecionar para WhatsApp
+        setTimeout(() => {
+            let message = "Olá, gostaria de comprar os seguintes itens:\n\n";
+            
+            cart.forEach(item => {
+                message += `- ${item.name} (${item.quantity}x): R$ ${(item.price * item.quantity).toFixed(2).replace('.', ',')}\n`;
+            });
+            
+            message += `\nTotal: R$ ${cart.reduce((total, item) => total + (item.price * item.quantity), 0).toFixed(2).replace('.', ',')}`;
+            
+            // Codificar a mensagem para URL
+            const encodedMessage = encodeURIComponent(message);
+            
+            // Remover overlay
+            overlay.remove();
+            style.remove();
+            
+            // Abrir WhatsApp
+            window.open(`https://wa.me/5583999844101?text=${encodedMessage}`, '_blank');
+            
+            // Limpar carrinho após finalizar
+            cart = [];
+            saveCart();
+            updateCart();
+        }, 4500); // Tempo total da animação
     }
-    
+    // FINAL DA ANIMAÇÃO DA SACOLA 
     // Adicionar eventos aos botões "Add to Cart"
     document.querySelectorAll('.featured__button, .new__button, .products__button, .home__button').forEach(button => {
         button.addEventListener('click', function() {
