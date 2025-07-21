@@ -24,6 +24,11 @@
     <link rel="stylesheet" href="assets/css/styles.css" />
     <!-- rodape -->
     <link rel="stylesheet" href="assets/css/rodape.css" />
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css" />
+    <!-- css sobre -->
+    <link rel="stylesheet" href="assets/css/sobre.css" />
+    <!-- Rodape -->
+    <link rel="stylesheet" href="assets/css/rodape.css" />
 
     <!-- produtos  -->
     <title>Lumine</title>
@@ -138,6 +143,18 @@
             margin-bottom: 2.5rem;
             width: 100%;
             max-width: 100%;
+            color: #333 !important; /* Cor fixa para modo claro */
+          }
+          .dark-theme .products__tab {
+            color: white !important;
+          }
+          /* Isso deve resolver 99% dos casos */
+          .products__tab:not(.active) {
+            color: #333 !important;
+          }
+
+          .dark-theme .products__tab:not(.active) {
+            color: white !important;
           }
 
           /* ESTILO BASE DOS BOTÕES */
@@ -188,7 +205,7 @@
           /* HOVER EFFECT */
           .products__tab:hover {
             background: rgba(var(--button-color-alt-rgb), 0.9);
-            color: var(--title-color);
+            color: #333 !important;
             transform: translateY(-3px);
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2),
               inset 0 2px 2px rgba(255, 255, 255, 0.2),
@@ -204,7 +221,7 @@
           /* BOTÃO ATIVO - DESTAQUE LARANJA COM PULSAÇÃO */
           .products__tab.active {
             background: hsl(31, 100%, 70%) !important;
-            color: var(--body-color) !important;
+            color: white !important; /* Mantém branco no laranja */
             font-weight: 700;
             animation: pulse-mobile 1.5s infinite;
             border-color: transparent;
@@ -325,6 +342,7 @@
               }
             }
           }
+          /* regras para modificação do texto dos botões  */
 
           /* Tamanho da logo nav bar */
           .nav__logo {
@@ -371,9 +389,12 @@
           });
         </script>
         <!-- Container dos Produtos (Mantenha suas classes) -->
-        <div class="products__container grid">
+        <div class="products__container grid section-fade">
           <!-- Produtos Faciais -->
-          <article class="products__card facial" style="display: block">
+          <article
+            class="products__card facial section-fade"
+            style="display: block"
+          >
             <img
               src="assets/img/embalagem_1.png"
               alt="Paleta Morphe 35O"
@@ -396,7 +417,10 @@
             </div>
             <!-- Fim Botão de informação -->
           </article>
-          <article class="products__card facial" style="display: block">
+          <article
+            class="products__card facial section-fade"
+            style="display: block"
+          >
             <img
               src="assets/img/embalagem_1.png"
               alt="Blush Rare Beauty"
@@ -422,7 +446,10 @@
             </div>
             <!-- Fim Botão de informação -->
           </article>
-          <article class="products__card facial" style="display: block">
+          <article
+            class="products__card facial section-fade"
+            style="display: block"
+          >
             <img
               src="assets/img/embalagem_1.png"
               alt="Retinol CeraVe "
@@ -448,7 +475,10 @@
             </div>
             <!-- Fim Botão de informação -->
           </article>
-          <article class="products__card facial" style="display: block">
+          <article
+            class="products__card facial section-fade"
+            style="display: block"
+          >
             <img
               src="assets/img/embalagem_1.png"
               alt="Água Micelar Garnier"
