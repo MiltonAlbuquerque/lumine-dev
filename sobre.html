@@ -1,285 +1,405 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="assets/img/Silhueta 03.png" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
-    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
-    <link rel="stylesheet" href="assets/css/styles.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="assets/img/Silhueta 03.png"
+      type="image/x-icon"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"
+    />
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
     <!-- css sobre -->
-     <link rel="stylesheet" href="assets/css/sobre.css">
-     <!-- Rodape -->
-      <link rel="stylesheet" href="assets/css/rodape.css">
+    <link rel="stylesheet" href="assets/css/sobre.css" />
+    <!-- Rodape -->
+    <link rel="stylesheet" href="assets/css/rodape.css" />
     <title>Lumine</title>
-</head>
-<style>
+  </head>
+  <style></style>
+  <body>
+    <style>
+      /* Estilo inicial para as seções - invisíveis */
+      .section-fade {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      }
 
-</style>
-<body>
+      /* Classe que será adicionada quando a seção estiver visível */
+      .section-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      /* Tamanho da logo nav bar */
+      .nav__logo {
+        display: flex;
+        align-items: center;
+        position: relative;
+        z-index: 1;
+      }
+
+      .nav__logo-icon {
+        height: 120%; /* Aumenta a altura relativa ao container */
+        width: auto;
+        max-height: 50px; /* Limite máximo */
+        transition: all 0.3s ease;
+        margin-right: 8px;
+        transform: translateY(2px); /* Ajuste fino vertical */
+      }
+
+      /* Opcional: Efeito hover suave */
+      .nav__logo:hover .nav__logo-icon {
+        transform: translateY(2px) scale(1.1);
+      }
+    </style>
     <!--==================== HEADER ====================-->
     <header class="header" id="header">
-        <nav class="nav container">
-              <a href="index.html" class="nav__logo">
-                    <img src="./assets/img/Silhueta png 01.png" alt="Lumine" class="nav__logo-icon" onerror="this.style.display='none'">
-                    <span>Lumine</span>
-                </a>
+      <nav class="nav container">
+        <a href="index.html" class="nav__logo">
+          <img
+            src="./assets/img/Silhueta png 01.png"
+            alt="Lumine"
+            class="nav__logo-icon"
+            onerror="this.style.display='none'"
+          />
+          <span>Lumine</span>
+        </a>
 
-            <div class="nav__menu" id="nav-menu">
-                <ul class="nav__list">
-                    <li class="nav__item">
-                        <a href="index.html" class="nav__link">Inicio</a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="sobre.html" class="nav__link active-link">Sobre Nós</a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="produtos.html" class="nav__link">Produtos</a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="#new" class="nav__link"></a>
-                    </li>
-                </ul>
+        <div class="nav__menu" id="nav-menu">
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a href="index.html" class="nav__link">Inicio</a>
+            </li>
+            <li class="nav__item">
+              <a href="sobre.html" class="nav__link active-link">Sobre Nós</a>
+            </li>
+            <li class="nav__item">
+              <a href="produtos.html" class="nav__link">Produtos</a>
+            </li>
+            <li class="nav__item">
+              <a href="#new" class="nav__link"></a>
+            </li>
+          </ul>
 
-                <div class="nav__close" id="nav-close">
-                    <i class='bx bx-x'></i>
-                </div>
-            </div>
+          <div class="nav__close" id="nav-close">
+            <i class="bx bx-x"></i>
+          </div>
+        </div>
 
-            <div class="nav__btns">
-                <i class='bx bx-moon change-theme' id="theme-button"></i>
-                <div class="nav__shop" id="cart-shop">
-                    <i class='bx bx-shopping-bag'></i>
-                </div>
-                <div class="nav__toggle" id="nav-toggle">
-                    <i class='bx bx-grid-alt'></i>
-                </div>
-            </div>
-        </nav>
+        <div class="nav__btns">
+          <i class="bx bx-moon change-theme" id="theme-button"></i>
+          <div class="nav__shop" id="cart-shop">
+            <i class="bx bx-shopping-bag"></i>
+          </div>
+          <div class="nav__toggle" id="nav-toggle">
+            <i class="bx bx-grid-alt"></i>
+          </div>
+        </div>
+      </nav>
     </header>
     <!--====================FIM DO HEADER ====================-->
 
     <!--==================== CART ====================-->
     <div class="cart" id="cart">
-        <i class='bx bx-x cart__close' id="cart-close"></i>
-        <h2 class="cart__title-center">Minha Sacola</h2>
-        <div class="cart__container">
-            <!-- Itens do carrinho serão adicionados dinamicamente -->
-        </div>
-        <div class="cart__prices">
-            <span class="cart__prices-item">0 items</span>
-            <span class="cart__prices-total">R$ 0</span>
-        </div>
+      <i class="bx bx-x cart__close" id="cart-close"></i>
+      <h2 class="cart__title-center">Minha Sacola</h2>
+      <div class="cart__container">
+        <!-- Itens do carrinho serão adicionados dinamicamente -->
+      </div>
+      <div class="cart__prices">
+        <span class="cart__prices-item">0 items</span>
+        <span class="cart__prices-total">R$ 0</span>
+      </div>
     </div>
 
     <!--==================== MAIN ====================-->
     <main class="main">
-        <!--==================== SOBRE MIM ====================-->
-        <section class="about section container" id="about">
-            <div class="about__container grid">
-                <div class="about__img-bg">
-                    <img src="assets/img/Mir-foto3.jpg" alt="Mirlleiny Oliveira" class="about__img">
-                </div>
+      <!--==================== SOBRE MIM ====================-->
+      <section class="about section container" id="about">
+        <div class="about__container grid">
+          <div class="about__img-bg">
+            <img
+              src="assets/img/Mir-foto3.jpg"
+              alt="Mirlleiny Oliveira"
+              class="about__img section-fade"
+            />
+          </div>
 
-                <div class="about__data">
-                    <h2 class="section__title about__title">
-                        Mirlleiny Oliveira<br>
-                        <span>Especialista em Estética</span>
-                    </h2>
+          <div class="about__data">
+            <h2 class="section__title about__title section-fade">
+              Mirlleiny Oliveira<br />
+              <span>Especialista em Estética</span>
+            </h2>
 
-                    <div class="about__description">
-                        <p>Fundadora da Lumine e apaixonada por beleza e cuidados com a pele. Minha missão é ajudar pessoas a se sentirem confiantes em sua própria pele.</p>
-                    </div>
-
-                    <div class="about__details">
-                        <h3 class="about__details-title">Formação Acadêmica</h3>
-                        <ul class="about__details-list">
-                            <li>
-                                <i class='bx bx-check about__details-icon'></i>
-                                <span class="about__details-text">Graduação em Estética e Cosmética - Universidade Federal</span>
-                            </li>
-                            <li>
-                                <i class='bx bx-check about__details-icon'></i>
-                                <span class="about__details-text">Pós-graduação em Dermatocosmética - Instituto de Estética Avançada</span>
-                            </li>
-                            <li>
-                                <i class='bx bx-check about__details-icon'></i>
-                                <span class="about__details-text">Curso de Extensão em Terapias Capilares - Academia Brasileira de Tricologia</span>
-                            </li>
-                        </ul>
-
-                        <h3 class="about__details-title">Especializações</h3>
-                        <ul class="about__details-list">
-                            <li>
-                                <i class='bx bx-check about__details-icon'></i>
-                                <span class="about__details-text">Tratamentos Faciais Avançados</span>
-                            </li>
-                            <li>
-                                <i class='bx bx-check about__details-icon'></i>
-                                <span class="about__details-text">Terapias Corporais</span>
-                            </li>
-                            <li>
-                                <i class='bx bx-check about__details-icon'></i>
-                                <span class="about__details-text">Cosmetologia Aplicada</span>
-                            </li>
-                            <li>
-                                <i class='bx bx-check about__details-icon'></i>
-                                <span class="about__details-text">Peelings Químicos</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+            <div class="about__description section-fade">
+              <p class="section-fade section-fade">
+                Fundadora da Lumine e apaixonada por beleza e cuidados com a
+                pele. Minha missão é ajudar pessoas a se sentirem confiantes em
+                sua própria pele.
+              </p>
             </div>
-        </section>
-          <!--==================== SERVIÇOS ====================-->
-        <section class="services section container">
-            <h2 class="section__title">Serviços Especializados</h2>
 
-            <div class="services__container grid">
-                <article class="services__card">
-                    <i class='bx bx-spa services__icon'></i>
-                    <h3 class="services__title">Tratamentos Faciais</h3>
-                    <ul class="services__list">
-                        <li>Limpeza de Pele Profunda</li>
-                        <li>Peeling Químico</li>
-                        <li>Microagulhamento</li>
-                        <li>Radiofrequência</li>
-                    </ul>
-                </article>
+            <div class="about__details">
+              <h3 class="about__details-title section-fade">
+                Formação Acadêmica
+              </h3>
+              <ul class="about__details-list">
+                <li class="section-fade">
+                  <i class="bx bx-check about__details-icon section-fade"></i>
+                  <span class="about__details-text section-fade"
+                    >Graduação em Estética e Cosmética - Universidade
+                    Federal</span
+                  >
+                </li>
+                <li class="section-fade">
+                  <i class="bx bx-check about__details-icon section-fade"></i>
+                  <span class="about__details-text section-fade"
+                    >Pós-graduação em Dermatocosmética - Instituto de Estética
+                    Avançada</span
+                  >
+                </li>
+                <li class="section-fade">
+                  <i class="bx bx-check about__details-icon section-fade"></i>
+                  <span class="about__details-text section-fade"
+                    >Curso de Extensão em Terapias Capilares - Academia
+                    Brasileira de Tricologia</span
+                  >
+                </li>
+              </ul>
 
-                <article class="services__card">
-                    <i class='bx bx-body services__icon'></i>
-                    <h3 class="services__title">Terapias Corporais</h3>
-                    <ul class="services__list">
-                        <li>Massagem Modeladora</li>
-                        <li>Drenagem Linfática</li>
-                        <li>Endermologia</li>
-                        <li>Carboxiterapia</li>
-                    </ul>
-                </article>
-
-                <article class="services__card">
-                    <i class='bx bx-shield-alt-2 services__icon'></i>
-                    <h3 class="services__title">Consultoria</h3>
-                    <ul class="services__list">
-                        <li>Análise de Pele</li>
-                        <li>Rotina Personalizada</li>
-                        <li>Orientação Nutricional</li>
-                        <li>Acompanhamento</li>
-                    </ul>
-                </article>
+              <h3 class="about__details-title section-fade">Especializações</h3>
+              <ul class="about__details-list">
+                <li class="section-fade">
+                  <i class="bx bx-check about__details-icon section-fade"></i>
+                  <span class="about__details-text section-fade"
+                    >Tratamentos Faciais Avançados</span
+                  >
+                </li>
+                <li class="section-fade">
+                  <i class="bx bx-check about__details-icon section-fade"></i>
+                  <span class="about__details-text section-fade"
+                    >Terapias Corporais</span
+                  >
+                </li>
+                <li class="section-fade">
+                  <i class="bx bx-check about__details-icon section-fade"></i>
+                  <span class="about__details-text section-fade"
+                    >Cosmetologia Aplicada</span
+                  >
+                </li>
+                <li class="section-fade">
+                  <i class="bx bx-check about__details-icon section-fade"></i>
+                  <span class="about__details-text">Peelings Químicos</span>
+                </li>
+              </ul>
             </div>
-        </section>
+          </div>
+        </div>
+      </section>
 
-        <!--==================== EXPERIÊNCIA ====================-->
-        <section class="experience section container">
-            <h2 class="section__title">Minha Jornada Profissional</h2>
+      <!--==================== EXPERIÊNCIA ====================-->
+      <section class="experience section container">
+        <h2 class="section__title section-fade">Minha Jornada Profissional</h2>
 
-            <div class="experience__container grid">
-                <div class="experience__content">
-                    <div class="experience__time">
-                        <span class="experience__rounder"></span>
-                        <span class="experience__line"></span>
-                    </div>
-
-                    <div class="experience__data">
-                        <h3 class="experience__title">Esteticista Sênior</h3>
-                        <span class="experience__company">Clínica Beleza Natural | 2018-2020</span>
-                        <p class="experience__description">
-                            Realização de procedimentos faciais e corporais, desenvolvimento de protocolos personalizados e orientação de clientes sobre cuidados com a pele.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="experience__content">
-                    <div class="experience__time">
-                        <span class="experience__rounder"></span>
-                        <span class="experience__line"></span>
-                    </div>
-
-                    <div class="experience__data">
-                        <h3 class="experience__title">Consultora de Produtos</h3>
-                        <span class="experience__company">Dermatus Cosméticos | 2020-2021</span>
-                        <p class="experience__description">
-                            Consultoria técnica para desenvolvimento de novos produtos cosméticos, testes de eficácia e treinamento de equipes de vendas.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="experience__content">
-                    <div class="experience__time">
-                        <span class="experience__rounder"></span>
-                        <!-- Último item não tem linha -->
-                    </div>
-
-                    <div class="experience__data">
-                        <h3 class="experience__title">Fundadora da Lumine</h3>
-                        <span class="experience__company">Lumine Beleza & Estética | 2021-Presente</span>
-                        <p class="experience__description">
-                            Criação e gestão do meu próprio espaço de estética, oferecendo tratamentos personalizados com tecnologia de ponta e produtos de alta qualidade.
-                        </p>
-                    </div>
-                </div>
+        <div class="experience__container grid">
+          <div class="experience__content">
+            <div class="experience__time">
+              <span class="experience__rounder"></span>
+              <span class="experience__line"></span>
             </div>
-        </section>
 
-      
+            <div class="experience__data section-fade">
+              <h3 class="experience__title">Esteticista Sênior</h3>
+              <span class="experience__company"
+                >Clínica Beleza Natural | 2018-2020</span
+              >
+              <p class="experience__description">
+                Realização de procedimentos faciais e corporais, desenvolvimento
+                de protocolos personalizados e orientação de clientes sobre
+                cuidados com a pele.
+              </p>
+            </div>
+          </div>
+
+          <div class="experience__content">
+            <div class="experience__time">
+              <span class="experience__rounder"></span>
+              <span class="experience__line"></span>
+            </div>
+
+            <div class="experience__data">
+              <h3 class="experience__title">Consultora de Produtos</h3>
+              <span class="experience__company"
+                >Dermatus Cosméticos | 2020-2021</span
+              >
+              <p class="experience__description">
+                Consultoria técnica para desenvolvimento de novos produtos
+                cosméticos, testes de eficácia e treinamento de equipes de
+                vendas.
+              </p>
+            </div>
+          </div>
+
+          <div class="experience__content">
+            <div class="experience__time">
+              <span class="experience__rounder"></span>
+              <!-- Último item não tem linha -->
+            </div>
+
+            <div class="experience__data">
+              <h3 class="experience__title">Fundadora da Lumine</h3>
+              <span class="experience__company"
+                >Lumine Beleza & Estética | 2021-Presente</span
+              >
+              <p class="experience__description">
+                Criação e gestão do meu próprio espaço de estética, oferecendo
+                tratamentos personalizados com tecnologia de ponta e produtos de
+                alta qualidade.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
+    <!-- Chat interativo Lumine -->
+    <div class="chatbot-container" id="chatbot">
+      <div class="chatbot-header">
+        <h3>Assistente Lumine</h3>
+        <div class="chatbot-actions">
+          <button class="clear-chat" onclick="clearChat()">🗑️</button>
+          <button class="close-chat" onclick="toggleChat()">×</button>
+        </div>
+      </div>
+
+      <div class="chatbot-messages" id="chat-messages">
+        <div class="message bot" id="welcome-message">
+          <img src="assets/img/avatar.png" alt="Bot" class="bot-avatar" />
+          <p>
+            Olá! Sou a Duda 😊, assistente virtual da Lumine. Estou aqui para te
+            ajudar com:<br /><br />
+            ● Produtos <br />
+            ● Agendamentos <br />
+            ● Dúvidas de Compras <br />
+            ● Dicas de Cuidados <br /><br />
+            Esolha uma das opções😊
+          </p>
+        </div>
+      </div>
+
+      <div class="chatbot-input">
+        <input
+          type="text"
+          id="user-input"
+          placeholder="Digite sua mensagem..."
+        />
+        <button onclick="sendMessage()">Enviar</button>
+      </div>
+    </div>
+
+    <button class="chatbot-toggle" onclick="toggleChat()">
+      <img src="assets/img/avatar.png" alt="Chat" />
+    </button>
+    <!-- fim  do Chat interativo Lumine -->
+
     <!--==================== FOOTER ====================-->
-      <footer class="footer section">
-    <div class="footer__container container grid">
+    <footer class="footer section">
+      <div class="footer__container container grid">
         <div class="footer__content">
-            <h3 class="footer__title">Localização</h3>
-            <ul class="footer__list">
-                <li><i class='bx bx-map'></i> João Pessoa - PB</li>
-                <li><i class='bx bx-building-house'></i>Av. Maximiano Figueiredo, 29-2, Centro</li>
-                <li><i class='bx bx-phone'></i> (83) 9 9984-4101</li>
-            </ul>
-        </div>
-        
-        <div class="footer__content">
-            <h3 class="footer__title">Horários</h3>
-            <ul class="footer__links">
-                <li><i class='bx bx-time'></i> Seg-Sex: 9h-19h</li>
-                <li><i class='bx bx-calendar'></i> Sáb: Sob Agendamento</li>
-                <li><i class='bx bx-calendar'></i> Dom: Sob Agendamento</li>
-            </ul>
+          <h3 class="footer__title">Localização</h3>
+          <ul class="footer__list">
+            <li><i class="bx bx-map"></i> João Pessoa - PB</li>
+            <li>
+              <i class="bx bx-building-house"></i>Av. Maximiano Figueiredo,
+              29-2, Centro
+            </li>
+            <li><i class="bx bx-phone"></i> (83) 9 9984-4101</li>
+          </ul>
         </div>
 
         <div class="footer__content">
-            <h3 class="footer__title">Produtos</h3>
-            <ul class="footer__links">
-           <li><a href="#" class="footer__link"><i class='bx bx-chevron-right'></i> Facial</a></li>
-                <li><a href="#" class="footer__link"><i class='bx bx-chevron-right'></i> Capilar</a></li>
-                <li><a href="#" class="footer__link"><i class='bx bx-chevron-right'></i> Corporal</a></li>
-                <li><a href="#" class="footer__link"><i class='bx bx-chevron-right'></i> E Muito mais</a></li>
-            </ul>
+          <h3 class="footer__title">Horários</h3>
+          <ul class="footer__links">
+            <li><i class="bx bx-time"></i> Seg-Sex: 9h-19h</li>
+            <li><i class="bx bx-calendar"></i> Sáb: Sob Agendamento</li>
+            <li><i class="bx bx-calendar"></i> Dom: Sob Agendamento</li>
+          </ul>
         </div>
 
         <div class="footer__content">
-            <h3 class="footer__title">Social</h3>
-            <ul class="footer__social">              
-                <li><a href="https://wa.me/5583999844101" target="_blank" class="footer__social-link" aria-label="WhatsApp">
-                    <i class='bx bxl-whatsapp'></i>
-                </a></li>
-                <li><a href="https://www.instagram.com/_luminebe/" target="_blank" class="footer__social-link" aria-label="Instagram">
-                    <i class='bx bxl-instagram'></i>
-                </a></li>
-            </ul>
-            
-           
+          <h3 class="footer__title">Produtos</h3>
+          <ul class="footer__links">
+            <li>
+              <a href="#" class="footer__link"
+                ><i class="bx bx-chevron-right"></i> Facial</a
+              >
+            </li>
+            <li>
+              <a href="#" class="footer__link"
+                ><i class="bx bx-chevron-right"></i> Capilar</a
+              >
+            </li>
+            <li>
+              <a href="#" class="footer__link"
+                ><i class="bx bx-chevron-right"></i> Corporal</a
+              >
+            </li>
+            <li>
+              <a href="#" class="footer__link"
+                ><i class="bx bx-chevron-right"></i> E Muito mais</a
+              >
+            </li>
+          </ul>
         </div>
-    </div>
 
-    <div class="footer__bottom">
-        <span class="footer__copy">&#169; <span id="current-year"></span> Site feito por <a href="https://wa.me/5583986035776" target="_blank" style="color:hsl(31, 76%, 74%); ;" >Milton Albuquerque</a>. Todos os direitos reservados</span>
-    </div>
-</footer>
+        <div class="footer__content">
+          <h3 class="footer__title">Social</h3>
+          <ul class="footer__social">
+            <li>
+              <a
+                href="https://wa.me/5583999844101"
+                target="_blank"
+                class="footer__social-link"
+                aria-label="WhatsApp"
+              >
+                <i class="bx bxl-whatsapp"></i>
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.instagram.com/_luminebe/"
+                target="_blank"
+                class="footer__social-link"
+                aria-label="Instagram"
+              >
+                <i class="bx bxl-instagram"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <span class="footer__copy"
+          >&#169; <span id="current-year"></span> Site feito por
+          <a
+            href="https://wa.me/5583986035776"
+            target="_blank"
+            style="color: hsl(31, 76%, 74%)"
+            >Milton</a
+          >. Todos os direitos reservados</span
+        >
+      </div>
+    </footer>
 
     <!--=============== SCROLL UP ===============-->
-    <a href="#" class="scrollup" id="scroll-up"> 
-        <i class='bx bx-up-arrow-alt scrollup__icon'></i>
+    <a href="#" class="scrollup" id="scroll-up">
+      <i class="bx bx-up-arrow-alt scrollup__icon"></i>
     </a>
 
     <!--=============== SWIPER JS ===============-->
@@ -290,86 +410,85 @@
 
     <!--=============== CART JS ===============-->
 
-
     <!-- Codigo do carrinho de compras -->
     <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    // Variáveis do carrinho - Agora carrega do localStorage
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
-    const cartContainer = document.querySelector('.cart__container');
-    const cartTotalItems = document.querySelector('.cart__prices-item');
-    const cartTotalPrice = document.querySelector('.cart__prices-total');
-    const cartShop = document.getElementById('cart-shop');
-    const cartClose = document.getElementById('cart-close');
-    const cartElement = document.getElementById('cart');
-    
-    // Função para salvar o carrinho no localStorage
-    function saveCart() {
-        localStorage.setItem('cart', JSON.stringify(cart));
-    }
+      document.addEventListener("DOMContentLoaded", function () {
+        // Variáveis do carrinho - Agora carrega do localStorage
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        const cartContainer = document.querySelector(".cart__container");
+        const cartTotalItems = document.querySelector(".cart__prices-item");
+        const cartTotalPrice = document.querySelector(".cart__prices-total");
+        const cartShop = document.getElementById("cart-shop");
+        const cartClose = document.getElementById("cart-close");
+        const cartElement = document.getElementById("cart");
 
-    // Abrir/Fechar carrinho
-    cartShop.addEventListener('click', () => {
-        cartElement.classList.add('show-cart');
-        updateCart();
-    });
-    
-    cartClose.addEventListener('click', () => {
-        cartElement.classList.remove('show-cart');
-    });
-    
-    // Adicionar produto ao carrinho
-    function addToCart(name, price, img) {
-        const existingItem = cart.find(item => item.name === name);
-        
-        if (existingItem) {
-            existingItem.quantity += 1;
-        } else {
-            cart.push({
-                name: name,
-                price: price,
-                img: img,
-                quantity: 1
-            });
+        // Função para salvar o carrinho no localStorage
+        function saveCart() {
+          localStorage.setItem("cart", JSON.stringify(cart));
         }
-        
-        saveCart(); // Salva no localStorage
-        updateCart();
-    }
-    
-    // Remover produto do carrinho
-    function removeFromCart(name) {
-        cart = cart.filter(item => item.name !== name);
-        saveCart(); // Salva no localStorage
-        updateCart();
-    }
-    
-    // Atualizar quantidade
-    function updateQuantity(name, newQuantity) {
-        const item = cart.find(item => item.name === name);
-        if (item) {
+
+        // Abrir/Fechar carrinho
+        cartShop.addEventListener("click", () => {
+          cartElement.classList.add("show-cart");
+          updateCart();
+        });
+
+        cartClose.addEventListener("click", () => {
+          cartElement.classList.remove("show-cart");
+        });
+
+        // Adicionar produto ao carrinho
+        function addToCart(name, price, img) {
+          const existingItem = cart.find((item) => item.name === name);
+
+          if (existingItem) {
+            existingItem.quantity += 1;
+          } else {
+            cart.push({
+              name: name,
+              price: price,
+              img: img,
+              quantity: 1,
+            });
+          }
+
+          saveCart(); // Salva no localStorage
+          updateCart();
+        }
+
+        // Remover produto do carrinho
+        function removeFromCart(name) {
+          cart = cart.filter((item) => item.name !== name);
+          saveCart(); // Salva no localStorage
+          updateCart();
+        }
+
+        // Atualizar quantidade
+        function updateQuantity(name, newQuantity) {
+          const item = cart.find((item) => item.name === name);
+          if (item) {
             item.quantity = Math.max(1, newQuantity);
             saveCart(); // Salva no localStorage
             updateCart();
+          }
         }
-    }
-    
-    // Atualizar visualização do carrinho
-    function updateCart() {
-        // Limpar carrinho
-        cartContainer.innerHTML = '';
-        
-        let totalItems = 0;
-        let totalPrice = 0;
-        
-        // Adicionar itens ao carrinho
-        cart.forEach(item => {
+
+        // Atualizar visualização do carrinho
+        function updateCart() {
+          // Limpar carrinho
+          cartContainer.innerHTML = "";
+
+          let totalItems = 0;
+          let totalPrice = 0;
+
+          // Adicionar itens ao carrinho
+          cart.forEach((item) => {
             totalItems += item.quantity;
             totalPrice += item.price * item.quantity;
-            
-            const cartItem = document.createElement('article');
-            cartItem.classList.add('cart__card');
-            
+
+            const cartItem = document.createElement("article");
+            cartItem.classList.add("cart__card");
+
             cartItem.innerHTML = `
                 <div class="cart__box">
                     <img src="${item.img}" alt="${item.name}" class="cart__img">
@@ -377,188 +496,206 @@
                 
                 <div class="cart__details">
                     <h3 class="cart__title">${item.name}</h3>
-                    <span class="cart__price">R$ ${item.price.toFixed(2).replace('.', ',')}</span>
+                    <span class="cart__price">R$ ${item.price
+                      .toFixed(2)
+                      .replace(".", ",")}</span>
                     
                     <div class="cart__amount">
                         <div class="cart__amount-content">
-                            <span class="cart__amount-box minus" data-name="${item.name}">
+                            <span class="cart__amount-box minus" data-name="${
+                              item.name
+                            }">
                                 <i class='bx bx-minus'></i>
                             </span>
                             
-                            <span class="cart__amount-number">${item.quantity}</span>
+                            <span class="cart__amount-number">${
+                              item.quantity
+                            }</span>
                             
-                            <span class="cart__amount-box plus" data-name="${item.name}">
+                            <span class="cart__amount-box plus" data-name="${
+                              item.name
+                            }">
                                 <i class='bx bx-plus'></i>
                             </span>
                         </div>
                         
-                        <i class='bx bx-trash-alt cart__amount-trash' data-name="${item.name}"></i>
+                        <i class='bx bx-trash-alt cart__amount-trash' data-name="${
+                          item.name
+                        }"></i>
                     </div>
                 </div>
             `;
-            
+
             cartContainer.appendChild(cartItem);
-        });
-        
-        // Atualizar totais
-        cartTotalItems.textContent = `${totalItems} ${totalItems === 1 ? 'item' : 'items'}`;
-        cartTotalPrice.textContent = `R$ ${totalPrice.toFixed(2).replace('.', ',')}`;
-        
-        // Adicionar botão finalizar compra se houver itens
-        if (cart.length > 0) {
-            const checkoutBtn = document.createElement('button');
-            checkoutBtn.classList.add('button', 'cart__checkout');
-            checkoutBtn.textContent = 'Finalizar Compra';
-            checkoutBtn.addEventListener('click', checkout);
-            
-            if (!document.querySelector('.cart__checkout')) {
-                cartContainer.parentNode.insertBefore(checkoutBtn, cartContainer.nextElementSibling);
+          });
+
+          // Atualizar totais
+          cartTotalItems.textContent = `${totalItems} ${
+            totalItems === 1 ? "item" : "items"
+          }`;
+          cartTotalPrice.textContent = `R$ ${totalPrice
+            .toFixed(2)
+            .replace(".", ",")}`;
+
+          // Adicionar botão finalizar compra se houver itens
+          if (cart.length > 0) {
+            const checkoutBtn = document.createElement("button");
+            checkoutBtn.classList.add("button", "cart__checkout");
+            checkoutBtn.textContent = "Finalizar Compra";
+            checkoutBtn.addEventListener("click", checkout);
+
+            if (!document.querySelector(".cart__checkout")) {
+              cartContainer.parentNode.insertBefore(
+                checkoutBtn,
+                cartContainer.nextElementSibling
+              );
             }
-        } else {
-            const existingCheckoutBtn = document.querySelector('.cart__checkout');
+          } else {
+            const existingCheckoutBtn =
+              document.querySelector(".cart__checkout");
             if (existingCheckoutBtn) {
-                existingCheckoutBtn.remove();
+              existingCheckoutBtn.remove();
             }
+          }
+
+          // Adicionar eventos aos botões
+          addCartEvents();
         }
-        
-        // Adicionar eventos aos botões
-        addCartEvents();
-    }
-    
-    // Adicionar eventos aos botões do carrinho
-    function addCartEvents() {
-        // Botões de quantidade
-        document.querySelectorAll('.minus').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const name = this.getAttribute('data-name');
-                const item = cart.find(item => item.name === name);
-                if (item && item.quantity > 1) {
-                    updateQuantity(name, item.quantity - 1);
-                }
+
+        // Adicionar eventos aos botões do carrinho
+        function addCartEvents() {
+          // Botões de quantidade
+          document.querySelectorAll(".minus").forEach((btn) => {
+            btn.addEventListener("click", function () {
+              const name = this.getAttribute("data-name");
+              const item = cart.find((item) => item.name === name);
+              if (item && item.quantity > 1) {
+                updateQuantity(name, item.quantity - 1);
+              }
             });
-        });
-        
-        document.querySelectorAll('.plus').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const name = this.getAttribute('data-name');
-                const item = cart.find(item => item.name === name);
-                if (item) {
-                    updateQuantity(name, item.quantity + 1);
-                }
+          });
+
+          document.querySelectorAll(".plus").forEach((btn) => {
+            btn.addEventListener("click", function () {
+              const name = this.getAttribute("data-name");
+              const item = cart.find((item) => item.name === name);
+              if (item) {
+                updateQuantity(name, item.quantity + 1);
+              }
             });
-        });
-        
-        // Botões de remover
-        document.querySelectorAll('.cart__amount-trash').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const name = this.getAttribute('data-name');
-                removeFromCart(name);
+          });
+
+          // Botões de remover
+          document.querySelectorAll(".cart__amount-trash").forEach((btn) => {
+            btn.addEventListener("click", function () {
+              const name = this.getAttribute("data-name");
+              removeFromCart(name);
             });
-        });
-    }
-    
-    // Finalizar compra - WhatsApp
-    // Finalizar compra - WhatsApp ANIMAÇÃO
-       function checkout() {
-        // Criar overlay e container da animação
-        const overlay = document.createElement('div');
-        overlay.style.position = 'fixed';
-        overlay.style.top = '0';
-        overlay.style.left = '0';
-        overlay.style.width = '100%';
-        overlay.style.height = '100%';
-        overlay.style.backgroundColor = 'var(--body-color)';
-        overlay.style.display = 'flex';
-        overlay.style.justifyContent = 'center';
-        overlay.style.alignItems = 'center';
-        overlay.style.zIndex = '9999';
-        overlay.style.flexDirection = 'column';
-        overlay.style.fontFamily = "'Poppins', sans-serif";
-        
-        // Container principal da animação
-        const animationContainer = document.createElement('div');
-        animationContainer.style.position = 'relative';
-        animationContainer.style.width = '200px';
-        animationContainer.style.height = '250px';
-        animationContainer.style.display = 'flex';
-        animationContainer.style.flexDirection = 'column';
-        animationContainer.style.alignItems = 'center';
-        
-        // Sacola minimalista
-        const bag = document.createElement('div');
-        bag.style.width = '120px';
-        bag.style.height = '160px';
-        bag.style.backgroundColor = 'transparent';
-        bag.style.border = '2px solid var(--border-color)';
-        bag.style.borderRadius = '4px 4px 20px 20px';
-        bag.style.position = 'relative';
-        bag.style.overflow = 'hidden';
-        
-        // Detalhe superior da sacola (alça)
-        const bagTop = document.createElement('div');
-        bagTop.style.width = '140px';
-        bagTop.style.height = '20px';
-        bagTop.style.backgroundColor = 'transparent';
-        bagTop.style.border = '2px solid var(--border-color)';
-        bagTop.style.borderBottom = 'none';
-        bagTop.style.borderRadius = '20px 20px 0 0';
-        bagTop.style.position = 'absolute';
-        bagTop.style.top = '-10px';
-        bagTop.style.left = '50%';
-        bagTop.style.transform = 'translateX(-50%)';
-        
-        // Efeito de preenchimento sutil
-        const filling = document.createElement('div');
-        filling.style.width = '100%';
-        filling.style.height = '0%';
-        filling.style.background = 'var(--first-color)';
-        filling.style.position = 'absolute';
-        filling.style.bottom = '0';
-        filling.style.transition = 'height 2s cubic-bezier(0.19, 1, 0.22, 1)';
-        filling.style.opacity = '0.7';
-        
-        // Linhas de detalhe na sacola
-        for (let i = 1; i <= 3; i++) {
-            const line = document.createElement('div');
-            line.style.width = '100%';
-            line.style.height = '1px';
-            line.style.backgroundColor = 'var(--border-color)';
-            line.style.position = 'absolute';
+          });
+        }
+
+        // Finalizar compra - WhatsApp
+        // Finalizar compra - WhatsApp ANIMAÇÃO
+        function checkout() {
+          // Criar overlay e container da animação
+          const overlay = document.createElement("div");
+          overlay.style.position = "fixed";
+          overlay.style.top = "0";
+          overlay.style.left = "0";
+          overlay.style.width = "100%";
+          overlay.style.height = "100%";
+          overlay.style.backgroundColor = "var(--body-color)";
+          overlay.style.display = "flex";
+          overlay.style.justifyContent = "center";
+          overlay.style.alignItems = "center";
+          overlay.style.zIndex = "9999";
+          overlay.style.flexDirection = "column";
+          overlay.style.fontFamily = "'Poppins', sans-serif";
+
+          // Container principal da animação
+          const animationContainer = document.createElement("div");
+          animationContainer.style.position = "relative";
+          animationContainer.style.width = "200px";
+          animationContainer.style.height = "250px";
+          animationContainer.style.display = "flex";
+          animationContainer.style.flexDirection = "column";
+          animationContainer.style.alignItems = "center";
+
+          // Sacola minimalista
+          const bag = document.createElement("div");
+          bag.style.width = "120px";
+          bag.style.height = "160px";
+          bag.style.backgroundColor = "transparent";
+          bag.style.border = "2px solid var(--border-color)";
+          bag.style.borderRadius = "4px 4px 20px 20px";
+          bag.style.position = "relative";
+          bag.style.overflow = "hidden";
+
+          // Detalhe superior da sacola (alça)
+          const bagTop = document.createElement("div");
+          bagTop.style.width = "140px";
+          bagTop.style.height = "20px";
+          bagTop.style.backgroundColor = "transparent";
+          bagTop.style.border = "2px solid var(--border-color)";
+          bagTop.style.borderBottom = "none";
+          bagTop.style.borderRadius = "20px 20px 0 0";
+          bagTop.style.position = "absolute";
+          bagTop.style.top = "-10px";
+          bagTop.style.left = "50%";
+          bagTop.style.transform = "translateX(-50%)";
+
+          // Efeito de preenchimento sutil
+          const filling = document.createElement("div");
+          filling.style.width = "100%";
+          filling.style.height = "0%";
+          filling.style.background = "var(--first-color)";
+          filling.style.position = "absolute";
+          filling.style.bottom = "0";
+          filling.style.transition = "height 2s cubic-bezier(0.19, 1, 0.22, 1)";
+          filling.style.opacity = "0.7";
+
+          // Linhas de detalhe na sacola
+          for (let i = 1; i <= 3; i++) {
+            const line = document.createElement("div");
+            line.style.width = "100%";
+            line.style.height = "1px";
+            line.style.backgroundColor = "var(--border-color)";
+            line.style.position = "absolute";
             line.style.top = `${i * 25}%`;
-            line.style.opacity = '0.3';
+            line.style.opacity = "0.3";
             bag.appendChild(line);
-        }
-        
-        // Texto de status
-        const text = document.createElement('p');
-        text.textContent = 'Finalizando seu pedido';
-        text.style.color = 'var(--text-color)';
-        text.style.fontSize = '0.9rem';
-        text.style.marginTop = '25px';
-        text.style.letterSpacing = '1px';
-        text.style.opacity = '0';
-        text.style.transition = 'opacity 0.8s ease';
-        
-        // Pontos animados
-        const dots = document.createElement('div');
-        dots.innerHTML = '<span>.</span><span>.</span><span>.</span>';
-        dots.style.color = 'var(--first-color)';
-        dots.style.fontSize = '1.2rem';
-        dots.style.marginTop = '10px';
-        dots.style.opacity = '0';
-        
-        // Adicionando elementos
-        bag.appendChild(bagTop);
-        bag.appendChild(filling);
-        animationContainer.appendChild(bag);
-        animationContainer.appendChild(text);
-        animationContainer.appendChild(dots);
-        overlay.appendChild(animationContainer);
-        document.body.appendChild(overlay);
-        
-        // Animação dos pontos
-        const style = document.createElement('style');
-        style.innerHTML = `
+          }
+
+          // Texto de status
+          const text = document.createElement("p");
+          text.textContent = "Finalizando seu pedido";
+          text.style.color = "var(--text-color)";
+          text.style.fontSize = "0.9rem";
+          text.style.marginTop = "25px";
+          text.style.letterSpacing = "1px";
+          text.style.opacity = "0";
+          text.style.transition = "opacity 0.8s ease";
+
+          // Pontos animados
+          const dots = document.createElement("div");
+          dots.innerHTML = "<span>.</span><span>.</span><span>.</span>";
+          dots.style.color = "var(--first-color)";
+          dots.style.fontSize = "1.2rem";
+          dots.style.marginTop = "10px";
+          dots.style.opacity = "0";
+
+          // Adicionando elementos
+          bag.appendChild(bagTop);
+          bag.appendChild(filling);
+          animationContainer.appendChild(bag);
+          animationContainer.appendChild(text);
+          animationContainer.appendChild(dots);
+          overlay.appendChild(animationContainer);
+          document.body.appendChild(overlay);
+
+          // Animação dos pontos
+          const style = document.createElement("style");
+          style.innerHTML = `
             @keyframes blink {
                 0%, 100% { opacity: 0.2; }
                 50% { opacity: 1; }
@@ -570,99 +707,159 @@
             #checkout-dots span:nth-child(2) { animation-delay: 0.2s; }
             #checkout-dots span:nth-child(3) { animation-delay: 0.4s; }
         `;
-        dots.id = 'checkout-dots';
-        document.head.appendChild(style);
-        
-        // Iniciar animação
-        setTimeout(() => {
+          dots.id = "checkout-dots";
+          document.head.appendChild(style);
+
+          // Iniciar animação
+          setTimeout(() => {
             // Mostrar texto e pontos
-            text.style.opacity = '1';
-            dots.style.opacity = '1';
-            
+            text.style.opacity = "1";
+            dots.style.opacity = "1";
+
             // Preencher a sacola
-            filling.style.height = '100%';
-            
+            filling.style.height = "100%";
+
             // Mudar texto ao finalizar
             setTimeout(() => {
-                text.textContent = 'Pedido confirmado';
-                text.style.color = 'var(--first-color)';
-                
-                // Adicionar checkmark sutil
-                const checkmark = document.createElement('div');
-                checkmark.style.width = '30px';
-                checkmark.style.height = '30px';
-                checkmark.style.borderLeft = '2px solid var(--first-color)';
-                checkmark.style.borderBottom = '2px solid var(--first-color)';
-                checkmark.style.position = 'absolute';
-                checkmark.style.top = '50%';
-                checkmark.style.left = '50%';
-                checkmark.style.transform = 'translate(-50%, -75%) rotate(-45deg)';
-                checkmark.style.opacity = '0';
-                checkmark.style.transition = 'opacity 0.8s';
-                bag.appendChild(checkmark);
-                
-                setTimeout(() => {
-                    checkmark.style.opacity = '1';
-                }, 300);
+              text.textContent = "Pedido confirmado";
+              text.style.color = "var(--first-color)";
+
+              // Adicionar checkmark sutil
+              const checkmark = document.createElement("div");
+              checkmark.style.width = "30px";
+              checkmark.style.height = "30px";
+              checkmark.style.borderLeft = "2px solid var(--first-color)";
+              checkmark.style.borderBottom = "2px solid var(--first-color)";
+              checkmark.style.position = "absolute";
+              checkmark.style.top = "50%";
+              checkmark.style.left = "50%";
+              checkmark.style.transform =
+                "translate(-50%, -75%) rotate(-45deg)";
+              checkmark.style.opacity = "0";
+              checkmark.style.transition = "opacity 0.8s";
+              bag.appendChild(checkmark);
+
+              setTimeout(() => {
+                checkmark.style.opacity = "1";
+              }, 300);
             }, 1800);
-        }, 300);
-        
-        // Após animação, redirecionar para WhatsApp
-        setTimeout(() => {
+          }, 300);
+
+          // Após animação, redirecionar para WhatsApp
+          setTimeout(() => {
             let message = "Olá, gostaria de comprar os seguintes itens:\n\n";
-            
-            cart.forEach(item => {
-                message += `- ${item.name} (${item.quantity}x): R$ ${(item.price * item.quantity).toFixed(2).replace('.', ',')}\n`;
+
+            cart.forEach((item) => {
+              message += `- ${item.name} (${item.quantity}x): R$ ${(
+                item.price * item.quantity
+              )
+                .toFixed(2)
+                .replace(".", ",")}\n`;
             });
-            
-            message += `\nTotal: R$ ${cart.reduce((total, item) => total + (item.price * item.quantity), 0).toFixed(2).replace('.', ',')}`;
-            
+
+            message += `\nTotal: R$ ${cart
+              .reduce((total, item) => total + item.price * item.quantity, 0)
+              .toFixed(2)
+              .replace(".", ",")}`;
+
             // Codificar a mensagem para URL
             const encodedMessage = encodeURIComponent(message);
-            
+
             // Remover overlay
             overlay.remove();
             style.remove();
-            
+
             // Abrir WhatsApp
-            window.open(`https://wa.me/5583999844101?text=${encodedMessage}`, '_blank');
-            
+            window.location.href = `https://wa.me/5583999844101?text=${encodedMessage}`;
+
             // Limpar carrinho após finalizar
             cart = [];
             saveCart();
             updateCart();
-        }, 4500); // Tempo total da animação
-    }
-    // FINAL DA ANIMAÇÃO DA SACOLA 
-    // Adicionar eventos aos botões "Add to Cart"
-    document.querySelectorAll('.featured__button, .new__button, .products__button, .home__button').forEach(button => {
-        button.addEventListener('click', function() {
-            // Encontrar os dados do produto
-            const card = this.closest('.featured__card, .new__card, .products__card, .home__container');
-            let name, price, img;
-            
-            if (card.classList.contains('featured__card') || card.classList.contains('new__card')) {
-                name = card.querySelector('.featured__title, .new__title').textContent;
-                price = parseFloat(card.querySelector('.featured__price, .new__price').textContent.replace('R$', '').replace('.', '').replace(',', '.'));
-                img = card.querySelector('.featured__img, .new__img').src;
-            } else if (card.classList.contains('products__card')) {
-                name = card.querySelector('.products__title').textContent;
-                price = parseFloat(card.querySelector('.products__price').textContent.replace('R$', '').replace('.', '').replace(',', '.'));
-                img = card.querySelector('.products__img').src;
-            } else if (card.classList.contains('home__container')) {
+          }, 4500); // Tempo total da animação
+        }
+        // FINAL DA ANIMAÇÃO DA SACOLA
+        // Adicionar eventos aos botões "Add to Cart"
+        document
+          .querySelectorAll(
+            ".featured__button, .new__button, .products__button, .home__button"
+          )
+          .forEach((button) => {
+            button.addEventListener("click", function () {
+              // Encontrar os dados do produto
+              const card = this.closest(
+                ".featured__card, .new__card, .products__card, .home__container"
+              );
+              let name, price, img;
+
+              if (
+                card.classList.contains("featured__card") ||
+                card.classList.contains("new__card")
+              ) {
+                name = card.querySelector(
+                  ".featured__title, .new__title"
+                ).textContent;
+                price = parseFloat(
+                  card
+                    .querySelector(".featured__price, .new__price")
+                    .textContent.replace("R$", "")
+                    .replace(".", "")
+                    .replace(",", ".")
+                );
+                img = card.querySelector(".featured__img, .new__img").src;
+              } else if (card.classList.contains("products__card")) {
+                name = card.querySelector(".products__title").textContent;
+                price = parseFloat(
+                  card
+                    .querySelector(".products__price")
+                    .textContent.replace("R$", "")
+                    .replace(".", "")
+                    .replace(",", ".")
+                );
+                img = card.querySelector(".products__img").src;
+              } else if (card.classList.contains("home__container")) {
                 name = "NEW WATCH COLLECTIONS B720";
-                price = parseFloat(document.querySelector('.home__price').textContent.replace('R$', '').replace('.', '').replace(',', '.'));
-                img = document.querySelector('.home__img').src;
-            }
-            
-            addToCart(name, price, img);
-            cartElement.classList.add('show-cart');
-        });
-    });
-    
-    // Inicializar carrinho (agora carrega do localStorage)
-    updateCart();
-});
+                price = parseFloat(
+                  document
+                    .querySelector(".home__price")
+                    .textContent.replace("R$", "")
+                    .replace(".", "")
+                    .replace(",", ".")
+                );
+                img = document.querySelector(".home__img").src;
+              }
+
+              addToCart(name, price, img);
+              cartElement.classList.add("show-cart");
+            });
+          });
+
+        // Inicializar carrinho (agora carrega do localStorage)
+        updateCart();
+      });
     </script>
-</body>
+    <!-- metodo de rolagem da pagina -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              // Só ativa quando 50% da seção estiver visível
+              if (entry.intersectionRatio >= 0.6) {
+                entry.target.classList.add("section-visible");
+              }
+            });
+          },
+          {
+            threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1], // Pontos de verificação
+          }
+        );
+
+        document.querySelectorAll(".section-fade").forEach((section) => {
+          observer.observe(section);
+        });
+      });
+    </script>
+    <script src="assistente.js"></script>
+  </body>
 </html>

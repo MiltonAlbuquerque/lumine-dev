@@ -464,3 +464,13 @@
     font-size: 1.2rem;
     margin-top: 1rem;
 }
+
+/* Efeito de cor na composição */
+
+.composicao {
+    color: var(--first-color);
+    font-weight: 400; /* equivalente a bold, mas com valor numérico */
+    font-size: 1.0em; /* aumentando um pouco o tamanho */
+    text-transform: uppercase; /* se quiser deixar todo o texto em maiúsculas */
+    /* Outras propriedades que desejar */
+}

@@ -1,754 +1,962 @@
- <!DOCTYPE html>
-    <html lang="pt-br">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <!--=============== FAVICON ===============-->
-        <link rel="shortcut icon" href="assets/img/Silhueta 03.png" type="image/x-icon">
+    <!--=============== FAVICON ===============-->
+    <link
+      rel="shortcut icon"
+      href="assets/img/Silhueta 03.png"
+      type="image/x-icon"
+    />
 
-        <!--=============== BOXICONS ===============-->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <!--=============== BOXICONS ===============-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"
+    />
 
-        <!--=============== SWIPER CSS ===============--> 
-        <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+    <!--=============== SWIPER CSS ===============-->
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css" />
 
-        <!--=============== CSS ===============-->
-        <link rel="stylesheet" href="assets/css/styles.css">
+    <!--=============== CSS ===============-->
+    <link rel="stylesheet" href="assets/css/styles.css" />
 
-        <!-- Rodape -->
-         <link rel="stylesheet" href="assets/css/rodape.css">
+    <!-- Rodape -->
+    <link rel="stylesheet" href="assets/css/rodape.css" />
 
+    <title>Lumine</title>
+  </head>
+  <body>
+    <style>
+      /* Estilo inicial para as seções - invisíveis */
+      .section-fade {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      }
 
-        <title>Lumine</title>
-    </head>
-    <body>
-        <!--==================== HEADER ====================-->
-        <header class="header" id="header">
-            <nav class="nav container">
-                <a href="index.html" class="nav__logo">
-                    <img src="./assets/img/Silhueta png 01.png" alt="Lumine" class="nav__logo-icon" onerror="this.style.display='none'">
-                    <span>Lumine</span>
-                </a>
+      /* Classe que será adicionada quando a seção estiver visível */
+      .section-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      /* Aumentando a imagem da nav bar */
+      .nav__logo {
+        display: flex;
+        align-items: center;
+        position: relative;
+        z-index: 1;
+      }
 
-                <div class="nav__menu" id="nav-menu">
-                    <ul class="nav__list">
-                        <li class="nav__item">
-                            <a href="#home" class="nav__link active-link">Inicio</a>
-                        </li>
-                        <li class="nav__item">
-                            <a href="#sobre" class="nav__link">Sobre Nós</a>
-                        </li>
-                        <li class="nav__item">
-                            <a href="produtos.html" class="nav__link">Produtos</a>
-                        </li>
-                        <li class="nav__item">
-                            <a href="#new" class="nav__link">Destaques</a>
-                        </li>
-                     
-                    </ul>
+      .nav__logo-icon {
+        height: 120%; /* Aumenta a altura relativa ao container */
+        width: auto;
+        max-height: 50px; /* Limite máximo */
+        transition: all 0.3s ease;
+        margin-right: 8px;
+        transform: translateY(2px); /* Ajuste fino vertical */
+      }
 
-                    <div class="nav__close" id="nav-close">
-                        <i class='bx bx-x' ></i>
-                    </div>
-                </div>
+      /* Opcional: Efeito hover suave */
+      .nav__logo:hover .nav__logo-icon {
+        transform: translateY(2px) scale(1.1);
+      }
+    </style>
+    <!--==================== HEADER ====================-->
+    <header class="header" id="header">
+      <nav class="nav container">
+        <a href="index.html" class="nav__logo">
+          <img
+            src="./assets/img/Silhueta png 01.png"
+            alt="Lumine"
+            class="nav__logo-icon"
+            onerror="this.style.display='none'"
+          />
+          <span>Lumine</span>
+        </a>
 
-                <div class="nav__btns">
-                    <!-- Theme change button -->
-                    <i class='bx bx-moon change-theme' id="theme-button"></i>
+        <div class="nav__menu" id="nav-menu">
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a href="#home" class="nav__link active-link">Inicio</a>
+            </li>
+            <li class="nav__item">
+              <a href="#sobre" class="nav__link">Sobre Nós</a>
+            </li>
+            <li class="nav__item">
+              <a href="produtos.html" class="nav__link">Produtos</a>
+            </li>
+            <li class="nav__item">
+              <a href="#new" class="nav__link">Serviços</a>
+            </li>
+          </ul>
 
-                    <div class="nav__shop" id="cart-shop">
-                        <i class='bx bx-shopping-bag' ></i>
-                    </div>
-
-                    <div class="nav__toggle" id="nav-toggle">
-                        <i class='bx bx-grid-alt' ></i>
-                    </div>
-                </div>
-            </nav>
-        </header>
-
-        <!--==================== CART ====================-->
-        <div class="cart" id="cart">
-            <i class='bx bx-x cart__close' id="cart-close"></i>
-
-            <h2 class="cart__title-center">Minha Sacola</h2>
-
-            <div class="cart__container">
-                <article class="cart__card">
-                    <div class="cart__box">
-                        <img src="assets/img/featured1.png" alt="" class="cart__img">
-                    </div>
-
-                    <div class="cart__details">
-                        <h3 class="cart__title">Jazzmaster</h3>
-                        <span class="cart__price">R$ 1050</span>
-
-                        <div class="cart__amount">
-                            <div class="cart__amount-content">
-                                <span class="cart__amount-box">
-                                    <i class='bx bx-minus' ></i>
-                                </span>
-
-                                <span class="cart__amount-number">1</span>
-
-                                <span class="cart__amount-box">
-                                    <i class='bx bx-plus' ></i>
-                                </span>
-                            </div>
-
-                            <i class='bx bx-trash-alt cart__amount-trash' ></i>
-                        </div>
-                    </div>
-                </article>
-                
-                <article class="cart__card">
-                    <div class="cart__box">
-                        <img src="assets/img/featured3.png" alt="" class="cart__img">
-                    </div>
-
-                    <div class="cart__details">
-                        <h3 class="cart__title">Rose Gold</h3>
-                        <span class="cart__price">R$ 850</span>
-
-                        <div class="cart__amount">
-                            <div class="cart__amount-content">
-                                <span class="cart__amount-box">
-                                    <i class='bx bx-minus' ></i>
-                                </span>
-
-                                <span class="cart__amount-number">1</span>
-
-                                <span class="cart__amount-box">
-                                    <i class='bx bx-plus' ></i>
-                                </span>
-                            </div>
-
-                            <i class='bx bx-trash-alt cart__amount-trash' ></i>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="cart__card">
-                    <div class="cart__box">
-                        <img src="assets/img/new1.png" alt="" class="cart__img">
-                    </div>
-
-                    <div class="cart__details">
-                        <h3 class="cart__title">Longines Rose</h3>
-                        <span class="cart__price">R$ 980</span>
-
-                        <div class="cart__amount">
-                            <div class="cart__amount-content">
-                                <span class="cart__amount-box">
-                                    <i class='bx bx-minus' ></i>
-                                </span>
-
-                                <span class="cart__amount-number">1</span>
-
-                                <span class="cart__amount-box">
-                                    <i class='bx bx-plus' ></i>
-                                </span>
-                            </div>
-
-                            <i class='bx bx-trash-alt cart__amount-trash' ></i>
-                        </div>
-                    </div>
-                </article>
-            </div>
-
-            <div class="cart__prices">
-                <span class="cart__prices-item">3 items</span>
-                <span class="cart__prices-total">R$ 2880</span>
-            </div>
+          <div class="nav__close" id="nav-close">
+            <i class="bx bx-x"></i>
+          </div>
         </div>
 
-        <!--==================== MAIN ====================-->
-        <main class="main">
-            <!--==================== HOME ====================-->
-            <section class="home" id="home">
-                <div class="home__container container grid">
-                    <div class="home__img-bg">
-                        <img src="assets/img/Mirlleiny foto 01.png" alt="" class="home__img">
-                    </div>
-    
-                    <div class="home__social">
-                        <a href="https://www.facebook.com/" target="_blank" class="home__social-link">
-                          
-                        </a>
-                        <a href="https://wa.me/5583999844101" target="_blank" class="home__social-link">
-                            WhatsApp
-                        </a>
-                        <a href="https://www.instagram.com/_luminebe/" target="_blank" class="home__social-link">
-                            Instagram
-                        </a>
-                    </div>
-    
-                    <div class="home__data">
-                        <h1 class="home__title">BEM-VINDO <br>À LUMINE<br>BELEZA & ESTETICA</h1>
-                        <p class="home__description">
-                            Somos a Lumine empresa especializada em estetica e beleza,
-                            com anos de experiências no mercado, com os melhores produtos e serviços.
-                        </p>
-                        <span class="home__price">Clique para saber mais</span>
+        <div class="nav__btns">
+          <!-- Theme change button -->
+          <i class="bx bx-moon change-theme" id="theme-button"></i>
 
-                        <div class="home__btns">
-                            <a href="sobre.html" class="button button--gray button--small">
-                                Saiba Mais
-                            </a>
+          <div class="nav__shop" id="cart-shop">
+            <i class="bx bx-shopping-bag"></i>
+          </div>
 
-                            <!-- <button class="button home__button">ADD TO CART</button> -->
-                        </div>
-                    </div>
-                </div>
-            </section>
+          <div class="nav__toggle" id="nav-toggle">
+            <i class="bx bx-grid-alt"></i>
+          </div>
+        </div>
+      </nav>
+    </header>
 
-            <!--==================== FEATURED ====================-->
-            <section class="featured section container" id="featured">
-                <h2 class="section__title">
-                    Mais Vendidos
-                </h2>
+    <!--==================== CART ====================-->
+    <div class="cart" id="cart">
+      <i class="bx bx-x cart__close" id="cart-close"></i>
 
-                <div class="featured__container grid">
-                    <article class="featured__card">
-                        <span class="featured__tag">Mais vendido</span>
+      <h2 class="cart__title-center">Minha Sacola</h2>
 
-                        <img src="assets/img/embalagem_1.png" alt="" class="featured__img">
+      <div class="cart__container">
+        <article class="cart__card">
+          <div class="cart__box">
+            <img src="assets/img/featured1.png" alt="" class="cart__img" />
+          </div>
 
-                        <div class="featured__data">
-                            <h3 class="featured__title">Sabonete Regenerador<br>150g</h3>
-                            <span class="featured__price">R$ 49,00</span>
-                        </div>
+          <div class="cart__details">
+            <h3 class="cart__title">Jazzmaster</h3>
+            <span class="cart__price">R$ 1050</span>
 
-                        <button class="button featured__button">ADD À SACOLA</button>
-                    </article>
+            <div class="cart__amount">
+              <div class="cart__amount-content">
+                <span class="cart__amount-box">
+                  <i class="bx bx-minus"></i>
+                </span>
 
-                    <article class="featured__card">
-                        <span class="featured__tag">Mais vendido</span>
+                <span class="cart__amount-number">1</span>
 
-                        <img src="assets/img/embalagem_1.png" alt="" class="featured__img">
+                <span class="cart__amount-box">
+                  <i class="bx bx-plus"></i>
+                </span>
+              </div>
 
-                        <div class="featured__data">
-                            <h3 class="featured__title">Esfoliante Com Hamamélis<br>50g</h3>
-                            <span class="featured__price">R$ 31,50</span>
-                        </div>
-
-                        <button class="button featured__button">ADD À SACOLA</button>
-                    </article>
-
-                    <article class="featured__card">
-                        <span class="featured__tag">Mais vendido</span>
-
-                        <img src="assets/img/embalagem_1.png" alt="" class="featured__img">
-
-                        <div class="featured__data">
-                            <h3 class="featured__title">Hidratante Facial<br>30g</h3>
-                            <span class="featured__price">R$ 65,50</span>
-                        </div>
-
-                        <button class="button featured__button">ADD À SACOLA</button>
-                    </article>
-                </div>
-            </section>
-
-            <!--==================== STORY ====================-->
-            <section class="story section container" id="sobre">
-                <div class="story__container grid">
-                    <div class="story__data" >
-                        <h2 class="section__title story__section-title">
-                           Sobre mim
-                        </h2>
-    
-                        <h1 class="story__title">
-                            Olá, meu nome é<br> Mirlleiny Oliveira
-                        </h1>
-    
-                        <p class="story__description">
-                            Fundadora da Lumine e especialista em estética. 
-                            Ofereço tratamentos faciais e corporais personalizados com tecnologia avançada.
-                             Meu objetivo é realçar sua beleza natural com excelência e cuidado.
-                        </p>
-            
-    
-                        <a href="sobre.html" class="button button--small">Clique Para Saber Mais</a>
-                    </div>
-
-                    <div class="story__images">
-                        <img src="assets/img/Mir-foto3.jpg" alt="" class="story__img">
-                        <div class="story__square"></div>
-                    </div>
-                </div>
-            </section>
-
-            <!--==================== PRODUCTS ====================-->
-            <section class="products section container" id="products">
-                <h2 class="section__title">
-                    Alguns de nossos <br>Produtos
-                </h2>
-
-                <div class="products__container grid">
-                    <article class="products__card">
-                        <img src="assets/img/embalagem_1.png" alt="" class="products__img">
-
-                        <h3 class="products__title">Nívea Creme</h3>
-                        <span class="products__price">R$ 12,90</span>
-
-                        <button class="products__button">
-                            <i class='bx bx-shopping-bag'></i>
-                        </button>
-                        <!-- Botão de Informações -->
-                <button class="info-button" aria-label="Informações do produto">
-                     <i class='bx bx-info-circle'></i>
-                </button>
-                 <div class="product-info">
-                   <p>Pigmentada, blendável, versátil, acessível, vibrante.!</p>
-                 </div>
-                <!-- Fim Botão de informação -->
-                    </article>
-
-                    <article class="products__card">
-                        <img src="assets/img/embalagem_1.png" alt="" class="products__img">
-
-                        <h3 class="products__title">CeraVe Loção Hidratante</h3>
-                        <span class="products__price">R$ 89,90</span>
-
-                        <button class="products__button">
-                            <i class='bx bx-shopping-bag'></i>
-                        </button>
-                        <!-- Botão de Informações -->
-                <button class="info-button" aria-label="Informações do produto">
-                     <i class='bx bx-info-circle'></i>
-                </button>
-                 <div class="product-info">
-                   <p>Pigmentada, blendável, versátil, acessível, vibrante.!</p>
-                 </div>
-                <!-- Fim Botão de informação -->
-                    </article>
-
-                    <article class="products__card">
-                        <img src="assets/img/embalagem_1.png" alt="" class="products__img">
-
-                        <h3 class="products__title">La Roche-Posay Effaclar</h3>
-                        <span class="products__price"> R$ 129,90</span>
-
-                        <button class="products__button">
-                            <i class='bx bx-shopping-bag'></i>
-                        </button>
-                        <!-- Botão de Informações -->
-                <button class="info-button" aria-label="Informações do produto">
-                     <i class='bx bx-info-circle'></i>
-                </button>
-                 <div class="product-info">
-                   <p>Pigmentada, blendável, versátil, acessível, vibrante.!</p>
-                 </div>
-                <!-- Fim Botão de informação -->
-                    </article>
-
-                    <article class="products__card">
-                        <img src="assets/img/embalagem_1.png" alt="" class="products__img">
-
-                        <h3 class="products__title">Neutrogena Hydro Boost </h3>
-                        <span class="products__price"> R$ 79,90</span>
-
-                        <button class="products__button">
-                            <i class='bx bx-shopping-bag'></i>
-                        </button>
-                        <!-- Botão de Informações -->
-                <button class="info-button" aria-label="Informações do produto">
-                     <i class='bx bx-info-circle'></i>
-                </button>
-                 <div class="product-info">
-                   <p>Pigmentada, blendável, versátil, acessível, vibrante.!</p>
-                 </div>
-                <!-- Fim Botão de informação -->
-                    </article>
-
-                    <article class="products__card">
-                        <img src="assets/img/embalagem_1.png" alt="" class="products__img">
-
-                        <h3 class="products__title">Vichy Mineral 89</h3>
-                        <span class="products__price">R$ 149,90</span>
-
-                        <button class="products__button">
-                            <i class='bx bx-shopping-bag'></i>
-                        </button>
-                        <!-- Botão de Informações -->
-                <button class="info-button" aria-label="Informações do produto">
-                     <i class='bx bx-info-circle'></i>
-                </button>
-                 <div class="product-info">
-                   <p>Pigmentada, blendável, versátil, acessível, vibrante.!</p>
-                 </div>
-                <!-- Fim Botão de informação -->
-                    </article>
-
-                    <article class="products__card">
-                        <img src="assets/img/embalagem_1.png" alt="" class="products__img">
-
-                        <h3 class="products__title">Cetaphil Limpador Facial</h3>
-                        <span class="products__price">R$ 59,90</span>
-
-                        <button class="products__button">
-                            <i class='bx bx-shopping-bag'></i>
-                        </button>
-                        <!-- Botão de Informações -->
-                <button class="info-button" aria-label="Informações do produto">
-                     <i class='bx bx-info-circle'></i>
-                </button>
-                 <div class="product-info">
-                   <p>Pigmentada, blendável, versátil, acessível, vibrante.!</p>
-                 </div>
-                <!-- Fim Botão de informação -->
-                    </article>
-                </div>
-                   <div class="compra_mais">
-                            <a href="produtos.html" class="button button--gray button--small">
-                                Adquira Mais
-                            </a>
-
-                            <!-- <button class="button home__button">ADD TO CART</button> -->
-                        </div>
-            </section>
-
-            <!--==================== TESTIMONIAL ====================-->
-            <section class="testimonial section container">
-                <div class="testimonial__container grid">
-                    <div class="swiper testimonial-swiper">
-                        <div class="swiper-wrapper">
-                            <div class="testimonial__card swiper-slide">
-                                <div class="testimonial__quote">
-                                    <i class='bx bxs-quote-alt-left' ></i>
-                                </div>
-                                <p class="testimonial__description">
-                                    Nunca achei um hidratante que absorvesse tão rápido como o Creme de Pele Lumine!
-                                     Minha pele ficou macia sem oleosidade, e o cheiro é divino.
-                                </p>
-                                <h3 class="testimonial__date">Cliente</h3>
-        
-                                <div class="testimonial__perfil">
-                                    <img src="assets/img/testimonial1.jpg" alt="" class="testimonial__perfil-img">
-        
-                                    <div class="testimonial__perfil-data">
-                                        <span class="testimonial__perfil-name">Carlos Menezes</span>
-                                        <span class="testimonial__perfil-detail">Barbeiro</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="testimonial__card swiper-slide">
-                                <div class="testimonial__quote">
-                                    <i class='bx bxs-quote-alt-left' ></i>
-                                </div>
-                                <p class="testimonial__description">
-                                    Comprei o Batom Matte Lumine e me surpreendi! Não resseca, dura o dia todo e tem tons perfeitos para peles morenas como a minha. 
-                                    A embalagem é linda, e o atendimento da loja online foi super atencioso. Recomendo demais!
-                                </p>
-                                <h3 class="testimonial__date">Cliente</h3>
-        
-                                <div class="testimonial__perfil">
-                                    <img src="assets/img/testimonial2.jpg" alt="" class="testimonial__perfil-img">
-        
-                                    <div class="testimonial__perfil-data">
-                                        <span class="testimonial__perfil-name"> Rafaela Albuquerque</span>
-                                        <span class="testimonial__perfil-detail">Jornalista</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="testimonial__card swiper-slide">
-                                <div class="testimonial__quote">
-                                    <i class='bx bxs-quote-alt-left' ></i>
-                                </div>
-                                <p class="testimonial__description">
-                                    Sempre usei só sabonete comum até descobrir o Kit Skincare Lumine para Homens. O gel de limpeza tirou a oleosidade sem ressecar, 
-                                    e o hidratante é leve pra usar no dia a dia. Até minha esposa elogiou como minha pele melhorou! Produto top e entrega rápida –
-                                     vou comprar de novo.
-                                </p>
-                                <h3 class="testimonial__date">Cliente</h3>
-        
-                                <div class="testimonial__perfil">
-                                    <img src="assets/img/testimonial3.jpg" alt="" class="testimonial__perfil-img">
-        
-                                    <div class="testimonial__perfil-data">
-                                        <span class="testimonial__perfil-name">Marcos Oliveira</span>
-                                        <span class="testimonial__perfil-detail">Personal Trainer</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="swiper-button-next">
-                            <i class='bx bx-right-arrow-alt' ></i>
-                        </div>
-                        <div class="swiper-button-prev">
-                            <i class='bx bx-left-arrow-alt' ></i>
-                        </div>
-                    </div>
-
-                    <div class="testimonial__images">
-                        <div class="testimonial__square"></div>
-                        <img src="assets/img/clientesMi.jpg" alt="" class="testimonial__img">
-                    </div>
-                </div>
-            </section>
-
-            <!--==================== NEW ====================-->
-            <section class="new section container" id="new">
-                <h2 class="section__title">
-                    Produtos Destaques<br>
-                   <span>Passe para o lado>>></span>
-                </h2>
-                
-                <div class="new__container">
-                    <div class="swiper new-swiper">
-                        <div class="swiper-wrapper">
-                            <article class="new__card swiper-slide">
-                                <span class="new__tag">Destaque</span>
-        
-                                <img src="assets/img/embalagem_1.png" alt="" class="new__img">
-        
-                                <div class="new__data">
-                                    <h3 class="new__title">Eucerin Anti-Idade</h3>
-                                    <span class="new__price">R$ 119,90</span>
-                                </div>
-        
-                                <button class="button new__button">ADD À SACOLA</button>
-                            </article>
-
-                            <article class="new__card swiper-slide">
-                                <span class="new__tag">Destaque</span>
-        
-                                <img src="assets/img/embalagem_1.png" alt="" class="new__img">
-        
-                                <div class="new__data">
-                                    <h3 class="new__title">Avène Água Terma</h3>
-                                    <span class="new__price">R$ 79,90</span>
-                                </div>
-        
-                                <button class="button new__button">ADD À SACOLA</button>
-                            </article>
-
-                            <article class="new__card swiper-slide">
-                                <span class="new__tag">Destaque</span>
-        
-                                <img src="assets/img/embalagem_1.png" alt="" class="new__img">
-        
-                                <div class="new__data">
-                                    <h3 class="new__title">Hada Labo Loção Hidratante</h3>
-                                    <span class="new__price">R$ 129,90</span>
-                                </div>
-        
-                                <button class="button new__button">ADD À SACOLA</button>
-                            </article>
-
-                            <article class="new__card swiper-slide">
-                                <span class="new__tag">Destaque</span>
-        
-                                <img src="assets/img/embalagem_1.png" alt="" class="new__img">
-        
-                                <div class="new__data">
-                                    <h3 class="new__title">Base L’Oréal True Match</h3>
-                                    <span class="new__price">R$ 89,90</span>
-                                </div>
-        
-                                <button class="button new__button">ADD À SACOLA</button>
-                            </article>  
-
-                            <article class="new__card swiper-slide">
-                                <span class="new__tag">Destaque</span>
-        
-                                <img src="assets/img/embalagem_1.png" alt="" class="new__img">
-        
-                                <div class="new__data">
-                                    <h3 class="new__title">Batom MAC Matte Lipstick </h3>
-                                    <span class="new__price">R$ 129,90</span>
-                                </div>
-        
-                                <button class="button new__button">ADD À SACOLA</button>
-                            </article>                       
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!--==================== NEWSLETTER ====================-->
-          <!--==================== CONTACT FORM ====================-->
-<!--==================== FORMULÁRIO SIMPLIFICADO ====================-->
-<section class="contact-form section container" id="contato-simples">
-    <div class="contact-form__container">
-        <h2 class="contact-form__title">Fale Comigo</h2>
-
-        <form action="" class="contact-form__form" onsubmit="enviarWhats(event)">
-            <div class="contact-form__field">
-                <input type="text" placeholder="Seu Nome" class="contact-form__input" required id="nome">
+              <i class="bx bx-trash-alt cart__amount-trash"></i>
             </div>
-            
-            <div class="contact-form__field">
-                <input type="email" placeholder="Seu Email" class="contact-form__input" required id="email">
+          </div>
+        </article>
+
+        <article class="cart__card">
+          <div class="cart__box">
+            <img src="assets/img/featured3.png" alt="" class="cart__img" />
+          </div>
+
+          <div class="cart__details">
+            <h3 class="cart__title">Rose Gold</h3>
+            <span class="cart__price">R$ 850</span>
+
+            <div class="cart__amount">
+              <div class="cart__amount-content">
+                <span class="cart__amount-box">
+                  <i class="bx bx-minus"></i>
+                </span>
+
+                <span class="cart__amount-number">1</span>
+
+                <span class="cart__amount-box">
+                  <i class="bx bx-plus"></i>
+                </span>
+              </div>
+
+              <i class="bx bx-trash-alt cart__amount-trash"></i>
             </div>
-            
+          </div>
+        </article>
+
+        <article class="cart__card">
+          <div class="cart__box">
+            <img src="assets/img/new1.png" alt="" class="cart__img" />
+          </div>
+
+          <div class="cart__details">
+            <h3 class="cart__title">Longines Rose</h3>
+            <span class="cart__price">R$ 980</span>
+
+            <div class="cart__amount">
+              <div class="cart__amount-content">
+                <span class="cart__amount-box">
+                  <i class="bx bx-minus"></i>
+                </span>
+
+                <span class="cart__amount-number">1</span>
+
+                <span class="cart__amount-box">
+                  <i class="bx bx-plus"></i>
+                </span>
+              </div>
+
+              <i class="bx bx-trash-alt cart__amount-trash"></i>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="cart__prices">
+        <span class="cart__prices-item">3 items</span>
+        <span class="cart__prices-total">R$ 2880</span>
+      </div>
+    </div>
+
+    <!--==================== MAIN ====================-->
+    <main class="main">
+      <!--==================== HOME ====================-->
+      <section class="home section-fade" id="home">
+        <div class="home__container container grid">
+          <div class="home__img-bg">
+            <img
+              src="assets/img/Mirlleiny foto 01.png"
+              alt=""
+              class="home__img"
+            />
+          </div>
+
+          <div class="home__social">
+            <a
+              href="https://www.facebook.com/"
+              target="_blank"
+              class="home__social-link"
+            >
+            </a>
+            <a
+              href="https://wa.me/5583999844101"
+              target="_blank"
+              class="home__social-link"
+            >
+              WhatsApp
+            </a>
+            <a
+              href="https://www.instagram.com/_luminebe/"
+              target="_blank"
+              class="home__social-link"
+            >
+              Instagram
+            </a>
+          </div>
+
+          <div class="home__data section-fade">
+            <h1 class="home__title">
+              BEM-VINDO <br />À LUMINE<br />BELEZA & ESTETICA
+            </h1>
+            <p class="home__description">
+              Somos a Lumine empresa especializada em estetica e beleza, com
+              anos de experiências no mercado, com os melhores produtos e
+              serviços.
+            </p>
+
+            <div class="home__btns">
+              <a href="sobre.html" class="button button--gray button--small">
+                Saiba Mais
+              </a>
+
+              <!-- <button class="button home__button">ADD TO CART</button> -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!--==================== FEATURED ====================-->
+      <section class="new section container section-fade">
+        <h2 class="section__title">Mais Vendidos <br /></h2>
+
+        <div class="new__container">
+          <div class="swiper new-swiper">
+            <div class="swiper-wrapper">
+              <article class="new__card swiper-slide">
+                <span class="new__tag">Mais Vendido</span>
+
+                <img src="assets/img/embalagem_1.png" alt="" class="new__img" />
+
+                <div class="new__data">
+                  <h3 class="new__title">Eucerin Anti-Idade</h3>
+                  <span class="new__price">R$ 119,90</span>
+                </div>
+
+                <button class="button new__button">ADD À SACOLA</button>
+              </article>
+
+              <article class="new__card swiper-slide">
+                <span class="new__tag">Mais Vendido</span>
+
+                <img src="assets/img/embalagem_1.png" alt="" class="new__img" />
+
+                <div class="new__data">
+                  <h3 class="new__title">Avène Água Terma</h3>
+                  <span class="new__price">R$ 79,90</span>
+                </div>
+
+                <button class="button new__button">ADD À SACOLA</button>
+              </article>
+
+              <article class="new__card swiper-slide">
+                <span class="new__tag">Mais Vendido</span>
+
+                <img src="assets/img/embalagem_1.png" alt="" class="new__img" />
+
+                <div class="new__data">
+                  <h3 class="new__title">Hada Labo Loção</h3>
+                  <span class="new__price">R$ 129,90</span>
+                </div>
+
+                <button class="button new__button">ADD À SACOLA</button>
+              </article>
+
+              <article class="new__card swiper-slide">
+                <span class="new__tag">Mais Vendido</span>
+
+                <img src="assets/img/embalagem_1.png" alt="" class="new__img" />
+
+                <div class="new__data">
+                  <h3 class="new__title">Base L’Oréal True Match</h3>
+                  <span class="new__price">R$ 89,90</span>
+                </div>
+
+                <button class="button new__button">ADD À SACOLA</button>
+              </article>
+
+              <article class="new__card swiper-slide">
+                <span class="new__tag">Mais Vendido</span>
+
+                <img src="assets/img/embalagem_1.png" alt="" class="new__img" />
+
+                <div class="new__data">
+                  <h3 class="new__title">Batom MAC Matte Lipstick</h3>
+                  <span class="new__price">R$ 129,90</span>
+                </div>
+
+                <button class="button new__button">ADD À SACOLA</button>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!--==================== PRODUCTS ====================-->
+      <section class="products section container" id="products">
+        <h2 class="section__title section-fade">
+          Conheça Nossa Linha <br />Completa de Cuidados
+        </h2>
+
+        <div class="products__container grid">
+          <article class="products__card section-fade">
+            <img
+              src="assets/img/embalagem_1.png"
+              alt=""
+              class="products__img"
+            />
+
+            <h3 class="products__title">Nívea Creme</h3>
+            <span class="products__price">R$ 12,90</span>
+
+            <button class="products__button">
+              <i class="bx bx-shopping-bag"></i>
+            </button>
+            <!-- Botão de Informações -->
+            <button class="info-button" aria-label="Informações do produto">
+              <i class="bx bx-info-circle"></i>
+            </button>
+            <div class="product-info">
+              <p>Pigmentada, blendável, versátil, acessível, vibrante.!</p>
+            </div>
+            <!-- Fim Botão de informação -->
+          </article>
+
+          <article class="products__card section-fade">
+            <img
+              src="assets/img/embalagem_1.png"
+              alt=""
+              class="products__img"
+            />
+
+            <h3 class="products__title">CeraVe Loção Hidratante</h3>
+            <span class="products__price">R$ 89,90</span>
+
+            <button class="products__button">
+              <i class="bx bx-shopping-bag"></i>
+            </button>
+            <!-- Botão de Informações -->
+            <button class="info-button" aria-label="Informações do produto">
+              <i class="bx bx-info-circle"></i>
+            </button>
+            <div class="product-info">
+              <p>Pigmentada, blendável, versátil, acessível, vibrante.!</p>
+            </div>
+            <!-- Fim Botão de informação -->
+          </article>
+
+          <article class="products__card section-fade">
+            <img
+              src="assets/img/embalagem_1.png"
+              alt=""
+              class="products__img"
+            />
+
+            <h3 class="products__title">La Roche-Posay Effaclar</h3>
+            <span class="products__price"> R$ 129,90</span>
+
+            <button class="products__button">
+              <i class="bx bx-shopping-bag"></i>
+            </button>
+            <!-- Botão de Informações -->
+            <button class="info-button" aria-label="Informações do produto">
+              <i class="bx bx-info-circle"></i>
+            </button>
+            <div class="product-info">
+              <p>Pigmentada, blendável, versátil, acessível, vibrante.!</p>
+            </div>
+            <!-- Fim Botão de informação -->
+          </article>
+
+          <article class="products__card section-fade">
+            <img
+              src="assets/img/embalagem_1.png"
+              alt=""
+              class="products__img"
+            />
+
+            <h3 class="products__title">Neutrogena Hydro Boost</h3>
+            <span class="products__price"> R$ 79,90</span>
+
+            <button class="products__button">
+              <i class="bx bx-shopping-bag"></i>
+            </button>
+            <!-- Botão de Informações -->
+            <button class="info-button" aria-label="Informações do produto">
+              <i class="bx bx-info-circle"></i>
+            </button>
+            <div class="product-info">
+              <p>Pigmentada, blendável, versátil, acessível, vibrante.!</p>
+            </div>
+            <!-- Fim Botão de informação -->
+          </article>
+
+          <article class="products__card section-fade">
+            <img
+              src="assets/img/embalagem_1.png"
+              alt=""
+              class="products__img"
+            />
+
+            <h3 class="products__title">Vichy Mineral 89</h3>
+            <span class="products__price">R$ 149,90</span>
+
+            <button class="products__button">
+              <i class="bx bx-shopping-bag"></i>
+            </button>
+            <!-- Botão de Informações -->
+            <button class="info-button" aria-label="Informações do produto">
+              <i class="bx bx-info-circle"></i>
+            </button>
+            <div class="product-info">
+              <p>Pigmentada, blendável, versátil, acessível, vibrante.!</p>
+            </div>
+            <!-- Fim Botão de informação -->
+          </article>
+
+          <article class="products__card section-fade">
+            <img
+              src="assets/img/embalagem_1.png"
+              alt=""
+              class="products__img"
+            />
+
+            <h3 class="products__title">Cetaphil Limpador Facial</h3>
+            <span class="products__price">R$ 59,90</span>
+
+            <button class="products__button">
+              <i class="bx bx-shopping-bag"></i>
+            </button>
+            <!-- Botão de Informações -->
+            <button class="info-button" aria-label="Informações do produto">
+              <i class="bx bx-info-circle"></i>
+            </button>
+            <div class="product-info">
+              <p>Pigmentada, blendável, versátil, acessível, vibrante.!</p>
+            </div>
+            <!-- Fim Botão de informação -->
+          </article>
+        </div>
+        <div class="compra_mais section-fade">
+          <a href="produtos.html" class="button button--gray button--small">
+            Adquira Mais
+          </a>
+
+          <!-- <button class="button home__button">ADD TO CART</button> -->
+        </div>
+      </section>
+      <!--==================== STORY ====================-->
+      <section class="story section container" id="sobre">
+        <div class="story__container grid">
+          <div class="story__data">
+            <h2 class="section__title story__section-title section-fade">
+              Sobre Nós
+            </h2>
+
+            <h1 class="story__title section-fade">
+              Olá, meu nome é<br />
+              Mirlleiny Oliveira
+            </h1>
+
+            <p class="story__description section-fade">
+              Fundadora da Lumine e especialista em estética. Ofereço
+              tratamentos faciais e corporais personalizados com tecnologia
+              avançada. Meu objetivo é realçar sua beleza natural com excelência
+              e cuidado.
+            </p>
+
+            <a href="sobre.html" class="button button--small section-fade"
+              >Clique Para Saber Mais</a
+            >
+          </div>
+
+          <div class="story__images section-fade">
+            <img src="assets/img/Mir-foto3.jpg" alt="" class="story__img" />
+            <div class="story__square"></div>
+          </div>
+        </div>
+      </section>
+
+      <!--==================== SERVIÇOS ====================-->
+      <section class="services section container" id="new">
+        <h2 class="section__title section-fade">Serviços Especializados</h2>
+
+        <div class="services__container grid">
+          <article class="services__card section-fade">
+            <i class="bx bx-spa services__icon"></i>
+            <h3 class="services__title">Tratamentos Faciais</h3>
+            <ul class="services__list">
+              <li>Limpeza de Pele Profunda</li>
+              <li>Peeling Químico</li>
+              <li>Microagulhamento</li>
+              <li>Radiofrequência</li>
+            </ul>
+          </article>
+
+          <article class="services__card section-fade">
+            <i class="bx bx-body services__icon"></i>
+            <h3 class="services__title">Terapias Corporais</h3>
+            <ul class="services__list">
+              <li>Massagem Modeladora</li>
+              <li>Drenagem Linfática</li>
+              <li>Endermologia</li>
+              <li>Carboxiterapia</li>
+            </ul>
+          </article>
+
+          <article class="services__card section-fade">
+            <i class="bx bx-shield-alt-2 services__icon"></i>
+            <h3 class="services__title">Consultoria</h3>
+            <ul class="services__list">
+              <li>Análise de Pele</li>
+              <li>Rotina Personalizada</li>
+              <li>Orientação Nutricional</li>
+              <li>Acompanhamento</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <!--==================== TESTIMONIAL ====================-->
+      <section class="testimonial section container">
+        <div class="testimonial__container grid">
+          <div class="swiper testimonial-swiper">
+            <div class="swiper-wrapper">
+              <div class="testimonial__card swiper-slide">
+                <div class="testimonial__quote">
+                  <i class="bx bxs-quote-alt-left section-fade"></i>
+                </div>
+                <p class="testimonial__description section-fade">
+                  Nunca achei um hidratante que absorvesse tão rápido como o
+                  Creme de Pele Lumine! Minha pele ficou macia sem oleosidade, e
+                  o cheiro é divino.
+                </p>
+                <h3 class="testimonial__date section-fade">Cliente</h3>
+
+                <div class="testimonial__perfil section-fade">
+                  <img
+                    src="assets/img/testimonial1.jpg"
+                    alt=""
+                    class="testimonial__perfil-img"
+                  />
+
+                  <div class="testimonial__perfil-data section-fade">
+                    <span class="testimonial__perfil-name">Carlos Menezes</span>
+                    <span class="testimonial__perfil-detail">Barbeiro</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="testimonial__card swiper-slide">
+                <div class="testimonial__quote">
+                  <i class="bx bxs-quote-alt-left"></i>
+                </div>
+                <p class="testimonial__description section-fade">
+                  Comprei o Batom Matte Lumine e me surpreendi! Não resseca,
+                  dura o dia todo e tem tons perfeitos para peles morenas como a
+                  minha. A embalagem é linda, e o atendimento da loja online foi
+                  super atencioso. Recomendo demais!
+                </p>
+                <h3 class="testimonial__date section-fade">Cliente</h3>
+
+                <div class="testimonial__perfil">
+                  <img
+                    src="assets/img/testimonial2.jpg"
+                    alt=""
+                    class="testimonial__perfil-img section-fade"
+                  />
+
+                  <div class="testimonial__perfil-data section-fade">
+                    <span class="testimonial__perfil-name">
+                      Rafaela Albuquerque</span
+                    >
+                    <span class="testimonial__perfil-detail section-fade"
+                      >Jornalista</span
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="testimonial__card swiper-slide">
+                <div class="testimonial__quote">
+                  <i class="bx bxs-quote-alt-left section-fade"></i>
+                </div>
+                <p class="testimonial__description section-fade">
+                  Sempre usei só sabonete comum até descobrir o Kit Skincare
+                  Lumine para Homens. O gel de limpeza tirou a oleosidade sem
+                  ressecar, e o hidratante é leve pra usar no dia a dia. Até
+                  minha esposa elogiou como minha pele melhorou! Produto top e
+                  entrega rápida – vou comprar de novo.
+                </p>
+                <h3 class="testimonial__date">Cliente</h3>
+
+                <div class="testimonial__perfil">
+                  <img
+                    src="assets/img/testimonial3.jpg"
+                    alt=""
+                    class="testimonial__perfil-img section-fade"
+                  />
+
+                  <div class="testimonial__perfil-data section-fade">
+                    <span class="testimonial__perfil-name"
+                      >Marcos Oliveira</span
+                    >
+                    <span class="testimonial__perfil-detail section-fade"
+                      >Personal Trainer</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-button-next">
+              <i class="bx bx-right-arrow-alt"></i>
+            </div>
+            <div class="swiper-button-prev">
+              <i class="bx bx-left-arrow-alt"></i>
+            </div>
+          </div>
+
+          <div class="testimonial__images section-fade">
+            <div class="testimonial__square"></div>
+            <img
+              src="assets/img/clientes.jpg"
+              alt=""
+              class="testimonial__img"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- Chat interativo Lumine -->
+<div class="chatbot-container" id="chatbot">
+  <div class="chatbot-header">
+    <h3>Assistente Lumine</h3>
+    <div class="chatbot-actions">
+      <button class="clear-chat" onclick="clearChat()">🗑️</button>
+      <button class="close-chat" onclick="toggleChat()">×</button>
+    </div>
+  </div>
+
+  <div class="chatbot-messages" id="chat-messages">
+    <div class="message bot" id="welcome-message">
+      <img src="assets/img/avatar.png" alt="Bot" class="bot-avatar" />
+      <p>
+        Olá! Sou a Duda 😊, assistente virtual da Lumine. Estou aqui para
+        te ajudar com:<br /><br />
+        ● Produtos <br />
+        ● Agendamentos <br />
+        ● Dúvidas de Compras <br />
+        ● Dicas de Cuidados <br /><br />
+        Esolha uma das opções😊
+      </p>
+    </div>
+  </div>
+
+  <div class="chatbot-input">
+    <input
+      type="text"
+      id="user-input"
+      placeholder="Digite sua mensagem..."
+    />
+    <button onclick="sendMessage()">Enviar</button>
+  </div>
+</div>
+
+<button class="chatbot-toggle" onclick="toggleChat()">
+  <img src="assets/img/avatar.png" alt="Chat" />
+</button>
+      <!--==================== NEWSLETTER ====================-->
+      <!--==================== CONTACT FORM ====================-->
+      <!--==================== FORMULÁRIO SIMPLIFICADO ====================-->
+      <section
+        class="contact-form section container section-fade"
+        id="contato-simples"
+      >
+        <div class="contact-form__container">
+          <h2 class="contact-form__title">Fale Comigo</h2>
+
+          <form
+            action=""
+            class="contact-form__form"
+            onsubmit="enviarWhats(event)"
+          >
             <div class="contact-form__field">
-                <textarea placeholder="Digite Sua Mensagem" class="contact-form__textarea" rows="4" required id="mensagem"></textarea>
+              <input
+                type="text"
+                placeholder="Seu Nome"
+                class="contact-form__input"
+                required
+                id="nome"
+              />
+            </div>
+
+            <div class="contact-form__field">
+              <input
+                type="email"
+                placeholder="Seu Email"
+                class="contact-form__input"
+                required
+                id="email"
+              />
+            </div>
+
+            <div class="contact-form__field">
+              <textarea
+                placeholder="Digite Sua Mensagem"
+                class="contact-form__textarea"
+                rows="4"
+                required
+                id="mensagem"
+              ></textarea>
             </div>
 
             <button type="submit" class="contact-form__button">
-                Enviar Mensagem <i class='bx bx-send'></i>
+              Enviar Mensagem <i class="bx bx-send"></i>
             </button>
             <div class="loading-overlay" id="loadingOverlay">
-             <div class="loading-spinner">
-               <div class="spinner-circle"></div>
-               <div class="spinner-circle"></div>
-               <div class="spinner-circle"></div>
-            <div class="spinner-circle"></div>
-           </div>
-          <p class="loading-text">Enviando mensagem...</p>
-           </div>
-        </form>
-    </div>
-</section>
-        </main>
+              <div class="loading-spinner">
+                <div class="spinner-circle"></div>
+                <div class="spinner-circle"></div>
+                <div class="spinner-circle"></div>
+                <div class="spinner-circle"></div>
+              </div>
+              <p class="loading-text">Enviando mensagem...</p>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
 
-        <!--==================== FOOTER ====================-->
+    <!--==================== FOOTER ====================-->
     <footer class="footer section">
-    <div class="footer__container container grid">
+      <div class="footer__container container grid">
         <div class="footer__content">
-            <h3 class="footer__title">Localização</h3>
-            <ul class="footer__list">
-                <li><i class='bx bx-map'></i> João Pessoa - PB</li>
-                <li><i class='bx bx-building-house'></i> Av. Maximiano Figueiredo, 29-2, Centro</li>
-                <li><i class='bx bx-phone'></i> (83) 9 9984-4101</li>
-            </ul>
-        </div>
-        
-        <div class="footer__content">
-            <h3 class="footer__title">Horários</h3>
-            <ul class="footer__links">
-                <li><i class='bx bx-time'></i> Seg-Sex: 9h-19h</li>
-                <li><i class='bx bx-calendar'></i> Sáb: Sob Agendamento</li>
-                <li><i class='bx bx-calendar'></i> Dom: Sob Agendamento</li>
-            </ul>
+          <h3 class="footer__title">Localização</h3>
+          <ul class="footer__list">
+            <li><i class="bx bx-map"></i> João Pessoa - PB</li>
+            <li>
+              <i class="bx bx-building-house"></i> Av. Maximiano Figueiredo,
+              29-2, Centro
+            </li>
+            <li><i class="bx bx-phone"></i> (83) 9 9984-4101</li>
+          </ul>
         </div>
 
         <div class="footer__content">
-            <h3 class="footer__title">Produtos</h3>
-            <ul class="footer__links">
-                <li><a href="#" class="footer__link"><i class='bx bx-chevron-right'></i> Facial</a></li>
-                <li><a href="#" class="footer__link"><i class='bx bx-chevron-right'></i> Capilar</a></li>
-                <li><a href="#" class="footer__link"><i class='bx bx-chevron-right'></i> Corporal</a></li>
-                <li><a href="#" class="footer__link"><i class='bx bx-chevron-right'></i> E Muito mais</a></li>
-            </ul>
+          <h3 class="footer__title">Horários</h3>
+          <ul class="footer__links">
+            <li><i class="bx bx-time"></i> Seg-Sex: 9h-19h</li>
+            <li><i class="bx bx-calendar"></i> Sáb: Sob Agendamento</li>
+            <li><i class="bx bx-calendar"></i> Dom: Sob Agendamento</li>
+          </ul>
         </div>
 
         <div class="footer__content">
-            <h3 class="footer__title">Social</h3>
-            <ul class="footer__social">
-                <li><a href="https://wa.me/5583999844101" target="_blank" class="footer__social-link" aria-label="WhatsApp">
-                    <i class='bx bxl-whatsapp'></i>
-                </a></li>
-                <li><a href="https://www.instagram.com/_luminebe/" target="_blank" class="footer__social-link" aria-label="Instagram">
-                    <i class='bx bxl-instagram'></i>
-                </a></li>
-            </ul>
-            
-           
+          <h3 class="footer__title">Produtos</h3>
+          <ul class="footer__links">
+            <li>
+              <a href="#" class="footer__link"
+                ><i class="bx bx-chevron-right"></i> Facial</a
+              >
+            </li>
+            <li>
+              <a href="#" class="footer__link"
+                ><i class="bx bx-chevron-right"></i> Capilar</a
+              >
+            </li>
+            <li>
+              <a href="#" class="footer__link"
+                ><i class="bx bx-chevron-right"></i> Corporal</a
+              >
+            </li>
+            <li>
+              <a href="#" class="footer__link"
+                ><i class="bx bx-chevron-right"></i> E Muito mais</a
+              >
+            </li>
+          </ul>
         </div>
-    </div>
 
-    <div class="footer__bottom">
-        <span class="footer__copy">&#169; <span id="current-year"></span> Site feito por <a href="https://wa.me/5583986035776" target="_blank" style="color:hsl(31, 76%, 74%); ;" >Milton Albuquerque</a>. Todos os direitos reservados</span>
-    </div>
-</footer>
+        <div class="footer__content">
+          <h3 class="footer__title">Social</h3>
+          <ul class="footer__social">
+            <li>
+              <a
+                href="https://wa.me/5583999844101"
+                target="_blank"
+                class="footer__social-link"
+                aria-label="WhatsApp"
+              >
+                <i class="bx bxl-whatsapp"></i>
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.instagram.com/_luminebe/"
+                target="_blank"
+                class="footer__social-link"
+                aria-label="Instagram"
+              >
+                <i class="bx bxl-instagram"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
 
-        <!--=============== SCROLL UP ===============-->
-        <a href="#" class="scrollup" id="scroll-up"> 
-            <i class='bx bx-up-arrow-alt scrollup__icon' ></i>
-        </a>
+      <div class="footer__bottom">
+        <span class="footer__copy"
+          >&#169; <span id="current-year"></span> Site feito por
+          <a
+            href="https://wa.me/5583986035776"
+            target="_blank"
+            style="color: hsl(31, 76%, 74%)"
+            >Milton</a
+          >. Todos os direitos reservados</span
+        >
+      </div>
+    </footer>
 
-        <!--=============== SWIPER JS ===============-->
-        <script src="assets/js/swiper-bundle.min.js"></script>
+    <!--=============== SCROLL UP ===============-->
+    <a href="#" class="scrollup" id="scroll-up">
+      <i class="bx bx-up-arrow-alt scrollup__icon"></i>
+    </a>
 
-        <!--=============== MAIN JS ===============-->
-        <script src="assets/js/main.js"></script>
+    <!--=============== SWIPER JS ===============-->
+    <script src="assets/js/swiper-bundle.min.js"></script>
 
-        <script>
-// Carrinho de Compras - Funcionalidades
-document.addEventListener('DOMContentLoaded', function() {
-    // Variáveis do carrinho - Agora carrega do localStorage
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
-    const cartContainer = document.querySelector('.cart__container');
-    const cartTotalItems = document.querySelector('.cart__prices-item');
-    const cartTotalPrice = document.querySelector('.cart__prices-total');
-    const cartShop = document.getElementById('cart-shop');
-    const cartClose = document.getElementById('cart-close');
-    const cartElement = document.getElementById('cart');
-    
-    // Função para salvar o carrinho no localStorage
-    function saveCart() {
-        localStorage.setItem('cart', JSON.stringify(cart));
-    }
+    <!--=============== MAIN JS ===============-->
+    <script src="assets/js/main.js"></script>
 
-    // Abrir/Fechar carrinho
-    cartShop.addEventListener('click', () => {
-        cartElement.classList.add('show-cart');
-        updateCart();
-    });
-    
-    cartClose.addEventListener('click', () => {
-        cartElement.classList.remove('show-cart');
-    });
-    
-    // Adicionar produto ao carrinho
-    function addToCart(name, price, img) {
-        const existingItem = cart.find(item => item.name === name);
-        
-        if (existingItem) {
-            existingItem.quantity += 1;
-        } else {
-            cart.push({
-                name: name,
-                price: price,
-                img: img,
-                quantity: 1
-            });
+    <script>
+      // Carrinho de Compras - Funcionalidades
+      document.addEventListener("DOMContentLoaded", function () {
+        // Variáveis do carrinho - Agora carrega do localStorage
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        const cartContainer = document.querySelector(".cart__container");
+        const cartTotalItems = document.querySelector(".cart__prices-item");
+        const cartTotalPrice = document.querySelector(".cart__prices-total");
+        const cartShop = document.getElementById("cart-shop");
+        const cartClose = document.getElementById("cart-close");
+        const cartElement = document.getElementById("cart");
+
+        // Função para salvar o carrinho no localStorage
+        function saveCart() {
+          localStorage.setItem("cart", JSON.stringify(cart));
         }
-        
-        saveCart(); // Salva no localStorage
-        updateCart();
-    }
-    
-    // Remover produto do carrinho
-    function removeFromCart(name) {
-        cart = cart.filter(item => item.name !== name);
-        saveCart(); // Salva no localStorage
-        updateCart();
-    }
-    
-    // Atualizar quantidade
-    function updateQuantity(name, newQuantity) {
-        const item = cart.find(item => item.name === name);
-        if (item) {
+
+        // Abrir/Fechar carrinho
+        cartShop.addEventListener("click", () => {
+          cartElement.classList.add("show-cart");
+          updateCart();
+        });
+
+        cartClose.addEventListener("click", () => {
+          cartElement.classList.remove("show-cart");
+        });
+
+        // Adicionar produto ao carrinho
+        function addToCart(name, price, img) {
+          const existingItem = cart.find((item) => item.name === name);
+
+          if (existingItem) {
+            existingItem.quantity += 1;
+          } else {
+            cart.push({
+              name: name,
+              price: price,
+              img: img,
+              quantity: 1,
+            });
+          }
+
+          saveCart(); // Salva no localStorage
+          updateCart();
+        }
+
+        // Remover produto do carrinho
+        function removeFromCart(name) {
+          cart = cart.filter((item) => item.name !== name);
+          saveCart(); // Salva no localStorage
+          updateCart();
+        }
+
+        // Atualizar quantidade
+        function updateQuantity(name, newQuantity) {
+          const item = cart.find((item) => item.name === name);
+          if (item) {
             item.quantity = Math.max(1, newQuantity);
             saveCart(); // Salva no localStorage
             updateCart();
+          }
         }
-    }
-    
-    // Atualizar visualização do carrinho
-    function updateCart() {
-        // Limpar carrinho
-        cartContainer.innerHTML = '';
-        
-        let totalItems = 0;
-        let totalPrice = 0;
-        
-        // Adicionar itens ao carrinho
-        cart.forEach(item => {
+
+        // Atualizar visualização do carrinho
+        function updateCart() {
+          // Limpar carrinho
+          cartContainer.innerHTML = "";
+
+          let totalItems = 0;
+          let totalPrice = 0;
+
+          // Adicionar itens ao carrinho
+          cart.forEach((item) => {
             totalItems += item.quantity;
             totalPrice += item.price * item.quantity;
-            
-            const cartItem = document.createElement('article');
-            cartItem.classList.add('cart__card');
-            
+
+            const cartItem = document.createElement("article");
+            cartItem.classList.add("cart__card");
+
             cartItem.innerHTML = `
                 <div class="cart__box">
                     <img src="${item.img}" alt="${item.name}" class="cart__img">
@@ -756,188 +964,206 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 <div class="cart__details">
                     <h3 class="cart__title">${item.name}</h3>
-                    <span class="cart__price">R$ ${item.price.toFixed(2).replace('.', ',')}</span>
+                    <span class="cart__price">R$ ${item.price
+                      .toFixed(2)
+                      .replace(".", ",")}</span>
                     
                     <div class="cart__amount">
                         <div class="cart__amount-content">
-                            <span class="cart__amount-box minus" data-name="${item.name}">
+                            <span class="cart__amount-box minus" data-name="${
+                              item.name
+                            }">
                                 <i class='bx bx-minus'></i>
                             </span>
                             
-                            <span class="cart__amount-number">${item.quantity}</span>
+                            <span class="cart__amount-number">${
+                              item.quantity
+                            }</span>
                             
-                            <span class="cart__amount-box plus" data-name="${item.name}">
+                            <span class="cart__amount-box plus" data-name="${
+                              item.name
+                            }">
                                 <i class='bx bx-plus'></i>
                             </span>
                         </div>
                         
-                        <i class='bx bx-trash-alt cart__amount-trash' data-name="${item.name}"></i>
+                        <i class='bx bx-trash-alt cart__amount-trash' data-name="${
+                          item.name
+                        }"></i>
                     </div>
                 </div>
             `;
-            
+
             cartContainer.appendChild(cartItem);
-        });
-        
-        // Atualizar totais
-        cartTotalItems.textContent = `${totalItems} ${totalItems === 1 ? 'item' : 'items'}`;
-        cartTotalPrice.textContent = `R$ ${totalPrice.toFixed(2).replace('.', ',')}`;
-        
-        // Adicionar botão finalizar compra se houver itens
-        if (cart.length > 0) {
-            const checkoutBtn = document.createElement('button');
-            checkoutBtn.classList.add('button', 'cart__checkout');
-            checkoutBtn.textContent = 'Finalizar Compra';
-            checkoutBtn.addEventListener('click', checkout);
-            
-            if (!document.querySelector('.cart__checkout')) {
-                cartContainer.parentNode.insertBefore(checkoutBtn, cartContainer.nextElementSibling);
+          });
+
+          // Atualizar totais
+          cartTotalItems.textContent = `${totalItems} ${
+            totalItems === 1 ? "item" : "items"
+          }`;
+          cartTotalPrice.textContent = `R$ ${totalPrice
+            .toFixed(2)
+            .replace(".", ",")}`;
+
+          // Adicionar botão finalizar compra se houver itens
+          if (cart.length > 0) {
+            const checkoutBtn = document.createElement("button");
+            checkoutBtn.classList.add("button", "cart__checkout");
+            checkoutBtn.textContent = "Finalizar Compra";
+            checkoutBtn.addEventListener("click", checkout);
+
+            if (!document.querySelector(".cart__checkout")) {
+              cartContainer.parentNode.insertBefore(
+                checkoutBtn,
+                cartContainer.nextElementSibling
+              );
             }
-        } else {
-            const existingCheckoutBtn = document.querySelector('.cart__checkout');
+          } else {
+            const existingCheckoutBtn =
+              document.querySelector(".cart__checkout");
             if (existingCheckoutBtn) {
-                existingCheckoutBtn.remove();
+              existingCheckoutBtn.remove();
             }
+          }
+
+          // Adicionar eventos aos botões
+          addCartEvents();
         }
-        
-        // Adicionar eventos aos botões
-        addCartEvents();
-    }
-    
-    // Adicionar eventos aos botões do carrinho
-    function addCartEvents() {
-        // Botões de quantidade
-        document.querySelectorAll('.minus').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const name = this.getAttribute('data-name');
-                const item = cart.find(item => item.name === name);
-                if (item && item.quantity > 1) {
-                    updateQuantity(name, item.quantity - 1);
-                }
+
+        // Adicionar eventos aos botões do carrinho
+        function addCartEvents() {
+          // Botões de quantidade
+          document.querySelectorAll(".minus").forEach((btn) => {
+            btn.addEventListener("click", function () {
+              const name = this.getAttribute("data-name");
+              const item = cart.find((item) => item.name === name);
+              if (item && item.quantity > 1) {
+                updateQuantity(name, item.quantity - 1);
+              }
             });
-        });
-        
-        document.querySelectorAll('.plus').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const name = this.getAttribute('data-name');
-                const item = cart.find(item => item.name === name);
-                if (item) {
-                    updateQuantity(name, item.quantity + 1);
-                }
+          });
+
+          document.querySelectorAll(".plus").forEach((btn) => {
+            btn.addEventListener("click", function () {
+              const name = this.getAttribute("data-name");
+              const item = cart.find((item) => item.name === name);
+              if (item) {
+                updateQuantity(name, item.quantity + 1);
+              }
             });
-        });
-        
-        // Botões de remover
-        document.querySelectorAll('.cart__amount-trash').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const name = this.getAttribute('data-name');
-                removeFromCart(name);
+          });
+
+          // Botões de remover
+          document.querySelectorAll(".cart__amount-trash").forEach((btn) => {
+            btn.addEventListener("click", function () {
+              const name = this.getAttribute("data-name");
+              removeFromCart(name);
             });
-        });
-    }
-    
-    // Finalizar compra - WhatsApp
-  // Finalizar compra - WhatsApp ANIMAÇÃO
-       function checkout() {
-        // Criar overlay e container da animação
-        const overlay = document.createElement('div');
-        overlay.style.position = 'fixed';
-        overlay.style.top = '0';
-        overlay.style.left = '0';
-        overlay.style.width = '100%';
-        overlay.style.height = '100%';
-        overlay.style.backgroundColor = 'var(--body-color)';
-        overlay.style.display = 'flex';
-        overlay.style.justifyContent = 'center';
-        overlay.style.alignItems = 'center';
-        overlay.style.zIndex = '9999';
-        overlay.style.flexDirection = 'column';
-        overlay.style.fontFamily = "'Poppins', sans-serif";
-        
-        // Container principal da animação
-        const animationContainer = document.createElement('div');
-        animationContainer.style.position = 'relative';
-        animationContainer.style.width = '200px';
-        animationContainer.style.height = '250px';
-        animationContainer.style.display = 'flex';
-        animationContainer.style.flexDirection = 'column';
-        animationContainer.style.alignItems = 'center';
-        
-        // Sacola minimalista
-        const bag = document.createElement('div');
-        bag.style.width = '120px';
-        bag.style.height = '160px';
-        bag.style.backgroundColor = 'transparent';
-        bag.style.border = '2px solid var(--border-color)';
-        bag.style.borderRadius = '4px 4px 20px 20px';
-        bag.style.position = 'relative';
-        bag.style.overflow = 'hidden';
-        
-        // Detalhe superior da sacola (alça)
-        const bagTop = document.createElement('div');
-        bagTop.style.width = '140px';
-        bagTop.style.height = '20px';
-        bagTop.style.backgroundColor = 'transparent';
-        bagTop.style.border = '2px solid var(--border-color)';
-        bagTop.style.borderBottom = 'none';
-        bagTop.style.borderRadius = '20px 20px 0 0';
-        bagTop.style.position = 'absolute';
-        bagTop.style.top = '-10px';
-        bagTop.style.left = '50%';
-        bagTop.style.transform = 'translateX(-50%)';
-        
-        // Efeito de preenchimento sutil
-        const filling = document.createElement('div');
-        filling.style.width = '100%';
-        filling.style.height = '0%';
-        filling.style.background = 'var(--first-color)';
-        filling.style.position = 'absolute';
-        filling.style.bottom = '0';
-        filling.style.transition = 'height 2s cubic-bezier(0.19, 1, 0.22, 1)';
-        filling.style.opacity = '0.7';
-        
-        // Linhas de detalhe na sacola
-        for (let i = 1; i <= 3; i++) {
-            const line = document.createElement('div');
-            line.style.width = '100%';
-            line.style.height = '1px';
-            line.style.backgroundColor = 'var(--border-color)';
-            line.style.position = 'absolute';
+          });
+        }
+
+        // Finalizar compra - WhatsApp
+        // Finalizar compra - WhatsApp ANIMAÇÃO
+        function checkout() {
+          // Criar overlay e container da animação
+          const overlay = document.createElement("div");
+          overlay.style.position = "fixed";
+          overlay.style.top = "0";
+          overlay.style.left = "0";
+          overlay.style.width = "100%";
+          overlay.style.height = "100%";
+          overlay.style.backgroundColor = "var(--body-color)";
+          overlay.style.display = "flex";
+          overlay.style.justifyContent = "center";
+          overlay.style.alignItems = "center";
+          overlay.style.zIndex = "9999";
+          overlay.style.flexDirection = "column";
+          overlay.style.fontFamily = "'Poppins', sans-serif";
+
+          // Container principal da animação
+          const animationContainer = document.createElement("div");
+          animationContainer.style.position = "relative";
+          animationContainer.style.width = "200px";
+          animationContainer.style.height = "250px";
+          animationContainer.style.display = "flex";
+          animationContainer.style.flexDirection = "column";
+          animationContainer.style.alignItems = "center";
+
+          // Sacola minimalista
+          const bag = document.createElement("div");
+          bag.style.width = "120px";
+          bag.style.height = "160px";
+          bag.style.backgroundColor = "transparent";
+          bag.style.border = "2px solid var(--border-color)";
+          bag.style.borderRadius = "4px 4px 20px 20px";
+          bag.style.position = "relative";
+          bag.style.overflow = "hidden";
+
+          // Detalhe superior da sacola (alça)
+          const bagTop = document.createElement("div");
+          bagTop.style.width = "140px";
+          bagTop.style.height = "20px";
+          bagTop.style.backgroundColor = "transparent";
+          bagTop.style.border = "2px solid var(--border-color)";
+          bagTop.style.borderBottom = "none";
+          bagTop.style.borderRadius = "20px 20px 0 0";
+          bagTop.style.position = "absolute";
+          bagTop.style.top = "-10px";
+          bagTop.style.left = "50%";
+          bagTop.style.transform = "translateX(-50%)";
+
+          // Efeito de preenchimento sutil
+          const filling = document.createElement("div");
+          filling.style.width = "100%";
+          filling.style.height = "0%";
+          filling.style.background = "var(--first-color)";
+          filling.style.position = "absolute";
+          filling.style.bottom = "0";
+          filling.style.transition = "height 2s cubic-bezier(0.19, 1, 0.22, 1)";
+          filling.style.opacity = "0.7";
+
+          // Linhas de detalhe na sacola
+          for (let i = 1; i <= 3; i++) {
+            const line = document.createElement("div");
+            line.style.width = "100%";
+            line.style.height = "1px";
+            line.style.backgroundColor = "var(--border-color)";
+            line.style.position = "absolute";
             line.style.top = `${i * 25}%`;
-            line.style.opacity = '0.3';
+            line.style.opacity = "0.3";
             bag.appendChild(line);
-        }
-        
-        // Texto de status
-        const text = document.createElement('p');
-        text.textContent = 'Finalizando seu pedido';
-        text.style.color = 'var(--text-color)';
-        text.style.fontSize = '0.9rem';
-        text.style.marginTop = '25px';
-        text.style.letterSpacing = '1px';
-        text.style.opacity = '0';
-        text.style.transition = 'opacity 0.8s ease';
-        
-        // Pontos animados
-        const dots = document.createElement('div');
-        dots.innerHTML = '<span>.</span><span>.</span><span>.</span>';
-        dots.style.color = 'var(--first-color)';
-        dots.style.fontSize = '1.2rem';
-        dots.style.marginTop = '10px';
-        dots.style.opacity = '0';
-        
-        // Adicionando elementos
-        bag.appendChild(bagTop);
-        bag.appendChild(filling);
-        animationContainer.appendChild(bag);
-        animationContainer.appendChild(text);
-        animationContainer.appendChild(dots);
-        overlay.appendChild(animationContainer);
-        document.body.appendChild(overlay);
-        
-        // Animação dos pontos
-        const style = document.createElement('style');
-        style.innerHTML = `
+          }
+
+          // Texto de status
+          const text = document.createElement("p");
+          text.textContent = "Finalizando seu pedido";
+          text.style.color = "var(--text-color)";
+          text.style.fontSize = "0.9rem";
+          text.style.marginTop = "25px";
+          text.style.letterSpacing = "1px";
+          text.style.opacity = "0";
+          text.style.transition = "opacity 0.8s ease";
+
+          // Pontos animados
+          const dots = document.createElement("div");
+          dots.innerHTML = "<span>.</span><span>.</span><span>.</span>";
+          dots.style.color = "var(--first-color)";
+          dots.style.fontSize = "1.2rem";
+          dots.style.marginTop = "10px";
+          dots.style.opacity = "0";
+
+          // Adicionando elementos
+          bag.appendChild(bagTop);
+          bag.appendChild(filling);
+          animationContainer.appendChild(bag);
+          animationContainer.appendChild(text);
+          animationContainer.appendChild(dots);
+          overlay.appendChild(animationContainer);
+          document.body.appendChild(overlay);
+
+          // Animação dos pontos
+          const style = document.createElement("style");
+          style.innerHTML = `
             @keyframes blink {
                 0%, 100% { opacity: 0.2; }
                 50% { opacity: 1; }
@@ -949,112 +1175,196 @@ document.addEventListener('DOMContentLoaded', function() {
             #checkout-dots span:nth-child(2) { animation-delay: 0.2s; }
             #checkout-dots span:nth-child(3) { animation-delay: 0.4s; }
         `;
-        dots.id = 'checkout-dots';
-        document.head.appendChild(style);
-        
-        // Iniciar animação
-        setTimeout(() => {
+          dots.id = "checkout-dots";
+          document.head.appendChild(style);
+
+          // Iniciar animação
+          setTimeout(() => {
             // Mostrar texto e pontos
-            text.style.opacity = '1';
-            dots.style.opacity = '1';
-            
+            text.style.opacity = "1";
+            dots.style.opacity = "1";
+
             // Preencher a sacola
-            filling.style.height = '100%';
-            
+            filling.style.height = "100%";
+
             // Mudar texto ao finalizar
             setTimeout(() => {
-                text.textContent = 'Pedido confirmado';
-                text.style.color = 'var(--first-color)';
-                
-                // Adicionar checkmark sutil
-                const checkmark = document.createElement('div');
-                checkmark.style.width = '30px';
-                checkmark.style.height = '30px';
-                checkmark.style.borderLeft = '2px solid var(--first-color)';
-                checkmark.style.borderBottom = '2px solid var(--first-color)';
-                checkmark.style.position = 'absolute';
-                checkmark.style.top = '50%';
-                checkmark.style.left = '50%';
-                checkmark.style.transform = 'translate(-50%, -75%) rotate(-45deg)';
-                checkmark.style.opacity = '0';
-                checkmark.style.transition = 'opacity 0.8s';
-                bag.appendChild(checkmark);
-                
-                setTimeout(() => {
-                    checkmark.style.opacity = '1';
-                }, 300);
+              text.textContent = "Pedido confirmado";
+              text.style.color = "var(--first-color)";
+
+              // Adicionar checkmark sutil
+              const checkmark = document.createElement("div");
+              checkmark.style.width = "30px";
+              checkmark.style.height = "30px";
+              checkmark.style.borderLeft = "2px solid var(--first-color)";
+              checkmark.style.borderBottom = "2px solid var(--first-color)";
+              checkmark.style.position = "absolute";
+              checkmark.style.top = "50%";
+              checkmark.style.left = "50%";
+              checkmark.style.transform =
+                "translate(-50%, -75%) rotate(-45deg)";
+              checkmark.style.opacity = "0";
+              checkmark.style.transition = "opacity 0.8s";
+              bag.appendChild(checkmark);
+
+              setTimeout(() => {
+                checkmark.style.opacity = "1";
+              }, 300);
             }, 1800);
-        }, 300);
-        
-        // Após animação, redirecionar para WhatsApp
-        setTimeout(() => {
+          }, 300);
+
+          // Após animação, redirecionar para WhatsApp
+          setTimeout(() => {
             let message = "Olá, gostaria de comprar os seguintes itens:\n\n";
-            
-            cart.forEach(item => {
-                message += `- ${item.name} (${item.quantity}x): R$ ${(item.price * item.quantity).toFixed(2).replace('.', ',')}\n`;
+
+            cart.forEach((item) => {
+              message += `- ${item.name} (${item.quantity}x): R$ ${(
+                item.price * item.quantity
+              )
+                .toFixed(2)
+                .replace(".", ",")}\n`;
             });
-            
-            message += `\nTotal: R$ ${cart.reduce((total, item) => total + (item.price * item.quantity), 0).toFixed(2).replace('.', ',')}`;
-            
+
+            message += `\nTotal: R$ ${cart
+              .reduce((total, item) => total + item.price * item.quantity, 0)
+              .toFixed(2)
+              .replace(".", ",")}`;
+
             // Codificar a mensagem para URL
             const encodedMessage = encodeURIComponent(message);
-            
+
             // Remover overlay
             overlay.remove();
             style.remove();
-            
+
             // Abrir WhatsApp
-            window.open(`https://wa.me/5583999844101?text=${encodedMessage}`, '_blank');
-            
+            window.location.href = `https://wa.me/5583999844101?text=${encodedMessage}`;
+
             // Limpar carrinho após finalizar
             cart = [];
             saveCart();
             updateCart();
-        }, 4500); // Tempo total da animação
-    }
-    // FINAL DA ANIMAÇÃO DA SACOLA 
-    // Adicionar eventos aos botões "Add to Cart"
-    document.querySelectorAll('.featured__button, .new__button, .products__button, .home__button').forEach(button => {
-        button.addEventListener('click', function() {
-            // Encontrar os dados do produto
-            const card = this.closest('.featured__card, .new__card, .products__card, .home__container');
-            let name, price, img;
-            
-            if (card.classList.contains('featured__card') || card.classList.contains('new__card')) {
-                name = card.querySelector('.featured__title, .new__title').textContent;
-                price = parseFloat(card.querySelector('.featured__price, .new__price').textContent.replace('R$', '').replace('.', '').replace(',', '.'));
-                img = card.querySelector('.featured__img, .new__img').src;
-            } else if (card.classList.contains('products__card')) {
-                name = card.querySelector('.products__title').textContent;
-                price = parseFloat(card.querySelector('.products__price').textContent.replace('R$', '').replace('.', '').replace(',', '.'));
-                img = card.querySelector('.products__img').src;
-            } else if (card.classList.contains('home__container')) {
-                name = "NEW WATCH COLLECTIONS B720";
-                price = parseFloat(document.querySelector('.home__price').textContent.replace('R$', '').replace('.', '').replace(',', '.'));
-                img = document.querySelector('.home__img').src;
-            }
-            
-            addToCart(name, price, img);
-            cartElement.classList.add('show-cart');
-        });
-    });
-    
-    // Inicializar carrinho (agora carrega do localStorage)
-    updateCart();
-});
-</script>
-<script src="assets/js/botao.js"></script>
- <!-- Efeitos 3d card -->
-      <script>
-          document.querySelectorAll('.products__card').forEach(card => {
-    const infoButton = card.querySelector('.info-button');
-    const infoBox = card.querySelector('.product-info');
+          }, 4500); // Tempo total da animação
+        }
+        // FINAL DA ANIMAÇÃO DA SACOLA
+        // Adicionar eventos aos botões "Add to Cart"
+        document
+          .querySelectorAll(
+            ".featured__button, .new__button, .products__button, .home__button"
+          )
+          .forEach((button) => {
+            button.addEventListener("click", function () {
+              // Encontrar os dados do produto
+              const card = this.closest(
+                ".featured__card, .new__card, .products__card, .home__container"
+              );
+              let name, price, img;
 
-    infoButton.addEventListener('click', () => {
-      card.classList.toggle('show-info');
-    });
-  });
-      </script>
-      <script src="assets/js/formulario.js"></script>
-    </body>
+              if (
+                card.classList.contains("featured__card") ||
+                card.classList.contains("new__card")
+              ) {
+                name = card.querySelector(
+                  ".featured__title, .new__title"
+                ).textContent;
+                price = parseFloat(
+                  card
+                    .querySelector(".featured__price, .new__price")
+                    .textContent.replace("R$", "")
+                    .replace(".", "")
+                    .replace(",", ".")
+                );
+                img = card.querySelector(".featured__img, .new__img").src;
+              } else if (card.classList.contains("products__card")) {
+                name = card.querySelector(".products__title").textContent;
+                price = parseFloat(
+                  card
+                    .querySelector(".products__price")
+                    .textContent.replace("R$", "")
+                    .replace(".", "")
+                    .replace(",", ".")
+                );
+                img = card.querySelector(".products__img").src;
+              } else if (card.classList.contains("home__container")) {
+                name = "NEW WATCH COLLECTIONS B720";
+                price = parseFloat(
+                  document
+                    .querySelector(".home__price")
+                    .textContent.replace("R$", "")
+                    .replace(".", "")
+                    .replace(",", ".")
+                );
+                img = document.querySelector(".home__img").src;
+              }
+
+              addToCart(name, price, img);
+              cartElement.classList.add("show-cart");
+            });
+          });
+
+        // Inicializar carrinho (agora carrega do localStorage)
+        updateCart();
+      });
+    </script>
+    <script src="assets/js/botao.js"></script>
+    <!-- Efeitos 3d card -->
+    <script>
+      document.querySelectorAll(".products__card").forEach((card) => {
+        const infoButton = card.querySelector(".info-button");
+        const infoBox = card.querySelector(".product-info");
+
+        infoButton.addEventListener("click", () => {
+          card.classList.toggle("show-info");
+        });
+      });
+    </script>
+    <script src="assets/js/formulario.js"></script>
+    <!-- metodo de rolagem da pagina -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              // Só ativa quando 50% da seção estiver visível
+              if (entry.intersectionRatio >= 0.6) {
+                entry.target.classList.add("section-visible");
+              }
+            });
+          },
+          {
+            threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1], // Pontos de verificação
+          }
+        );
+
+        document.querySelectorAll(".section-fade").forEach((section) => {
+          observer.observe(section);
+        });
+      });
+    </script>
+    <script src="assistente.js"></script>
+    <!-- efeito de enviar -->
+     <script>
+      document.querySelector('.contact-form__form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const submitButton = this.querySelector('.contact-form__button');
+  
+  // Mostrar estado de "enviando"
+  submitButton.classList.add('sending');
+  
+  // Simular envio (substitua por sua lógica real de envio)
+  setTimeout(() => {
+    submitButton.classList.remove('sending');
+    submitButton.classList.add('success');
+    submitButton.textContent = 'Enviado com sucesso';
+    
+    // Reset após 3 segundos
+    setTimeout(() => {
+      submitButton.classList.remove('success');
+      submitButton.textContent = 'Enviar';
+      this.reset();
+    }, 3000);
+  }, 1500);
+});
+     </script>
+  </body>
 </html>
