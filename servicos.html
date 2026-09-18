@@ -1,0 +1,1651 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Conheça os serviços e tratamentos estéticos exclusivos da Lumine. Procedimentos capilares, corporais, faciais, labiais, massagens, unhas, maquiagem e muito mais em João Pessoa."
+    />
+
+    <!--=============== FAVICON ===============-->
+    <link
+      rel="shortcut icon"
+      href="assets/img/Silhueta 03.png"
+      type="image/x-icon"
+    />
+    <link
+      rel="shortcut icon"
+      href="assets/img/Silhueta png 01.png"
+      type="image/x-icon"
+    />
+
+    <!--=============== BOXICONS ===============-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"
+    />
+
+    <!--=============== SWIPER CSS ===============-->
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css" />
+
+    <!--=============== CSS PRINCIPAL & COMPONENTES ===============-->
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <link rel="stylesheet" href="assets/css/servicos.css" />
+    <link rel="stylesheet" href="assets/css/rodape.css" />
+
+    <link rel="stylesheet" href="assets/css/rodape.css" />
+    <link rel="shortcut icon" href="assets/img/Silhueta png 01.png" type="image/x-icon">
+
+    <title>Serviços Especializados | Lumine</title>
+
+    <style>
+      /* Animação suave para elementos na rolagem */
+      .section-fade {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      }
+
+      .section-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .nav__logo {
+        display: flex;
+        align-items: center;
+        position: relative;
+        z-index: 1;
+      }
+
+      .nav__logo-icon {
+        height: 120%;
+        width: auto;
+        max-height: 50px;
+        transition: all 0.3s ease;
+        margin-right: 8px;
+        transform: translateY(2px);
+      }
+
+      .nav__logo:hover .nav__logo-icon {
+        transform: translateY(2px) scale(1.1);
+      }
+    </style>
+  </head>
+  <body>
+    <!--==================== HEADER ====================-->
+    <header class="header" id="header">
+      <nav class="nav container">
+        <a href="index.html" class="nav__logo">
+          <img
+            src="./assets/img/Silhueta png 01.png"
+            alt="Lumine"
+            class="nav__logo-icon"
+            onerror="this.style.display='none'"
+          />
+          <span>Lumine</span>
+        </a>
+
+        <div class="nav__menu" id="nav-menu">
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a href="index.html" class="nav__link">Inicio</a>
+            </li>
+            <li class="nav__item">
+              <a href="sobre.html" class="nav__link">Sobre Nós</a>
+            </li>
+            <li class="nav__item">
+              <a href="produtos.html" class="nav__link">Produtos</a>
+            </li>
+            <li class="nav__item">
+              <a href="servicos.html" class="nav__link active-link">Serviços</a>
+            </li>
+          </ul>
+
+          <div class="nav__close" id="nav-close">
+            <i class="bx bx-x"></i>
+          </div>
+        </div>
+
+        <div class="nav__btns">
+          <!-- Botão de alterar tema -->
+          <i class="bx bx-moon change-theme" id="theme-button"></i>
+
+          <!-- Botão da sacola de compras -->
+          <div class="nav__shop" id="cart-shop">
+            <i class="bx bx-shopping-bag"></i>
+          </div>
+
+          <!-- Botão toggle menu mobile -->
+          <div class="nav__toggle" id="nav-toggle">
+            <i class="bx bx-grid-alt"></i>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!--==================== CART ====================-->
+    <div class="cart" id="cart">
+      <i class="bx bx-x cart__close" id="cart-close"></i>
+      <h2 class="cart__title-center">Minha Sacola</h2>
+      <div class="cart__container">
+        <!-- Itens do carrinho adicionados dinamicamente via localStorage -->
+      </div>
+      <div class="cart__prices">
+        <span class="cart__prices-item">0 itens</span>
+        <span class="cart__prices-total">R$ 0,00</span>
+      </div>
+    </div>
+
+    <!--==================== MAIN CONTENT ====================-->
+    <main class="main services-page">
+      <section class="services section container" id="servicos">
+        <!-- HERO DA PÁGINA -->
+        <div class="services__hero section-fade">
+          <span class="services__hero-badge">
+            <i class="bx bx-spa"></i> Estética & Bem-Estar
+          </span>
+          <h1 class="services__hero-title">Nossos Serviços</h1>
+          <p class="services__hero-description">
+            Conheça nossos tratamentos personalizados e descubra a experiência
+            ideal para cuidar de você, realçando sua beleza com sofisticação e
+            segurança.
+          </p>
+
+          <!-- CATEGORY QUICK FILTER -->
+          <nav class="services__nav-filter" aria-label="Navegação rápida por categorias">
+            <a href="#cat-capilar" class="services__filter-btn">
+              <i class="bx bx-cut"></i> Capilar
+            </a>
+            <a href="#cat-corporal" class="services__filter-btn">
+              <i class="bx bx-body"></i> Corporal
+            </a>
+            <a href="#cat-facial" class="services__filter-btn">
+              <i class="bx bx-face"></i> Facial
+            </a>
+            <a href="#cat-labial" class="services__filter-btn">
+              <i class="bx bx-heart"></i> Labial
+            </a>
+            <a href="#cat-massagens" class="services__filter-btn">
+              <i class="bx bx-spa"></i> Massagens
+            </a>
+            <a href="#cat-unhas" class="services__filter-btn">
+              <i class="bx bx-palette"></i> Unhas
+            </a>
+            <a href="#cat-maquiagem" class="services__filter-btn">
+              <i class="bx bx-brush"></i> Maquiagem
+            </a>
+            <a href="#cat-sobrancelhas" class="services__filter-btn">
+              <i class="bx bx-show"></i> Sobrancelhas
+            </a>
+            <a href="#cat-penteados" class="services__filter-btn">
+              <i class="bx bx-wind"></i> Penteados
+            </a>
+          </nav>
+        </div>
+
+        <!-- GRID DE CATEGORIAS DE SERVIÇOS -->
+        <div class="services__grid">
+          <!-- 1. CAPILAR -->
+          <article class="service-card section-fade is-expanded" id="cat-capilar">
+            <div class="service-card__media" onclick="toggleCardMobile(this.parentElement)">
+              <img
+                src="assets/img/servicos/capilar.jpg"
+                alt="Tratamentos capilares especializados Lumine"
+                class="service-card__img"
+                loading="lazy"
+              />
+              <span class="service-card__badge-count">5 serviços</span>
+              <div class="service-card__overlay">
+                <div class="service-card__header-info">
+                  <div class="service-card__icon-box">
+                    <i class="bx bx-cut"></i>
+                  </div>
+                  <h2 class="service-card__title">Capilar</h2>
+                </div>
+                <button
+                  class="service-card__accordion-toggle"
+                  aria-label="Expandir categoria Capilar"
+                  type="button"
+                >
+                  <i class="bx bx-chevron-down"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="service-card__body">
+              <div class="service-card__subtitle">
+                <span>Procedimentos Disponíveis</span>
+                <i class="bx bx-info-circle"></i>
+              </div>
+              <ul class="service-card__list">
+                <li class="sub-service-item">
+                  <button
+                    class="sub-service-btn"
+                    aria-expanded="false"
+                    aria-controls="desc-cap-1"
+                    onclick="toggleSubService(this)"
+                  >
+                    <span class="sub-service-btn__name">
+                      <span class="sub-service-btn__bullet"></span>
+                      Queda de cabelo
+                    </span>
+                    <i class="bx bx-chevron-down sub-service-btn__icon"></i>
+                  </button>
+                  <div class="sub-service-drawer" id="desc-cap-1">
+                    <div class="sub-service-drawer__content">
+                      <p class="sub-service-drawer__text">
+                        Protocolos especializados para fortalecer a raiz, combater a quebra e diminuir a queda capilar, restabelecendo a densidade e o vigor dos fios.
+                      </p>
+                      <a
+                        href="https://wa.me/5583999844101?text=Ol%C3%A1%21%20Gostaria%20de%20informa%C3%A7%C3%B5es%20e%20agendamento%20para%20o%20servi%C3%A7o%3A%20Capilar%20-%20Queda%20de%20cabelo"
+                        target="_blank"
+                        class="sub-service-drawer__action"
+                      >
+                        Agendar este serviço <i class="bx bx-right-arrow-alt"></i>
+                      </a>
+                    </div>
+                  </div>
+                </li>
+
+                <li class="sub-service-item">
+                  <button
+                    class="sub-service-btn"
+                    aria-expanded="false"
+                    aria-controls="desc-cap-2"
+                    onclick="toggleSubService(this)"
+                  >
+                    <span class="sub-service-btn__name">
+                      <span class="sub-service-btn__bullet"></span>
+                      Controle da oleosidade
+                    </span>
+                    <i class="bx bx-chevron-down sub-service-btn__icon"></i>
+                  </button>
+                  <div class="sub-service-drawer" id="desc-cap-2">
+                    <div class="sub-service-drawer__content">
+                      <p class="sub-service-drawer__text">
+                        Tratamento adstringente e purificante que equilibra as glândulas sebáceas do couro cabeludo, mantendo os fios limpos e leves por mais tempo.
+                      </p>
+                      <a
+                        href="https://wa.me/5583999844101?text=Ol%C3%A1%21%20Gostaria%20de%20informa%C3%A7%C3%B5es%20e%20agendamento%20para%20o%20servi%C3%A7o%3A%20Capilar%20-%20Controle%20da%20oleosidade"
+                        target="_blank"
+                        class="sub-service-drawer__action"
+                      >
+                        Agendar este serviço <i class="bx bx-right-arrow-alt"></i>
+                      </a>
+                    </div>
+                  </div>
+                </li>
+
+                <li class="sub-service-item">
+                  <button
+                    class="sub-service-btn"
+                    aria-expanded="false"
+                    aria-controls="desc-cap-3"
+                    onclick="toggleSubService(this)"
+                  >
+                    <span class="sub-service-btn__name">
+                      <span class="sub-service-btn__bullet"></span>
+                      Saúde do couro cabeludo
+                    </span>
+                    <i class="bx bx-chevron-down sub-service-btn__icon"></i>
+                  </button>
+                  <div class="sub-service-drawer" id="desc-cap-3">
+                    <div class="sub-service-drawer__content">
+                      <p class="sub-service-drawer__text">
+                        Terapia desintoxicante e nutritiva que restaura a barreira cutânea capilar, aliviando irritações e prevenindo descamações.
+                      </p>
+                      <a
+                        href="https://wa.me/5583999844101?text=Ol%C3%A1%21%20Gostaria%20de%20informa%C3%A7%C3%B5es%20e%20agendamento%20para%20o%20servi%C3%A7o%3A%20Capilar%20-%20Sa%C3%BAde%20do%20couro%20cabeludo"
+                        target="_blank"
+                        class="sub-service-drawer__action"
+                      >
+                        Agendar este serviço <i class="bx bx-right-arrow-alt"></i>
+                      </a>
+                    </div>
+                  </div>
+                </li>
+
+                <li class="sub-service-item">
+                  <button
+                    class="sub-service-btn"
+                    aria-expanded="false"
+                    aria-controls="desc-cap-4"
+                    onclick="toggleSubService(this)"
+                  >
+                    <span class="sub-service-btn__name">
+                      <span class="sub-service-btn__bullet"></span>
+                      Fortalecimento
+                    </span>
+                    <i class="bx bx-chevron-down sub-service-btn__icon"></i>
+                  </button>
+                  <div class="sub-service-drawer" id="desc-cap-4">
+                    <div class="sub-service-drawer__content">
+                      <p class="sub-service-drawer__text">
+                        Reposição intensiva de aminoácidos, vitaminas e oligoelementos que reconstroem a fibra capilar da raiz às pontas.
+                      </p>
+                      <a
+                        href="https://wa.me/5583999844101?text=Ol%C3%A1%21%20Gostaria%20de%20informa%C3%A7%C3%B5es%20e%20agendamento%20para%20o%20servi%C3%A7o%3A%20Capilar%20-%20Fortalecimento"
+                        target="_blank"
+                        class="sub-service-drawer__action"
+                      >
+                        Agendar este serviço <i class="bx bx-right-arrow-alt"></i>
+                      </a>
+                    </div>
+                  </div>
+                </li>
+
+                <li class="sub-service-item">
+                  <button
+                    class="sub-service-btn"
+                    aria-expanded="false"
+                    aria-controls="desc-cap-5"
+                    onclick="toggleSubService(this)"
+                  >
+                    <span class="sub-service-btn__name">
+                      <span class="sub-service-btn__bullet"></span>
+                      Estímulo de Crescimento
+                    </span>
+                    <i class="bx bx-chevron-down sub-service-btn__icon"></i>
+                  </button>
+                  <div class="sub-service-drawer" id="desc-cap-5">
+                    <div class="sub-service-drawer__content">
+                      <p class="sub-service-drawer__text">
+                        Procedimento estimulante com bioativos e microcirculação que favorece o surgimento de novos fios e acelera o crescimento saudável.
+                      </p>
+                      <a
+                        href="https://wa.me/5583999844101?text=Ol%C3%A1%21%20Gostaria%20de%20informa%C3%A7%C3%B5es%20e%20agendamento%20para%20o%20servi%C3%A7o%3A%20Capilar%20-%20Est%C3%ADmulo%20de%20Crescimento"
+                        target="_blank"
+                        class="sub-service-drawer__action"
+                      >
+                        Agendar este serviço <i class="bx bx-right-arrow-alt"></i>
+                      </a>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- 2. CORPORAL -->
+          <article class="service-card section-fade is-expanded" id="cat-corporal">
+            <div class="service-card__media" onclick="toggleCardMobile(this.parentElement)">
+              <img
+                src="assets/img/servicos/corporal.jpg"
+                alt="Procedimentos corporais e estética avançada Lumine"
+                class="service-card__img"
+                loading="lazy"
+              />
+              <span class="service-card__badge-count">12 serviços</span>
+              <div class="service-card__overlay">
+                <div class="service-card__header-info">
+                  <div class="service-card__icon-box">
+                    <i class="bx bx-body"></i>
+                  </div>
+                  <h2 class="service-card__title">Corporal</h2>
+                </div>
+                <button
+                  class="service-card__accordion-toggle"
+                  aria-label="Expandir categoria Corporal"
+                  type="button"
+                >
+                  <i class="bx bx-chevron-down"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="service-card__body">
+              <div class="service-card__subtitle">
+                <span>Procedimentos Disponíveis</span>
+                <i class="bx bx-info-circle"></i>
+              </div>
+              <ul class="service-card__list">
+                <li class="sub-service-item">
+                  <button class="sub-service-btn" aria-expanded="false" aria-controls="desc-corp-1" onclick="toggleSubService(this)">
+                    <span class="sub-service-btn__name"><span class="sub-service-btn__bullet"></span>Gordura localizada</span>
+                    <i class="bx bx-chevron-down sub-service-btn__icon"></i>
+                  </button>
+                  <div class="sub-service-drawer" id="desc-corp-1">
+                    <div class="sub-service-drawer__content">
+                      <p class="sub-service-drawer__text">Tecnologias e massagens focadas em áreas específicas para auxiliar na redução de medidas e remodelagem da silhueta.</p>
+                      <a href="https://wa.me/5583999844101?text=Ol%C3%A1%21%20Gostaria%20de%20agendamento%20para%3A%20Corporal%20-%20Gordura%20localizada" target="_blank" class="sub-service-drawer__action">Agendar este serviço <i class="bx bx-right-arrow-alt"></i></a>
+                    </div>
+                  </div>
+                </li>
+
+                <li class="sub-service-item">
+                  <button class="sub-service-btn" aria-expanded="false" aria-controls="desc-corp-2" onclick="toggleSubService(this)">
+                    <span class="sub-service-btn__name"><span class="sub-service-btn__bullet"></span>Estrias</span>
+                    <i class="bx bx-chevron-down sub-service-btn__icon"></i>
+                  </button>
+                  <div class="sub-service-drawer" id="desc-corp-2">
+                    <div class="sub-service-drawer__content">
+                      <p class="sub-service-drawer__text">Técnicas renovadoras que estimulam a produção de colágeno e elastina, suavizando a textura e o aspecto das estrias.</p>
+                      <a href="https://wa.me/5583999844101?text=Ol%C3%A1%21%20Gostaria%20de%20agendamento%20para%3A%20Corporal%20-%20Estrias" target="_blank" class="sub-service-drawer__action">Agendar este serviço <i class="bx bx-right-arrow-alt"></i></a>
+                    </div>
+                  </div>
+                </li>
+
+                <li class="sub-service-item">
+                  <button class="sub-service-btn" aria-expanded="false" aria-controls="desc-corp-3" onclick="toggleSubService(this)">
+                    <span class="sub-service-btn__name"><span class="sub-service-btn__bullet"></span>Celulite</span>
+                    <i class="bx bx-chevron-down sub-service-btn__icon"></i>
+                  </button>
+                  <div class="sub-service-drawer" id="desc-corp-3">
+                    <div class="sub-service-drawer__content">
+                      <p class="sub-service-drawer__text">Tratamento integrado para melhora da circulação local, redução do aspecto ondulado e aumento da firmeza cutânea.</p>
+                      <a href="https://wa.me/5583999844101?text=Ol%C3%A1%21%20Gostaria%20de%20agendamento%20para%3A%20Corporal%20-%20Celulite" target="_blank" class="sub-service-drawer__action">Agendar este serviço <i class="bx bx-right-arrow-alt"></i></a>
+                    </div>
+                  </div>
+                </li>
+
+                <li class="sub-service-item">
+                  <button class="sub-service-btn" aria-expanded="false" aria-controls="desc-corp-4" onclick="toggleSubService(this)">
+                    <span class="sub-service-btn__name"><span class="sub-service-btn__bullet"></span>Flacidez</span>
+                    <i class="bx bx-chevron-down sub-service-btn__icon"></i>
+                  </button>
+                  <div class="sub-service-drawer" id="desc-corp-4">
+                    <div class="sub-service-drawer__content">
+                      <p class="sub-service-drawer__text">Estímulo profundo das fibras de sustentação da pele com ativos firmadores para recuperar a tonicidade e elasticidade corporal.</p>
+                      <a href="https://wa.me/5583999844101?text=Ol%C3%A1%21%20Gostaria%20de%20agendamento%20para%3A%20Corporal%20-%20Flacidez" target="_blank" class="sub-service-drawer__action">Agendar este serviço <i class="bx bx-right-arrow-alt"></i></a>
+                    </div>
+                  </div>
+                </li>
+
+                <li class="sub-service-item">
+                  <button class="sub-service-btn" aria-expanded="false" aria-controls="desc-corp-5" onclick="toggleSubService(this)">
+                    <span class="sub-service-btn__name"><span class="sub-service-btn__bullet"></span>Definição corporal</span>
+                    <i class="bx bx-chevron-down sub-service-btn__icon"></i>
+                  </button>
+                  <div class="sub-service-drawer" id="desc-corp-5">
+                    <div class="sub-service-drawer__content">
+                      <p class="sub-service-drawer__text">Protocolos combinados que valorizam os contornos naturais do corpo e promovem maior definição muscular e dérmica.</p>
+                      <a href="https://wa.me/5583999844101?text=Ol%C3%A1%21%20Gostaria%20de%20agendamento%20para%3A%20Corporal%20-%20Defini%C3%A7%C3%A3o%20corporal" target="_blank" class="sub-service-drawer__action">Agendar este serviço <i class="bx bx-right-arrow-alt"></i></a>
+                    </div>
+                  </div>
+                </li>
+
+                <li class="sub-service-item">
+                  <button class="sub-service-btn" aria-expanded="false" aria-controls="desc-corp-6" onclick="toggleSubService(this)">
+                    <span class="sub-service-btn__name"><span class="sub-service-btn__bullet"></span>Emagrecimento</span>
+                    <i class="bx bx-chevron-down sub-service-btn__icon"></i>
+                  </button>
+                  <div class="sub-service-drawer" id="desc-corp-6">
+                    <div class="sub-service-drawer__content">
+                      <p class="sub-service-drawer__text">Abordagem estética personalizada que auxilia na redução de medidas, retenção hídrica e melhora do metabolismo tecidual.</p>
+                      <a href="https://wa.me/5583999844101?text=Ol%C3%A1%21%20Gostaria%20de%20agendamento%20para%3A%20Corporal%20-%20Emagrecimento" target="_blank" class="sub-service-drawer__action">Agendar este serviço <i class="bx bx-right-arrow-alt"></i></a>
+                    </div>
+                  </div>
+                </li>
+
+                <li class="sub-service-item">
+                  <button class="sub-service-btn" aria-expanded="false" aria-controls="desc-corp-7" onclick="toggleSubService(this)">
+                    <span class="sub-service-btn__name"><span class="sub-service-btn__bullet"></span>Harmonização corporal</span>
+                    <i class="bx bx-chevron-down sub-service-btn__icon"></i>
+                  </button>
+                  <div class="sub-service-drawer" id="desc-corp-7">
+                    <div class="sub-service-drawer__content">
+                      <p class="sub-service-drawer__text">Procedimentos estéticos avançados para harmonizar proporções corporais, realçando suas curvas de forma elegante e equilibrada.</p>
+                      <a href="https://wa.me/5583999844101?text=Ol%C3%A1%21%20Gostaria%20de%20agendamento%20para%3A%20Corporal%20-%20Harmoniza%C3%A7%C3%A3o%20corporal" target="_blank" class="sub-service-drawer__action">Agendar este serviço <i class="bx bx-right-arrow-alt"></i></a>
+                    </div>
+                  </div>
+                </li>
+
+                <li class="sub-service-item">
+                  <button class="sub-service-btn" aria-expanded="false" aria-controls="desc-corp-8" onclick="toggleSubService(this)">
+                    <span class="sub-service-btn__name"><span class="sub-service-btn__bullet"></span>Harmonização de Glúteos</span>
+                    <i class="bx bx-chevron-down sub-service-btn__icon"></i>
+                  </button>
+                  <div class="sub-service-drawer" id="desc-corp-8">
+                    <div class="sub-service-drawer__content">
+                      <p class="sub-service-drawer__text">Técnicas estéticas direcionadas ao contorno, projeção e firmeza da região dos glúteos, com efeito lifting delicado.</p>
+                      <a href="https://wa.me/5583999844101?text=Ol%C3%A1%21%20Gostaria%20de%20agendamento%20para%3A%20Corporal%20-%20Harmoniza%C3%A7%C3%A3o%20de%20Gl%C3%BAteos" target="_blank" class="sub-service-drawer__action">Agendar este serviço <i class="bx bx-right-arrow-alt"></i></a>
+                    </div>
+                  </div>
+                </li>
+
+                <li class="sub-service-item">
+                  <button class="sub-service-btn" aria-expanded="false" aria-controls="desc-corp-9" onclick="toggleSubService(this)">
+                    <span class="sub-service-btn__name"><span class="sub-service-btn__bullet"></span>Íntima</span>
+                    <i class="bx bx-chevron-down sub-service-btn__icon"></i>
+                  </button>
+                  <div class="sub-service-drawer" id="desc-corp-9">
+                    <div class="sub-service-drawer__content">
+                      <p class="sub-service-drawer__text">Cuidados estéticos delicados e confidenciais para rejuvenescimento, clareamento e hidratação da região íntima.</p>
+                      <a href="https://wa.me/5583999844101?text=Ol%C3%A1%21%20Gostaria%20de%20agendamento%20para%3A%20Corporal%20-%20Est%C3%A9tica%20%C3%8Dntima" target="_blank" class="sub-service-drawer__action">Agendar este serviço <i class="bx bx-right-arrow-alt"></i></a>
+                    </div>
+                  </div>
+                </li>
+
+                <li class="sub-service-item">
+                  <button class="sub-service-btn" aria-expanded="false" aria-controls="desc-corp-10" onclick="toggleSubService(this)">
+                    <span class="sub-service-btn__name"><span class="sub-service-btn__bullet"></span>Remoção de microvasos</span>
+                    <i class="bx bx-chevron-down sub-service-btn__icon"></i>
+                  </button>
+                  <div class="sub-service-drawer" id="desc-corp-10">
+                    <div class="sub-service-drawer__content">
+                      <p class="sub-service-drawer__text">Procedimento estético suave voltado à atenuação e eliminação do aspecto visível de vasinhos superficiais.</p>
+                      <a href="https://wa.me/5583999844101?text=Ol%C3%A1%21%20Gostaria%20de%20agendamento%20para%3A%20Corporal%20-%20Remo%C3%A7%C3%A3o%20de%20microvasos" target="_blank" class="sub-service-drawer__action">Agendar este serviço <i class="bx bx-right-arrow-alt"></i></a>
+                    </div>
+                  </div>
+                </li>
+
+                <li class="sub-service-item">
+                  <button class="sub-service-btn" aria-expanded="false" aria-controls="desc-corp-11" onclick="toggleSubService(this)">
+                    <span class="sub-service-btn__name"><span class="sub-service-btn__bullet"></span>Remoção de sinais e verrugas</span>
+                    <i class="bx bx-chevron-down sub-service-btn__icon"></i>
+                  </button>
+                  <div class="sub-service-drawer" id="desc-corp-11">
+                    <div class="sub-service-drawer__content">
+                      <p class="sub-service-drawer__text">Procedimento seguro e preciso para a retirada de pequenas lesões benignas e imperfeições cutâneas superficiais.</p>
+                      <a href="https://wa.me/5583999844101?text=Ol%C3%A1%21%20Gostaria%20de%20agendamento%20para%3A%20Corporal%20-%20Remo%C3%A7%C3%A3o%20de%20sinais" target="_blank" class="sub-service-drawer__action">Agendar este serviço <i class="bx bx-right-arrow-alt"></i></a>
+                    </div>
+                  </div>
+                </li>
+
+                <li class="sub-service-item">
+                  <button class="sub-service-btn" aria-expanded="false" aria-controls="desc-corp-12" onclick="toggleSubService(this)">
+                    <span class="sub-service-btn__name"><span class="sub-service-btn__bullet"></span>Pré e Pós-operatório</span>
+                    <i class="bx bx-chevron-down sub-service-btn__icon"></i>
+                  </button>
+                  <div class="sub-service-drawer" id="desc-corp-12">
+                    <div class="sub-service-drawer__content">
+                      <p class="sub-service-drawer__text">Acompanhamento especializado com drenagens e cuidados suaves para otimizar a recuperação, reduzir edemas e evitar fibroses.</p>
+                      <a href="https://wa.me/5583999844101?text=Ol%C3%A1%21%20Gostaria%20de%20agendamento%20para%3A%20Corporal%20-%20Pr%C3%A9%20e%20P%C3%B3s-operat%C3%B3rio" target="_blank" class="sub-service-drawer__action">Agendar este serviço <i class="bx bx-right-arrow-alt"></i></a>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- 3. FACIAL -->
+          <article class="service-card section-fade is-expanded" id="cat-facial">
+            <div class="service-card__media" onclick="toggleCardMobile(this.parentElement)">
+              <img
+                src="assets/img/servicos/facial.jpg"
+                alt="Tratamentos estéticos faciais e skincare Lumine"
+                class="service-card__img"
+                loading="lazy"
+              />
+              <span class="service-card__badge-count">12 serviços</span>
+              <div class="service-card__overlay">
+                <div class="service-card__header-info">
+                  <div class="service-card__icon-box">
+                    <i class="bx bx-face"></i>
+                  </div>
+                  <h2 class="service-card__title">Facial</h2>
+                </div>
+                <button
+                  class="service-card__accordion-toggle"
+                  aria-label="Expandir categoria Facial"
+                  type="button"
+                >
+                  <i class="bx bx-chevron-down"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="service-card__body">
+              <div class="service-card__subtitle">
+                <span>Procedimentos Disponíveis</span>
+                <i class="bx bx-info-circle"></i>
+              </div>
+              <ul class="service-card__list">
+                <li class="sub-service-item">
+                  <button class="sub-service-btn" aria-expanded="false" aria-controls="desc-fac-1" onclick="toggleSubService(this)">
+                    <span class="sub-service-btn__name"><span class="sub-service-btn__bullet"></span>Limpeza de Pele</span>
+                    <i class="bx bx-chevron-down sub-service-btn__icon"></i>
+                  </button>
+                  <div class="sub-service-drawer" id="desc-fac-1">
+                    <div class="sub-service-drawer__content">
+                      <p class="sub-service-drawer__text">Higienização profunda com extração cuidadosa de cravos e impurezas, desobstruindo os poros e devolvendo o viço natural.</p>
+                      <a href="https://wa.me/5583999844101?text=Ol%C3%A1%21%20Gostaria%20de%20agendamento%20para%3A%20Facial%20-%20Limpeza%20de%20Pele" target="_blank" class="sub-service-drawer__action">Agendar este serviço <i class="bx bx-right-arrow-alt"></i></a>
+                    </div>
+                  </div>
+                </li>
+
+                <li class="sub-service-item">
+                  <button class="sub-service-btn" aria-expanded="false" aria-controls="desc-fac-2" onclick="toggleSubService(this)">
+                    <span class="sub-service-btn__name"><span class="sub-service-btn__bullet"></span>Rejuvenescimento</span>
+                    <i class="bx bx-chevron-down sub-service-btn__icon"></i>
+                  </button>
+                  <div class="sub-service-drawer" id="desc-fac-2">
+                    <div class="sub-service-drawer__content">
+                      <p class="sub-service-drawer__text">Tratamentos que restauram a vitalidade celular, atenuando linhas finas e devolvendo a luminosidade e firmeza à face.</p>
+                      <a href="https://wa.me/5583999844101?text=Ol%C3%A1%21%20Gostaria%20de%20agendamento%20para%3A%20Facial%20-%20Rejuvenescimento" target="_blank" class="sub-service-drawer__action">Agendar este serviço <i class="bx bx-right-arrow-alt"></i></a>
+                    </div>
+                  </div>
+                </li>
+
+                <li class="sub-service-item">
+                  <button class="sub-service-btn" aria-expanded="false" aria-controls="desc-fac-3" onclick="toggleSubService(this)">
+                    <span class="sub-service-btn__name"><span class="sub-service-btn__bullet"></span>Acne</span>
+                    <i class="bx bx-chevron-down sub-service-btn__icon"></i>
+                  </button>
+                  <div class="sub-service-drawer" id="desc-fac-3">
+                    <div class="sub-service-drawer__content">
+                      <p class="sub-service-drawer__text">Controle ativo da inflamação, oleosidade e bactérias causadoras da acne, prevenindo marcas e cicatrizes.</p>
+                      <a href="https://wa.me/5583999844101?text=Ol%C3%A1%21%20Gostaria%20de%20agendamento%20para%3A%20Facial%20-%20Acne" target="_blank" class="sub-service-drawer__action">Agendar este serviço <i class="bx bx-right-arrow-alt"></i></a>
+                    </div>
+                  </div>
+                </li>
+
+                <li class="sub-service-item">
+                  <button class="sub-service-btn" aria-expanded="false" aria-controls="desc-fac-4" onclick="toggleSubService(this)">
+                    <span class="sub-service-btn__name"><span class="sub-service-btn__bullet"></span>Melasma</span>
+                    <i class="bx bx-chevron-down sub-service-btn__icon"></i>
+                  </button>
+                  <div class="sub-service-drawer" id="desc-fac-4">
+                    <div class="sub-service-drawer__content">
+                      <p class="sub-service-drawer__text">Protocolos clareadores graduais com ativos seguros que uniformizam o tom da pele e reduzem manchas resistentes.</p>
+                      <a href="https://wa.me/5583999844101?text=Ol%C3%A1%21%20Gostaria%20de%20agendamento%20para%3A%20Facial%20-%20Melasma" target="_blank" class="sub-service-drawer__action">Agendar este serviço <i class="bx bx-right-arrow-alt"></i></a>
+                    </div>
+                  </div>
+                </li>
+
+                <li class="sub-service-item">
+                  <button class="sub-service-btn" aria-expanded="false" aria-controls="desc-fac-5" onclick="toggleSubService(this)">
+                    <span class="sub-service-btn__name"><span class="sub-service-btn__bullet"></span>Olheiras</span>
+                    <i class="bx bx-chevron-down sub-service-btn__icon"></i>
+                  </button>
+                  <div class="sub-service-drawer" id="desc-fac-5">
+                    <div class="sub-service-drawer__content">
+                      <p class="sub-service-drawer__text">Cuidado concentrado na área dos olhos para suavizar bolsas, clarear pigmentações e amenizar o aspecto de cansaço.</p>
+                      <a href="https://wa.me/5583999844101?text=Ol%C3%A1%21%20Gostaria%20de%20agendamento%20para%3A%20Facial%20-%20Olheiras" target="_blank" class="sub-service-drawer__action">Agendar este serviço <i class="bx bx-right-arrow-alt"></i></a>
+                    </div>
+                  </div>
+                </li>
+
+                <li class="sub-service-item">
+                  <button class="sub-service-btn" aria-expanded="false" aria-controls="desc-fac-6" onclick="toggleSubService(this)">
+                    <span class="sub-service-btn__name"><span class="sub-service-btn__bullet"></span>Anti Age (Anti-idade)</span>
+                    <i class="bx bx-chevron-down sub-service-btn__icon"></i>
+                  </button>
+                  <div class="sub-service-drawer" id="desc-fac-6">
+                    <div class="sub-service-drawer__content">
+                      <p class="sub-service-drawer__text">Prevenção e combate aos sinais do tempo com infusão de antioxidantes, peptídeos e estimuladores de sustentação.</p>
+                      <a href="https://wa.me/5583999844101?text=Ol%C3%A1%21%20Gostaria%20de%20agendamento%20para%3A%20Facial%20-%20Anti%20Age" target="_blank" class="sub-service-drawer__action">Agendar este serviço <i class="bx bx-right-arrow-alt"></i></a>
+                    </div>
+                  </div>
+                </li>
+
+                <li class="sub-service-item">
+                  <button class="sub-service-btn" aria-expanded="false" aria-controls="desc-fac-7" onclick="toggleSubService(this)">
+                    <span class="sub-service-btn__name"><span class="sub-service-btn__bullet"></span>Clareamento</span>
+                    <i class="bx bx-chevron-down sub-service-btn__icon"></i>
+                  </button>
+                  <div class="sub-service-drawer" id="desc-fac-7">
+                    <div class="sub-service-drawer__content">
+                      <p class="sub-service-drawer__text">Uniformização global do tom da face, reduzindo hipercromias solares e marcas pós-inflamatórias para uma pele radiante.</p>
+                      <a href="https://wa.me/5583999844101?text=Ol%C3%A1%21%20Gostaria%20de%20agendamento%20para%3A%20Facial%20-%20Clareamento" target="_blank" class="sub-service-drawer__action">Agendar este serviço <i class="bx bx-right-arrow-alt"></i></a>
+                    </div>
+                  </div>
+                </li>
+
+                <li class="sub-service-item">
+                  <button class="sub-service-btn" aria-expanded="false" aria-controls="desc-fac-8" onclick="toggleSubService(this)">
+                    <span class="sub-service-btn__name"><span class="sub-service-btn__bullet"></span>Skinbooster</span>
+                    <i class="bx bx-chevron-down sub-service-btn__icon"></i>
+                  </button>
+                  <div class="sub-service-drawer" id="desc-fac-8">
+                    <div class="sub-service-drawer__content">
+                      <p class="sub-service-drawer__text">Hidratação injetável profunda à base de ácido hialurônico de baixa densidade, que revitaliza e confere viço imediato.</p>
+                      <a href="https://wa.me/5583999844101?text=Ol%C3%A1%21%20Gostaria%20de%20agendamento%20para%3A%20Facial%20-%20Skinbooster" target="_blank" class="sub-service-drawer__action">Agendar este serviço <i class="bx bx-right-arrow-alt"></i></a>
+                    </div>
+                  </div>
+                </li>
+
+                <li class="sub-service-item">
+                  <button class="sub-service-btn" aria-expanded="false" aria-controls="desc-fac-9" onclick="toggleSubService(this)">
+                    <span class="sub-service-btn__name"><span class="sub-service-btn__bullet"></span>Microagulhamento</span>
+                    <i class="bx bx-chevron-down sub-service-btn__icon"></i>
+                  </button>
+                  <div class="sub-service-drawer" id="desc-fac-9">
+                    <div class="sub-service-drawer__content">
+                      <p class="sub-service-drawer__text">Indução percutânea de colágeno através de microagulhas, melhorando textura, cicatrizes de acne, poros e firmeza.</p>
+                      <a href="https://wa.me/5583999844101?text=Ol%C3%A1%21%20Gostaria%20de%20agendamento%20para%3A%20Facial%20-%20Microagulhamento" target="_blank" class="sub-service-drawer__action">Agendar este serviço <i class="bx bx-right-arrow-alt"></i></a>
+                    </div>
+                  </div>
+                </li>
+
+                <li class="sub-service-item">
+                  <button class="sub-service-btn" aria-expanded="false" aria-controls="desc-fac-10" onclick="toggleSubService(this)">
+                    <span class="sub-service-btn__name"><span class="sub-service-btn__bullet"></span>Preenchimento</span>
+                    <i class="bx bx-chevron-down sub-service-btn__icon"></i>
+                  </button>
+                  <div class="sub-service-drawer" id="desc-fac-10">
+                    <div class="sub-service-drawer__content">
+                      <p class="sub-service-drawer__text">Aplicação de ácido hialurônico para restaurar volumes perdidos, contornos faciais e suavizar sulcos com naturalidade.</p>
+                      <a href="https://wa.me/5583999844101?text=Ol%C3%A1%21%20Gostaria%20de%20agendamento%20para%3A%20Facial%20-%20Preenchimento" target="_blank" class="sub-service-drawer__action">Agendar este serviço <i class="bx bx-right-arrow-alt"></i></a>
+                    </div>
+                  </div>
+                </li>
+
+                <li class="sub-service-item">
+                  <button class="sub-service-btn" aria-expanded="false" aria-controls="desc-fac-11" onclick="toggleSubService(this)">
+                    <span class="sub-service-btn__name"><span class="sub-service-btn__bullet"></span>Botox</span>
+                    <i class="bx bx-chevron-down sub-service-btn__icon"></i>
+                  </button>
+                  <div class="sub-service-drawer" id="desc-fac-11">
+                    <div class="sub-service-drawer__content">
+                      <p class="sub-service-drawer__text">Aplicação de toxina botulínica para relaxamento muscular preventivo e suavização de rugas de expressão na testa e olhos.</p>
+                      <a href="https://wa.me/5583999844101?text=Ol%C3%A1%21%20Gostaria%20de%20agendamento%20para%3A%20Facial%20-%20Botox" target="_blank" class="sub-service-drawer__action">Agendar este serviço <i class="bx bx-right-arrow-alt"></i></a>
+                    </div>
+                  </div>
+                </li>
+
+                <li class="sub-service-item">
+                  <button class="sub-service-btn" aria-expanded="false" aria-controls="desc-fac-12" onclick="toggleSubService(this)">
+                    <span class="sub-service-btn__name"><span class="sub-service-btn__bullet"></span>Bioestimuladores</span>
+                    <i class="bx bx-chevron-down sub-service-btn__icon"></i>
+                  </button>
+                  <div class="sub-service-drawer" id="desc-fac-12">
+                    <div class="sub-service-drawer__content">
+                      <p class="sub-service-drawer__text">Substâncias que ativam a produção natural de colágeno pelo próprio organismo, promovendo sustentação progressiva.</p>
+                      <a href="https://wa.me/5583999844101?text=Ol%C3%A1%21%20Gostaria%20de%20agendamento%20para%3A%20Facial%20-%20Bioestimuladores" target="_blank" class="sub-service-drawer__action">Agendar este serviço <i class="bx bx-right-arrow-alt"></i></a>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- 4. LABIAL -->
+          <article class="service-card section-fade is-expanded" id="cat-labial">
+            <div class="service-card__media" onclick="toggleCardMobile(this.parentElement)">
+              <img
+                src="assets/img/servicos/labial.jpg"
+                alt="Procedimentos e hidratação labial Lumine"
+                class="service-card__img"
+                loading="lazy"
+              />
+              <span class="service-card__badge-count">3 serviços</span>
+              <div class="service-card__overlay">
+                <div class="service-card__header-info">
+                  <div class="service-card__icon-box">
+                    <i class="bx bx-heart"></i>
+                  </div>
+                  <h2 class="service-card__title">Labial</h2>
+                </div>
+                <button
+                  class="service-card__accordion-toggle"
+                  aria-label="Expandir categoria Labial"
+                  type="button"
+                >
+                  <i class="bx bx-chevron-down"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="service-card__body">
+              <div class="service-card__subtitle">
+                <span>Procedimentos Disponíveis</span>
+                <i class="bx bx-info-circle"></i>
+              </div>
+              <ul class="service-card__list">
+                <li class="sub-service-item">
+                  <button class="sub-service-btn" aria-expanded="false" aria-controls="desc-lab-1" onclick="toggleSubService(this)">
+                    <span class="sub-service-btn__name"><span class="sub-service-btn__bullet"></span>Hydragloss</span>
+                    <i class="bx bx-chevron-down sub-service-btn__icon"></i>
+                  </button>
+                  <div class="sub-service-drawer" id="desc-lab-1">
+                    <div class="sub-service-drawer__content">
+                      <p class="sub-service-drawer__text">Procedimento de super hidratação e regeneração labial com ácido hialurônico e vitaminas, conferindo brilho e maciez.</p>
+                      <a href="https://wa.me/5583999844101?text=Ol%C3%A1%21%20Gostaria%20de%20agendamento%20para%3A%20Labial%20-%20Hydragloss" target="_blank" class="sub-service-drawer__action">Agendar este serviço <i class="bx bx-right-arrow-alt"></i></a>
+                    </div>
+                  </div>
+                </li>
+
+                <li class="sub-service-item">
+                  <button class="sub-service-btn" aria-expanded="false" aria-controls="desc-lab-2" onclick="toggleSubService(this)">
+                    <span class="sub-service-btn__name"><span class="sub-service-btn__bullet"></span>Micropigmentação</span>
+                    <i class="bx bx-chevron-down sub-service-btn__icon"></i>
+                  </button>
+                  <div class="sub-service-drawer" id="desc-lab-2">
+                    <div class="sub-service-drawer__content">
+                      <p class="sub-service-drawer__text">Técnica que define o desenho dos lábios e confere uma tonalidade saudável e natural de efeito translúcido.</p>
+                      <a href="https://wa.me/5583999844101?text=Ol%C3%A1%21%20Gostaria%20de%20agendamento%20para%3A%20Labial%20-%20Micropigmenta%C3%A7%C3%A3o" target="_blank" class="sub-service-drawer__action">Agendar este serviço <i class="bx bx-right-arrow-alt"></i></a>
+                    </div>
+                  </div>
+                </li>
+
+                <li class="sub-service-item">
+                  <button class="sub-service-btn" aria-expanded="false" aria-controls="desc-lab-3" onclick="toggleSubService(this)">
+                    <span class="sub-service-btn__name"><span class="sub-service-btn__bullet"></span>Preenchimento labial</span>
+                    <i class="bx bx-chevron-down sub-service-btn__icon"></i>
+                  </button>
+                  <div class="sub-service-drawer" id="desc-lab-3">
+                    <div class="sub-service-drawer__content">
+                      <p class="sub-service-drawer__text">Escultura labial com ácido hialurônico para definição de contorno, hidratação profunda e volume personalizado.</p>
+                      <a href="https://wa.me/5583999844101?text=Ol%C3%A1%21%20Gostaria%20de%20agendamento%20para%3A%20Labial%20-%20Preenchimento%20labial" target="_blank" class="sub-service-drawer__action">Agendar este serviço <i class="bx bx-right-arrow-alt"></i></a>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- 5. MASSAGENS -->
+          <article class="service-card section-fade is-expanded" id="cat-massagens">
+            <div class="service-card__media" onclick="toggleCardMobile(this.parentElement)">
+              <img
+                src="assets/img/servicos/massagens.jpg"
+                alt="Massagens relaxantes e terapêuticas Lumine"
+                class="service-card__img"
+                loading="lazy"
+              />
+              <span class="service-card__badge-count">7 serviços</span>
+              <div class="service-card__overlay">
+                <div class="service-card__header-info">
+                  <div class="service-card__icon-box">
+                    <i class="bx bx-spa"></i>
+                  </div>
+                  <h2 class="service-card__title">Massagens</h2>
+                </div>
+                <button
+                  class="service-card__accordion-toggle"
+                  aria-label="Expandir categoria Massagens"
+                  type="button"
+                >
+                  <i class="bx bx-chevron-down"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="service-card__body">
+              <div class="service-card__subtitle">
+                <span>Procedimentos Disponíveis</span>
+                <i class="bx bx-info-circle"></i>
+              </div>
+              <ul class="service-card__list">
+                <li class="sub-service-item">
+                  <button class="sub-service-btn" aria-expanded="false" aria-controls="desc-mas-1" onclick="toggleSubService(this)">
+                    <span class="sub-service-btn__name"><span class="sub-service-btn__bullet"></span>Detox corporal</span>
+                    <i class="bx bx-chevron-down sub-service-btn__icon"></i>
+                  </button>
+                  <div class="sub-service-drawer" id="desc-mas-1">
+                    <div class="sub-service-drawer__content">
+                      <p class="sub-service-drawer__text">Combinação de manobras manuais e dermocosméticos desintoxicantes para eliminar toxinas e reduzir inchaços.</p>
+                      <a href="https://wa.me/5583999844101?text=Ol%C3%A1%21%20Gostaria%20de%20agendamento%20para%3A%20Massagens%20-%20Detox%20corporal" target="_blank" class="sub-service-drawer__action">Agendar este serviço <i class="bx bx-right-arrow-alt"></i></a>
+                    </div>
+                  </div>
+                </li>
+
+                <li class="sub-service-item">
+                  <button class="sub-service-btn" aria-expanded="false" aria-controls="desc-mas-2" onclick="toggleSubService(this)">
+                    <span class="sub-service-btn__name"><span class="sub-service-btn__bullet"></span>Relaxante</span>
+                    <i class="bx bx-chevron-down sub-service-btn__icon"></i>
+                  </button>
+                  <div class="sub-service-drawer" id="desc-mas-2">
+                    <div class="sub-service-drawer__content">
+                      <p class="sub-service-drawer__text">Movimentos suaves e fluidos com aromaterapia que aliviam tensões musculares, reduzem o estresse e promovem bem-estar.</p>
+                      <a href="https://wa.me/5583999844101?text=Ol%C3%A1%21%20Gostaria%20de%20agendamento%20para%3A%20Massagens%20-%20Relaxante" target="_blank" class="sub-service-drawer__action">Agendar este serviço <i class="bx bx-right-arrow-alt"></i></a>
+                    </div>
+                  </div>
+                </li>
+
+                <li class="sub-service-item">
+                  <button class="sub-service-btn" aria-expanded="false" aria-controls="desc-mas-3" onclick="toggleSubService(this)">
+                    <span class="sub-service-btn__name"><span class="sub-service-btn__bullet"></span>Modeladora</span>
+                    <i class="bx bx-chevron-down sub-service-btn__icon"></i>
+                  </button>
+                  <div class="sub-service-drawer" id="desc-mas-3">
+                    <div class="sub-service-drawer__content">
+                      <p class="sub-service-drawer__text">Manobras vigorosas e ritmadas que ativam a circulação local e auxiliam na remodelagem das curvas corporais.</p>
+                      <a href="https://wa.me/5583999844101?text=Ol%C3%A1%21%20Gostaria%20de%20agendamento%20para%3A%20Massagens%20-%20Modeladora" target="_blank" class="sub-service-drawer__action">Agendar este serviço <i class="bx bx-right-arrow-alt"></i></a>
+                    </div>
+                  </div>
+                </li>
+
+                <li class="sub-service-item">
+                  <button class="sub-service-btn" aria-expanded="false" aria-controls="desc-mas-4" onclick="toggleSubService(this)">
+                    <span class="sub-service-btn__name"><span class="sub-service-btn__bullet"></span>Drenagem Linfática</span>
+                    <i class="bx bx-chevron-down sub-service-btn__icon"></i>
+                  </button>
+                  <div class="sub-service-drawer" id="desc-mas-4">
+                    <div class="sub-service-drawer__content">
+                      <p class="sub-service-drawer__text">Massagem suave e rítmica que estimula o sistema linfático, reduzindo a retenção de líquidos e aliviando edemas.</p>
+                      <a href="https://wa.me/5583999844101?text=Ol%C3%A1%21%20Gostaria%20de%20agendamento%20para%3A%20Massagens%20-%20Drenagem%20Linf%C3%A1tica" target="_blank" class="sub-service-drawer__action">Agendar este serviço <i class="bx bx-right-arrow-alt"></i></a>
+                    </div>
+                  </div>
+                </li>
+
+                <li class="sub-service-item">
+                  <button class="sub-service-btn" aria-expanded="false" aria-controls="desc-mas-5" onclick="toggleSubService(this)">
+                    <span class="sub-service-btn__name"><span class="sub-service-btn__bullet"></span>Ventosaterapia</span>
+                    <i class="bx bx-chevron-down sub-service-btn__icon"></i>
+                  </button>
+                  <div class="sub-service-drawer" id="desc-mas-5">
+                    <div class="sub-service-drawer__content">
+                      <p class="sub-service-drawer__text">Aplicação de ventosas que estimulam o fluxo sanguíneo local, aliviam dores musculares e liberam fáscias tensionadas.</p>
+                      <a href="https://wa.me/5583999844101?text=Ol%C3%A1%21%20Gostaria%20de%20agendamento%20para%3A%20Massagens%20-%20Ventosaterapia" target="_blank" class="sub-service-drawer__action">Agendar este serviço <i class="bx bx-right-arrow-alt"></i></a>
+                    </div>
+                  </div>
+                </li>
+
+                <li class="sub-service-item">
+                  <button class="sub-service-btn" aria-expanded="false" aria-controls="desc-mas-6" onclick="toggleSubService(this)">
+                    <span class="sub-service-btn__name"><span class="sub-service-btn__bullet"></span>Bambuterapia</span>
+                    <i class="bx bx-chevron-down sub-service-btn__icon"></i>
+                  </button>
+                  <div class="sub-service-drawer" id="desc-mas-6">
+                    <div class="sub-service-drawer__content">
+                      <p class="sub-service-drawer__text">Uso de hastes de bambu de diferentes tamanhos para drenar, relaxar a musculatura profunda e tonificar os tecidos.</p>
+                      <a href="https://wa.me/5583999844101?text=Ol%C3%A1%21%20Gostaria%20de%20agendamento%20para%3A%20Massagens%20-%20Bambuterapia" target="_blank" class="sub-service-drawer__action">Agendar este serviço <i class="bx bx-right-arrow-alt"></i></a>
+                    </div>
+                  </div>
+                </li>
+
+                <li class="sub-service-item">
+                  <button class="sub-service-btn" aria-expanded="false" aria-controls="desc-mas-7" onclick="toggleSubService(this)">
+                    <span class="sub-service-btn__name"><span class="sub-service-btn__bullet"></span>Facial</span>
+                    <i class="bx bx-chevron-down sub-service-btn__icon"></i>
+                  </button>
+                  <div class="sub-service-drawer" id="desc-mas-7">
+                    <div class="sub-service-drawer__content">
+                      <p class="sub-service-drawer__text">Massagem delicada na face, pescoço e colo que ativa a circulação, promove efeito lifting imediato e drena o excesso de líquido.</p>
+                      <a href="https://wa.me/5583999844101?text=Ol%C3%A1%21%20Gostaria%20de%20agendamento%20para%3A%20Massagens%20-%20Massagem%20Facial" target="_blank" class="sub-service-drawer__action">Agendar este serviço <i class="bx bx-right-arrow-alt"></i></a>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- 6. UNHAS -->
+          <article class="service-card section-fade is-expanded" id="cat-unhas">
+            <div class="service-card__media" onclick="toggleCardMobile(this.parentElement)">
+              <img
+                src="assets/img/servicos/unhas.jpg"
+                alt="Cuidados com unhas e spa dos pés Lumine"
+                class="service-card__img"
+                loading="lazy"
+              />
+              <span class="service-card__badge-count">5 serviços</span>
+              <div class="service-card__overlay">
+                <div class="service-card__header-info">
+                  <div class="service-card__icon-box">
+                    <i class="bx bx-palette"></i>
+                  </div>
+                  <h2 class="service-card__title">Unhas</h2>
+                </div>
+                <button
+                  class="service-card__accordion-toggle"
+                  aria-label="Expandir categoria Unhas"
+                  type="button"
+                >
+                  <i class="bx bx-chevron-down"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="service-card__body">
+              <div class="service-card__subtitle">
+                <span>Procedimentos Disponíveis</span>
+                <i class="bx bx-info-circle"></i>
+              </div>
+              <ul class="service-card__list">
+                <li class="sub-service-item">
+                  <button class="sub-service-btn" aria-expanded="false" aria-controls="desc-unh-1" onclick="toggleSubService(this)">
+                    <span class="sub-service-btn__name"><span class="sub-service-btn__bullet"></span>Tradicional</span>
+                    <i class="bx bx-chevron-down sub-service-btn__icon"></i>
+                  </button>
+                  <div class="sub-service-drawer" id="desc-unh-1">
+                    <div class="sub-service-drawer__content">
+                      <p class="sub-service-drawer__text">Manicure e pedicure clássica com cutilagem delicada, hidratação das cutículas e esmaltação impecável.</p>
+                      <a href="https://wa.me/5583999844101?text=Ol%C3%A1%21%20Gostaria%20de%20agendamento%20para%3A%20Unhas%20-%20Tradicional" target="_blank" class="sub-service-drawer__action">Agendar este serviço <i class="bx bx-right-arrow-alt"></i></a>
+                    </div>
+                  </div>
+                </li>
+
+                <li class="sub-service-item">
+                  <button class="sub-service-btn" aria-expanded="false" aria-controls="desc-unh-2" onclick="toggleSubService(this)">
+                    <span class="sub-service-btn__name"><span class="sub-service-btn__bullet"></span>Esmaltação em Gel</span>
+                    <i class="bx bx-chevron-down sub-service-btn__icon"></i>
+                  </button>
+                  <div class="sub-service-drawer" id="desc-unh-2">
+                    <div class="sub-service-drawer__content">
+                      <p class="sub-service-drawer__text">Aplicação de esmalte com cura em cabine LED/UV, garantindo brilho intenso e durabilidade por semanas sem descascar.</p>
+                      <a href="https://wa.me/5583999844101?text=Ol%C3%A1%21%20Gostaria%20de%20agendamento%20para%3A%20Unhas%20-%20Esmalta%C3%A7%C3%A3o%20em%20Gel" target="_blank" class="sub-service-drawer__action">Agendar este serviço <i class="bx bx-right-arrow-alt"></i></a>
+                    </div>
+                  </div>
+                </li>
+
+                <li class="sub-service-item">
+                  <button class="sub-service-btn" aria-expanded="false" aria-controls="desc-unh-3" onclick="toggleSubService(this)">
+                    <span class="sub-service-btn__name"><span class="sub-service-btn__bullet"></span>Banho em Gel</span>
+                    <i class="bx bx-chevron-down sub-service-btn__icon"></i>
+                  </button>
+                  <div class="sub-service-drawer" id="desc-unh-3">
+                    <div class="sub-service-drawer__content">
+                      <p class="sub-service-drawer__text">Camada protetora de gel sobre as unhas naturais que previne quebras, lascas e estimula o crescimento saudável.</p>
+                      <a href="https://wa.me/5583999844101?text=Ol%C3%A1%21%20Gostaria%20de%20agendamento%20para%3A%20Unhas%20-%20Banho%20em%20Gel" target="_blank" class="sub-service-drawer__action">Agendar este serviço <i class="bx bx-right-arrow-alt"></i></a>
+                    </div>
+                  </div>
+                </li>
+
+                <li class="sub-service-item">
+                  <button class="sub-service-btn" aria-expanded="false" aria-controls="desc-unh-4" onclick="toggleSubService(this)">
+                    <span class="sub-service-btn__name"><span class="sub-service-btn__bullet"></span>Spa em Gel</span>
+                    <i class="bx bx-chevron-down sub-service-btn__icon"></i>
+                  </button>
+                  <div class="sub-service-drawer" id="desc-unh-4">
+                    <div class="sub-service-drawer__content">
+                      <p class="sub-service-drawer__text">Experiência completa com esfoliação, imersão nutritiva, massagem relaxante e acabamento de alta durabilidade em gel.</p>
+                      <a href="https://wa.me/5583999844101?text=Ol%C3%A1%21%20Gostaria%20de%20agendamento%20para%3A%20Unhas%20-%20Spa%20em%20Gel" target="_blank" class="sub-service-drawer__action">Agendar este serviço <i class="bx bx-right-arrow-alt"></i></a>
+                    </div>
+                  </div>
+                </li>
+
+                <li class="sub-service-item">
+                  <button class="sub-service-btn" aria-expanded="false" aria-controls="desc-unh-5" onclick="toggleSubService(this)">
+                    <span class="sub-service-btn__name"><span class="sub-service-btn__bullet"></span>Plástica dos Pés</span>
+                    <i class="bx bx-chevron-down sub-service-btn__icon"></i>
+                  </button>
+                  <div class="sub-service-drawer" id="desc-unh-5">
+                    <div class="sub-service-drawer__content">
+                      <p class="sub-service-drawer__text">Protocolo de renovação podal com remoção suave de calosidades e ressecamentos, deixando os pés extremamente macios.</p>
+                      <a href="https://wa.me/5583999844101?text=Ol%C3%A1%21%20Gostaria%20de%20agendamento%20para%3A%20Unhas%20-%20Pl%C3%A1stica%20dos%20P%C3%A9s" target="_blank" class="sub-service-drawer__action">Agendar este serviço <i class="bx bx-right-arrow-alt"></i></a>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- 7. MAQUIAGEM -->
+          <article class="service-card section-fade is-expanded" id="cat-maquiagem">
+            <div class="service-card__media" onclick="toggleCardMobile(this.parentElement)">
+              <img
+                src="assets/img/servicos/maquiagem.jpg"
+                alt="Produção de maquiagem profissional Lumine"
+                class="service-card__img"
+                loading="lazy"
+              />
+              <span class="service-card__badge-count">5 serviços</span>
+              <div class="service-card__overlay">
+                <div class="service-card__header-info">
+                  <div class="service-card__icon-box">
+                    <i class="bx bx-brush"></i>
+                  </div>
+                  <h2 class="service-card__title">Maquiagem</h2>
+                </div>
+                <button
+                  class="service-card__accordion-toggle"
+                  aria-label="Expandir categoria Maquiagem"
+                  type="button"
+                >
+                  <i class="bx bx-chevron-down"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="service-card__body">
+              <div class="service-card__subtitle">
+                <span>Procedimentos Disponíveis</span>
+                <i class="bx bx-info-circle"></i>
+              </div>
+              <ul class="service-card__list">
+                <li class="sub-service-item">
+                  <button class="sub-service-btn" aria-expanded="false" aria-controls="desc-maq-1" onclick="toggleSubService(this)">
+                    <span class="sub-service-btn__name"><span class="sub-service-btn__bullet"></span>Social</span>
+                    <i class="bx bx-chevron-down sub-service-btn__icon"></i>
+                  </button>
+                  <div class="sub-service-drawer" id="desc-maq-1">
+                    <div class="sub-service-drawer__content">
+                      <p class="sub-service-drawer__text">Maquiagem sofisticada para festas, jantares e eventos especiais, destacando sua beleza natural com acabamento duradouro.</p>
+                      <a href="https://wa.me/5583999844101?text=Ol%C3%A1%21%20Gostaria%20de%20agendamento%20para%3A%20Maquiagem%20-%20Social" target="_blank" class="sub-service-drawer__action">Agendar este serviço <i class="bx bx-right-arrow-alt"></i></a>
+                    </div>
+                  </div>
+                </li>
+
+                <li class="sub-service-item">
+                  <button class="sub-service-btn" aria-expanded="false" aria-controls="desc-maq-2" onclick="toggleSubService(this)">
+                    <span class="sub-service-btn__name"><span class="sub-service-btn__bullet"></span>Noiva</span>
+                    <i class="bx bx-chevron-down sub-service-btn__icon"></i>
+                  </button>
+                  <div class="sub-service-drawer" id="desc-maq-2">
+                    <div class="sub-service-drawer__content">
+                      <p class="sub-service-drawer__text">Produção exclusiva para o grande dia, com produtos de alta fixação, teste prévio e atendimento personalizado e acolhedor.</p>
+                      <a href="https://wa.me/5583999844101?text=Ol%C3%A1%21%20Gostaria%20de%20agendamento%20para%3A%20Maquiagem%20-%20Noiva" target="_blank" class="sub-service-drawer__action">Agendar este serviço <i class="bx bx-right-arrow-alt"></i></a>
+                    </div>
+                  </div>
+                </li>
+
+                <li class="sub-service-item">
+                  <button class="sub-service-btn" aria-expanded="false" aria-controls="desc-maq-3" onclick="toggleSubService(this)">
+                    <span class="sub-service-btn__name"><span class="sub-service-btn__bullet"></span>Debutante</span>
+                    <i class="bx bx-chevron-down sub-service-btn__icon"></i>
+                  </button>
+                  <div class="sub-service-drawer" id="desc-maq-3">
+                    <div class="sub-service-drawer__content">
+                      <p class="sub-service-drawer__text">Make jovem e glamourosa para a celebração de 15 anos, valorizando a personalidade e o brilho da aniversariante.</p>
+                      <a href="https://wa.me/5583999844101?text=Ol%C3%A1%21%20Gostaria%20de%20agendamento%20para%3A%20Maquiagem%20-%20Debutante" target="_blank" class="sub-service-drawer__action">Agendar este serviço <i class="bx bx-right-arrow-alt"></i></a>
+                    </div>
+                  </div>
+                </li>
+
+                <li class="sub-service-item">
+                  <button class="sub-service-btn" aria-expanded="false" aria-controls="desc-maq-4" onclick="toggleSubService(this)">
+                    <span class="sub-service-btn__name"><span class="sub-service-btn__bullet"></span>Formanda</span>
+                    <i class="bx bx-chevron-down sub-service-btn__icon"></i>
+                  </button>
+                  <div class="sub-service-drawer" id="desc-maq-4">
+                    <div class="sub-service-drawer__content">
+                      <p class="sub-service-drawer__text">Maquiagem resistente a lágrimas e iluminação de fotografia, projetada para você celebrar sua formatura com elegância.</p>
+                      <a href="https://wa.me/5583999844101?text=Ol%C3%A1%21%20Gostaria%20de%20agendamento%20para%3A%20Maquiagem%20-%20Formanda" target="_blank" class="sub-service-drawer__action">Agendar este serviço <i class="bx bx-right-arrow-alt"></i></a>
+                    </div>
+                  </div>
+                </li>
+
+                <li class="sub-service-item">
+                  <button class="sub-service-btn" aria-expanded="false" aria-controls="desc-maq-5" onclick="toggleSubService(this)">
+                    <span class="sub-service-btn__name"><span class="sub-service-btn__bullet"></span>Curso de Automaquiagem</span>
+                    <i class="bx bx-chevron-down sub-service-btn__icon"></i>
+                  </button>
+                  <div class="sub-service-drawer" id="desc-maq-5">
+                    <div class="sub-service-drawer__content">
+                      <p class="sub-service-drawer__text">Aulas práticas individuais ou em pequenos grupos para você dominar técnicas de make para o seu tipo de rosto e rotina.</p>
+                      <a href="https://wa.me/5583999844101?text=Ol%C3%A1%21%20Gostaria%20de%20agendamento%20para%3A%20Curso%20de%20Automaquiagem" target="_blank" class="sub-service-drawer__action">Agendar este serviço <i class="bx bx-right-arrow-alt"></i></a>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- 8. SOBRANCELHAS -->
+          <article class="service-card section-fade is-expanded" id="cat-sobrancelhas">
+            <div class="service-card__media" onclick="toggleCardMobile(this.parentElement)">
+              <img
+                src="assets/img/servicos/sobrancelhas.jpg"
+                alt="Design de sobrancelhas e henna Lumine"
+                class="service-card__img"
+                loading="lazy"
+              />
+              <span class="service-card__badge-count">2 serviços</span>
+              <div class="service-card__overlay">
+                <div class="service-card__header-info">
+                  <div class="service-card__icon-box">
+                    <i class="bx bx-show"></i>
+                  </div>
+                  <h2 class="service-card__title">Sobrancelhas</h2>
+                </div>
+                <button
+                  class="service-card__accordion-toggle"
+                  aria-label="Expandir categoria Sobrancelhas"
+                  type="button"
+                >
+                  <i class="bx bx-chevron-down"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="service-card__body">
+              <div class="service-card__subtitle">
+                <span>Procedimentos Disponíveis</span>
+                <i class="bx bx-info-circle"></i>
+              </div>
+              <ul class="service-card__list">
+                <li class="sub-service-item">
+                  <button class="sub-service-btn" aria-expanded="false" aria-controls="desc-sob-1" onclick="toggleSubService(this)">
+                    <span class="sub-service-btn__name"><span class="sub-service-btn__bullet"></span>Design</span>
+                    <i class="bx bx-chevron-down sub-service-btn__icon"></i>
+                  </button>
+                  <div class="sub-service-drawer" id="desc-sob-1">
+                    <div class="sub-service-drawer__content">
+                      <p class="sub-service-drawer__text">Mapeamento facial personalizado para encontrar o formato mais harmônico e expressivo para suas feições naturais.</p>
+                      <a href="https://wa.me/5583999844101?text=Ol%C3%A1%21%20Gostaria%20de%20agendamento%20para%3A%20Sobrancelhas%20-%20Design" target="_blank" class="sub-service-drawer__action">Agendar este serviço <i class="bx bx-right-arrow-alt"></i></a>
+                    </div>
+                  </div>
+                </li>
+
+                <li class="sub-service-item">
+                  <button class="sub-service-btn" aria-expanded="false" aria-controls="desc-sob-2" onclick="toggleSubService(this)">
+                    <span class="sub-service-btn__name"><span class="sub-service-btn__bullet"></span>Henna</span>
+                    <i class="bx bx-chevron-down sub-service-btn__icon"></i>
+                  </button>
+                  <div class="sub-service-drawer" id="desc-sob-2">
+                    <div class="sub-service-drawer__content">
+                      <p class="sub-service-drawer__text">Coloração temporária com henna de alta pureza que preenche falhas e confere expressividade e volume às sobrancelhas.</p>
+                      <a href="https://wa.me/5583999844101?text=Ol%C3%A1%21%20Gostaria%20de%20agendamento%20para%3A%20Sobrancelhas%20-%20Henna" target="_blank" class="sub-service-drawer__action">Agendar este serviço <i class="bx bx-right-arrow-alt"></i></a>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- 9. PENTEADOS -->
+          <article class="service-card section-fade is-expanded" id="cat-penteados">
+            <div class="service-card__media" onclick="toggleCardMobile(this.parentElement)">
+              <img
+                src="assets/img/servicos/penteados.jpg"
+                alt="Penteados sofisticados e modelagem Lumine"
+                class="service-card__img"
+                loading="lazy"
+              />
+              <span class="service-card__badge-count">3 serviços</span>
+              <div class="service-card__overlay">
+                <div class="service-card__header-info">
+                  <div class="service-card__icon-box">
+                    <i class="bx bx-wind"></i>
+                  </div>
+                  <h2 class="service-card__title">Penteados</h2>
+                </div>
+                <button
+                  class="service-card__accordion-toggle"
+                  aria-label="Expandir categoria Penteados"
+                  type="button"
+                >
+                  <i class="bx bx-chevron-down"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="service-card__body">
+              <div class="service-card__subtitle">
+                <span>Procedimentos Disponíveis</span>
+                <i class="bx bx-info-circle"></i>
+              </div>
+              <ul class="service-card__list">
+                <li class="sub-service-item">
+                  <button class="sub-service-btn" aria-expanded="false" aria-controls="desc-pen-1" onclick="toggleSubService(this)">
+                    <span class="sub-service-btn__name"><span class="sub-service-btn__bullet"></span>Completo</span>
+                    <i class="bx bx-chevron-down sub-service-btn__icon"></i>
+                  </button>
+                  <div class="sub-service-drawer" id="desc-pen-1">
+                    <div class="sub-service-drawer__content">
+                      <p class="sub-service-drawer__text">Penteados estruturados e luxuosos (coques, semipresos e tranças elaboradas) para noivas, formandas e convidadas.</p>
+                      <a href="https://wa.me/5583999844101?text=Ol%C3%A1%21%20Gostaria%20de%20agendamento%20para%3A%20Penteados%20-%20Completo" target="_blank" class="sub-service-drawer__action">Agendar este serviço <i class="bx bx-right-arrow-alt"></i></a>
+                    </div>
+                  </div>
+                </li>
+
+                <li class="sub-service-item">
+                  <button class="sub-service-btn" aria-expanded="false" aria-controls="desc-pen-2" onclick="toggleSubService(this)">
+                    <span class="sub-service-btn__name"><span class="sub-service-btn__bullet"></span>Escova</span>
+                    <i class="bx bx-chevron-down sub-service-btn__icon"></i>
+                  </button>
+                  <div class="sub-service-drawer" id="desc-pen-2">
+                    <div class="sub-service-drawer__content">
+                      <p class="sub-service-drawer__text">Higienização profunda e modelagem com secador para fios disciplinados, com movimento solto e brilho acetinado.</p>
+                      <a href="https://wa.me/5583999844101?text=Ol%C3%A1%21%20Gostaria%20de%20agendamento%20para%3A%20Penteados%20-%20Escova" target="_blank" class="sub-service-drawer__action">Agendar este serviço <i class="bx bx-right-arrow-alt"></i></a>
+                    </div>
+                  </div>
+                </li>
+
+                <li class="sub-service-item">
+                  <button class="sub-service-btn" aria-expanded="false" aria-controls="desc-pen-3" onclick="toggleSubService(this)">
+                    <span class="sub-service-btn__name"><span class="sub-service-btn__bullet"></span>Babyliss</span>
+                    <i class="bx bx-chevron-down sub-service-btn__icon"></i>
+                  </button>
+                  <div class="sub-service-drawer" id="desc-pen-3">
+                    <div class="sub-service-drawer__content">
+                      <p class="sub-service-drawer__text">Criação de ondas e cachos naturais ou definidos com proteção térmica, garantindo textura moderna e alta fixação.</p>
+                      <a href="https://wa.me/5583999844101?text=Ol%C3%A1%21%20Gostaria%20de%20agendamento%20para%3A%20Penteados%20-%20Babyliss" target="_blank" class="sub-service-drawer__action">Agendar este serviço <i class="bx bx-right-arrow-alt"></i></a>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </article>
+        </div>
+
+        <!-- CALL TO ACTION (CTA) SECTION -->
+        <div class="services__cta section-fade">
+          <div class="services__cta-decor"></div>
+          <h2 class="services__cta-title">Pronta para transformar seu autocuidado?</h2>
+          <p class="services__cta-text">
+            Agende sua avaliação personalizada com Mirlleiny Oliveira e descubra o protocolo ideal para suas necessidades. Estamos prontos para te receber com carinho e excelência.
+          </p>
+          <div class="services__cta-btns">
+            <a
+              href="https://wa.me/5583999844101?text=Ol%C3%A1%21%20Gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20personalizada%20na%20Lumine."
+              target="_blank"
+              class="services__cta-whatsapp"
+            >
+              <i class="bx bxl-whatsapp"></i> Agendar no WhatsApp
+            </a>
+            <a href="produtos.html" class="services__cta-secondary">
+              <i class="bx bx-shopping-bag"></i> Conhecer Produtos
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!--==================== CHATBOT ASSISTENTE ====================-->
+    <div class="chatbot-container" id="chatbot">
+      <div class="chatbot-header">
+        <h3>Assistente Lumine</h3>
+        <div class="chatbot-actions">
+          <button class="clear-chat" onclick="clearChat()" aria-label="Limpar conversa">🗑️</button>
+          <button class="close-chat" onclick="toggleChat()" aria-label="Fechar chat">×</button>
+        </div>
+      </div>
+
+      <div class="chatbot-messages" id="chat-messages">
+        <div class="message bot" id="welcome-message">
+          <img src="assets/img/avatar.png" alt="Bot" class="bot-avatar" />
+          <p>
+            Olá! Sou a Duda 😊, assistente virtual da Lumine. Estou aqui para te
+            ajudar com:<br /><br />
+            ● Produtos <br />
+            ● Agendamentos <br />
+            ● Dúvidas de Compras <br />
+            ● Dicas de Cuidados <br /><br />
+            Escolha uma das opções😊
+          </p>
+        </div>
+      </div>
+
+      <div class="chatbot-input">
+        <input
+          type="text"
+          id="user-input"
+          placeholder="Digite sua mensagem..."
+        />
+        <button onclick="sendMessage()">Enviar</button>
+      </div>
+    </div>
+
+    <button class="chatbot-toggle" onclick="toggleChat()" aria-label="Abrir assistente virtual">
+      <img src="assets/img/avatar.png" alt="Chat Assistente" />
+    </button>
+
+    <!--==================== FOOTER ====================-->
+    <footer class="footer section">
+      <div class="footer__container container grid">
+        <div class="footer__content">
+          <h3 class="footer__title">Localização</h3>
+          <ul class="footer__list">
+            <li><i class="bx bx-map"></i> João Pessoa - PB</li>
+            <li>
+              <i class="bx bx-building-house"></i> Av. Maximiano Figueiredo,
+              29-2, Centro
+            </li>
+            <li><i class="bx bx-phone"></i> (83) 9 9984-4101</li>
+          </ul>
+        </div>
+
+        <div class="footer__content">
+          <h3 class="footer__title">Horários</h3>
+          <ul class="footer__links">
+            <li><i class="bx bx-time"></i> Seg-Sex: 9h-19h</li>
+            <li><i class="bx bx-calendar"></i> Sáb: Sob Agendamento</li>
+            <li><i class="bx bx-calendar"></i> Dom: Sob Agendamento</li>
+          </ul>
+        </div>
+
+        <div class="footer__content">
+          <h3 class="footer__title">Produtos</h3>
+          <ul class="footer__links">
+            <li>
+              <a href="#" class="footer__link"
+                ><i class="bx bx-chevron-right"></i> Facial</a
+              >
+            </li>
+            <li>
+              <a href="#" class="footer__link"
+                ><i class="bx bx-chevron-right"></i> Capilar</a
+              >
+            </li>
+            <li>
+              <a href="#" class="footer__link"
+                ><i class="bx bx-chevron-right"></i> Corporal</a
+              >
+            </li>
+            <li>
+              <a href="#" class="footer__link"
+                ><i class="bx bx-chevron-right"></i> E Muito mais</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div class="footer__content">
+          <h3 class="footer__title">Social</h3>
+          <ul class="footer__social">
+            <li>
+              <a
+                href="https://wa.me/5583999844101"
+                target="_blank"
+                class="footer__social-link"
+                aria-label="WhatsApp"
+              >
+                <i class="bx bxl-whatsapp"></i>
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.instagram.com/_luminebe/"
+                target="_blank"
+                class="footer__social-link"
+                aria-label="Instagram"
+              >
+                <i class="bx bxl-instagram"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <span class="footer__copy"
+          >&#169; <span id="current-year"></span> Site feito por
+          <a
+            href="https://wa.me/5583986035776"
+            target="_blank"
+            style="color: hsl(31, 76%, 74%)"
+            >Milton</a
+          >. Todos os direitos reservados</span
+        >
+      </div>
+    </footer>
+
+
+    <!--=============== SCROLL UP ===============-->
+    <a href="#" class="scrollup" id="scroll-up" aria-label="Voltar ao topo">
+      <i class="bx bx-up-arrow-alt scrollup__icon"></i>
+    </a>
+
+    <!--=============== SCRIPTS ===============-->
+    <script src="assets/js/swiper-bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+
+    <!-- Script de Interação de Serviços (Hover / Expand / Mobile Accordion) -->
+    <script>
+      // Função para alternar sub-serviço (mobile & desktop click)
+      function toggleSubService(button) {
+        const item = button.closest(".sub-service-item");
+        const isCurrentlyActive = item.classList.contains("is-active");
+
+        // Opcional: fechar outros sub-serviços do mesmo card para manter limpeza visual
+        const siblingItems = item.parentElement.querySelectorAll(".sub-service-item");
+        siblingItems.forEach((sibling) => {
+          if (sibling !== item) {
+            sibling.classList.remove("is-active");
+            const sibBtn = sibling.querySelector(".sub-service-btn");
+            if (sibBtn) sibBtn.setAttribute("aria-expanded", "false");
+          }
+        });
+
+        if (isCurrentlyActive) {
+          item.classList.remove("is-active");
+          button.setAttribute("aria-expanded", "false");
+        } else {
+          item.classList.add("is-active");
+          button.setAttribute("aria-expanded", "true");
+        }
+      }
+
+      // Função para alternar card no mobile (Accordion de categorias)
+      function toggleCardMobile(card) {
+        if (window.innerWidth <= 767) {
+          const isExpanded = card.classList.contains("is-expanded");
+          if (isExpanded) {
+            card.classList.remove("is-expanded");
+          } else {
+            card.classList.add("is-expanded");
+          }
+        }
+      }
+
+      // Interação Desktop: Hover inteligente
+      document.addEventListener("DOMContentLoaded", function () {
+        const subItems = document.querySelectorAll(".sub-service-item");
+
+        subItems.forEach((item) => {
+          // No desktop, ao passar o mouse abre suavemente
+          item.addEventListener("mouseenter", function () {
+            if (window.innerWidth > 767) {
+              const siblingItems = item.parentElement.querySelectorAll(".sub-service-item");
+              siblingItems.forEach((s) => {
+                if (s !== item) {
+                  s.classList.remove("is-active");
+                  const sBtn = s.querySelector(".sub-service-btn");
+                  if (sBtn) sBtn.setAttribute("aria-expanded", "false");
+                }
+              });
+              item.classList.add("is-active");
+              const btn = item.querySelector(".sub-service-btn");
+              if (btn) btn.setAttribute("aria-expanded", "true");
+            }
+          });
+        });
+
+        // Atualizar ano dinamicamente no rodapé
+        const yearSpan = document.getElementById("current-year");
+        if (yearSpan) {
+          yearSpan.textContent = new Date().getFullYear();
+        }
+      });
+    </script>
+
+    <!-- Codigo do carrinho de compras (Sincronizado com localStorage) -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        const cartContainer = document.querySelector(".cart__container");
+        const cartTotalItems = document.querySelector(".cart__prices-item");
+        const cartTotalPrice = document.querySelector(".cart__prices-total");
+        const cartShop = document.getElementById("cart-shop");
+        const cartClose = document.getElementById("cart-close");
+        const cartElement = document.getElementById("cart");
+
+        function saveCart() {
+          localStorage.setItem("cart", JSON.stringify(cart));
+        }
+
+        function updateCart() {
+          if (!cartContainer) return;
+          cartContainer.innerHTML = "";
+
+          let totalCount = 0;
+          let totalPrice = 0;
+
+          if (cart.length === 0) {
+            cartContainer.innerHTML =
+              '<p style="text-align: center; color: var(--text-color-light); margin-top: 2rem;">Sua sacola está vazia.</p>';
+          } else {
+            cart.forEach((item, index) => {
+              totalCount += item.quantity;
+              totalPrice += item.price * item.quantity;
+
+              const card = document.createElement("article");
+              card.className = "cart__card";
+              card.innerHTML = `
+                <div class="cart__box">
+                  <img src="${item.img}" alt="${item.name}" class="cart__img" />
+                </div>
+                <div class="cart__details">
+                  <h3 class="cart__title">${item.name}</h3>
+                  <span class="cart__price">R$ ${item.price.toFixed(2).replace(".", ",")}</span>
+                  <div class="cart__amount">
+                    <div class="cart__amount-content">
+                      <span class="cart__amount-box btn-decrease" data-index="${index}">
+                        <i class="bx bx-minus"></i>
+                      </span>
+                      <span class="cart__amount-number">${item.quantity}</span>
+                      <span class="cart__amount-box btn-increase" data-index="${index}">
+                        <i class="bx bx-plus"></i>
+                      </span>
+                    </div>
+                    <i class="bx bx-trash-alt cart__amount-trash btn-remove" data-index="${index}"></i>
+                  </div>
+                </div>
+              `;
+              cartContainer.appendChild(card);
+            });
+          }
+
+          if (cartTotalItems) {
+            cartTotalItems.textContent = `${totalCount} ${totalCount === 1 ? "item" : "itens"}`;
+          }
+          if (cartTotalPrice) {
+            cartTotalPrice.textContent = `R$ ${totalPrice.toFixed(2).replace(".", ",")}`;
+          }
+        }
+
+        if (cartContainer) {
+          cartContainer.addEventListener("click", function (e) {
+            const decreaseBtn = e.target.closest(".btn-decrease");
+            const increaseBtn = e.target.closest(".btn-increase");
+            const removeBtn = e.target.closest(".btn-remove");
+
+            if (decreaseBtn) {
+              const idx = parseInt(decreaseBtn.dataset.index);
+              if (cart[idx].quantity > 1) {
+                cart[idx].quantity--;
+              } else {
+                cart.splice(idx, 1);
+              }
+              saveCart();
+              updateCart();
+            } else if (increaseBtn) {
+              const idx = parseInt(increaseBtn.dataset.index);
+              cart[idx].quantity++;
+              saveCart();
+              updateCart();
+            } else if (removeBtn) {
+              const idx = parseInt(removeBtn.dataset.index);
+              cart.splice(idx, 1);
+              saveCart();
+              updateCart();
+            }
+          });
+        }
+
+        updateCart();
+      });
+    </script>
+
+    <!-- Intersection Observer para Efeito de Fade na Rolagem -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.intersectionRatio >= 0.15) {
+                entry.target.classList.add("section-visible");
+              }
+            });
+          },
+          {
+            threshold: [0, 0.15, 0.3, 0.5, 0.7, 1],
+          }
+        );
+
+        document.querySelectorAll(".section-fade").forEach((section) => {
+          observer.observe(section);
+        });
+      });
+    </script>
+
+    <!-- Assistente Virtual Lumine -->
+    <script src="assistente.js"></script>
+  </body>
+</html>
