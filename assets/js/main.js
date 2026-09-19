@@ -184,3 +184,110 @@ function updateCartBadge() {
 window.updateCartBadge = updateCartBadge;
 document.addEventListener('DOMContentLoaded', updateCartBadge);
 window.addEventListener('storage', updateCartBadge);
+
+/*=============== PRODUCT IMAGE LIGHTBOX ===============*/
+function initProductLightbox() {
+  let lightbox = document.getElementById('image-lightbox');
+  if (!lightbox) {
+    lightbox = document.createElement('div');
+    lightbox.id = 'image-lightbox';
+    lightbox.className = 'image-lightbox';
+    lightbox.setAttribute('role', 'dialog');
+    lightbox.setAttribute('aria-modal', 'true');
+    lightbox.setAttribute('aria-label', 'Visualização ampliada do produto');
+    lightbox.innerHTML = `
+      <div class="image-lightbox__backdrop" id="lightbox-backdrop"></div>
+      <div class="image-lightbox__container" id="lightbox-container">
+        <button class="image-lightbox__close" id="lightbox-close" aria-label="Fechar visualização" type="button">
+          <i class='bx bx-x'></i>
+        </button>
+        <div class="image-lightbox__img-wrapper">
+          <img src="" alt="" class="image-lightbox__img" id="lightbox-img" />
+        </div>
+        <div class="image-lightbox__caption" id="lightbox-caption"></div>
+      </div>
+    `;
+    document.body.appendChild(lightbox);
+  }
+
+  const lightboxImg = lightbox.querySelector('#lightbox-img');
+  const lightboxCaption = lightbox.querySelector('#lightbox-caption');
+  const lightboxClose = lightbox.querySelector('#lightbox-close');
+  const lightboxBackdrop = lightbox.querySelector('#lightbox-backdrop');
+
+  function openLightbox(src, alt, captionText) {
+    if (!src) return;
+    lightboxImg.src = src;
+    lightboxImg.alt = alt || 'Imagem ampliada do produto';
+    if (captionText && captionText.trim()) {
+      lightboxCaption.textContent = captionText.trim();
+      lightboxCaption.style.display = 'block';
+    } else {
+      lightboxCaption.textContent = '';
+      lightboxCaption.style.display = 'none';
+    }
+    lightbox.classList.add('active');
+    document.body.classList.add('lightbox-open');
+    document.documentElement.classList.add('lightbox-open');
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('active');
+    document.body.classList.remove('lightbox-open');
+    document.documentElement.classList.remove('lightbox-open');
+    setTimeout(() => {
+      if (!lightbox.classList.contains('active')) {
+        lightboxImg.src = '';
+      }
+    }, 250);
+  }
+
+  if (lightboxClose) {
+    lightboxClose.addEventListener('click', closeLightbox);
+  }
+
+  if (lightboxBackdrop) {
+    lightboxBackdrop.addEventListener('click', closeLightbox);
+  }
+
+  // Press ESC to close
+  document.addEventListener('keydown', (e) => {
+    if ((e.key === 'Escape' || e.key === 'Esc') && lightbox.classList.contains('active')) {
+      closeLightbox();
+    }
+  });
+
+  // Delegated click for product images only
+  document.addEventListener('click', (e) => {
+    const target = e.target;
+    if (
+      target &&
+      target.tagName === 'IMG' &&
+      (target.classList.contains('products__img') ||
+       target.classList.contains('featured__img') ||
+       target.classList.contains('new__img') ||
+       target.classList.contains('home__img'))
+    ) {
+      // Do not open if clicking inside cart or buttons
+      if (target.closest('.cart') || target.closest('button')) {
+        return;
+      }
+      
+      const card = target.closest('.products__card, .featured__card, .new__card, .home__container');
+      let title = '';
+      if (card) {
+        const titleEl = card.querySelector('.products__title, .featured__title, .new__title, .home__title');
+        if (titleEl) {
+          title = titleEl.textContent.replace(/\s+/g, ' ').trim();
+        }
+      }
+      openLightbox(target.src, target.alt, title);
+    }
+  });
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initProductLightbox);
+} else {
+  initProductLightbox();
+}
