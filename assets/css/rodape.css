@@ -469,8 +469,76 @@
 
 .composicao {
     color: var(--first-color);
-    font-weight: 400; /* equivalente a bold, mas com valor numérico */
-    font-size: 1.0em; /* aumentando um pouco o tamanho */
-    text-transform: uppercase; /* se quiser deixar todo o texto em maiúsculas */
-    /* Outras propriedades que desejar */
+    font-weight: 400;
+    font-size: 1.0em;
+    text-transform: uppercase;
+}
+
+/* Refined Form Submit Status & Feedback */
+.contact-form__button:disabled {
+    opacity: 0.75;
+    cursor: not-allowed;
+}
+
+.contact-form__status {
+    margin-top: 1.25rem;
+    padding: 1rem 1.25rem;
+    border-radius: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: var(--small-font-size);
+    line-height: 1.5;
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+    transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.contact-form__status.show {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.contact-form__status--success {
+    background-color: hsla(142, 60%, 45%, 0.1);
+    border: 1px solid hsla(142, 60%, 45%, 0.25);
+    color: #1e7e34;
+}
+
+.dark-theme .contact-form__status--success {
+    background-color: hsla(142, 60%, 45%, 0.15);
+    border-color: hsla(142, 60%, 45%, 0.3);
+    color: #4ade80;
+}
+
+.contact-form__status--error {
+    background-color: hsla(0, 75%, 60%, 0.1);
+    border: 1px solid hsla(0, 75%, 60%, 0.25);
+    color: #dc3545;
+}
+
+.dark-theme .contact-form__status--error {
+    background-color: hsla(0, 75%, 60%, 0.15);
+    border-color: hsla(0, 75%, 60%, 0.3);
+    color: #f87171;
+}
+
+.contact-form__status-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.contact-form__status-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form__status-title {
+    font-weight: var(--font-bold);
+    color: inherit;
+}
+
+.contact-form__status-desc {
+    font-size: var(--smaller-font-size);
+    opacity: 0.9;
 }

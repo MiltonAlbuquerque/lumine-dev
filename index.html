@@ -782,15 +782,6 @@
             <button type="submit" class="contact-form__button">
               Enviar Mensagem <i class="bx bx-send"></i>
             </button>
-            <div class="loading-overlay" id="loadingOverlay">
-              <div class="loading-spinner">
-                <div class="spinner-circle"></div>
-                <div class="spinner-circle"></div>
-                <div class="spinner-circle"></div>
-                <div class="spinner-circle"></div>
-              </div>
-              <p class="loading-text">Enviando mensagem...</p>
-            </div>
           </form>
         </div>
       </section>
@@ -1043,6 +1034,11 @@
             if (existingCheckoutBtn) {
               existingCheckoutBtn.remove();
             }
+          }
+
+          // Atualizar badge do carrinho
+          if (window.updateCartBadge) {
+            window.updateCartBadge();
           }
 
           // Adicionar eventos aos botões

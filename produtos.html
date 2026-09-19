@@ -2399,6 +2399,11 @@
             }
           }
 
+          // Atualizar badge do carrinho
+          if (window.updateCartBadge) {
+            window.updateCartBadge();
+          }
+
           // Adicionar eventos aos botões
           addCartEvents();
         }

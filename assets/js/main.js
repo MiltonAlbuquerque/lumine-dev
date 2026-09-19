@@ -77,11 +77,13 @@ const scrollActive = () =>{
 			  sectionId = current.getAttribute('id'),
 			  sectionsClass = document.querySelector('.nav__menu a[href*=' + sectionId + ']')
 
-		if(scrollDown > sectionTop && scrollDown <= sectionTop + sectionHeight){
-			sectionsClass.classList.add('active-link')
-		}else{
-			sectionsClass.classList.remove('active-link')
-		}                                                    
+		if(sectionsClass) {
+			if(scrollDown > sectionTop && scrollDown <= sectionTop + sectionHeight){
+				sectionsClass.classList.add('active-link')
+			}else{
+				sectionsClass.classList.remove('active-link')
+			}
+		}
 	})
 }
 window.addEventListener('scroll', scrollActive)
@@ -137,16 +139,48 @@ if (selectedTheme) {
 }
 
 // Activate / deactivate the theme manually with the button
-themeButton.addEventListener('click', () => {
-    // Add or remove the dark / icon theme
-    document.body.classList.toggle(darkTheme)
-    themeButton.classList.toggle(iconTheme)
-    // We save the theme and the current icon that the user chose
-    localStorage.setItem('selected-theme', getCurrentTheme())
-    localStorage.setItem('selected-icon', getCurrentIcon())
-})
+if (themeButton) {
+  themeButton.addEventListener('click', () => {
+      // Add or remove the dark / icon theme
+      document.body.classList.toggle(darkTheme)
+      themeButton.classList.toggle(iconTheme)
+      // We save the theme and the current icon that the user chose
+      localStorage.setItem('selected-theme', getCurrentTheme())
+      localStorage.setItem('selected-icon', getCurrentIcon())
+  })
+}
 
+/*=============== SHOPPING CART BADGE ===============*/
+function updateCartBadge() {
+  const cartShopEl = document.getElementById('cart-shop');
+  if (!cartShopEl) return;
 
-// Carrinho de compra 
+  let badge = cartShopEl.querySelector('.nav__shop-badge') || document.getElementById('cart-badge');
+  if (!badge) {
+    badge = document.createElement('span');
+    badge.id = 'cart-badge';
+    badge.className = 'nav__shop-badge';
+    cartShopEl.appendChild(badge);
+  }
 
+  try {
+    const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+    const totalCount = cartItems.reduce((acc, item) => acc + (Number(item.quantity) || 1), 0);
 
+    if (totalCount > 0) {
+      badge.textContent = totalCount > 99 ? '99+' : totalCount;
+      badge.classList.add('show-badge');
+      badge.setAttribute('aria-label', `${totalCount} ${totalCount === 1 ? 'item na sacola' : 'itens na sacola'}`);
+    } else {
+      badge.textContent = '';
+      badge.classList.remove('show-badge');
+      badge.removeAttribute('aria-label');
+    }
+  } catch (e) {
+    badge.classList.remove('show-badge');
+  }
+}
+
+window.updateCartBadge = updateCartBadge;
+document.addEventListener('DOMContentLoaded', updateCartBadge);
+window.addEventListener('storage', updateCartBadge);

@@ -1494,14 +1494,14 @@
         }
       }
 
-      // Interação Desktop: Hover inteligente
+      // Interação Desktop: Hover inteligente (Abre ao passar o mouse, fecha ao sair)
       document.addEventListener("DOMContentLoaded", function () {
         const subItems = document.querySelectorAll(".sub-service-item");
 
         subItems.forEach((item) => {
           // No desktop, ao passar o mouse abre suavemente
           item.addEventListener("mouseenter", function () {
-            if (window.innerWidth > 767) {
+            if (window.innerWidth > 767 && window.matchMedia("(hover: hover)").matches) {
               const siblingItems = item.parentElement.querySelectorAll(".sub-service-item");
               siblingItems.forEach((s) => {
                 if (s !== item) {
@@ -1513,6 +1513,15 @@
               item.classList.add("is-active");
               const btn = item.querySelector(".sub-service-btn");
               if (btn) btn.setAttribute("aria-expanded", "true");
+            }
+          });
+
+          // No desktop, ao sair o mouse fecha automaticamente
+          item.addEventListener("mouseleave", function () {
+            if (window.innerWidth > 767 && window.matchMedia("(hover: hover)").matches) {
+              item.classList.remove("is-active");
+              const btn = item.querySelector(".sub-service-btn");
+              if (btn) btn.setAttribute("aria-expanded", "false");
             }
           });
         });
@@ -1587,6 +1596,10 @@
           }
           if (cartTotalPrice) {
             cartTotalPrice.textContent = `R$ ${totalPrice.toFixed(2).replace(".", ",")}`;
+          }
+
+          if (window.updateCartBadge) {
+            window.updateCartBadge();
           }
         }
 
