@@ -2518,3 +2518,71 @@ html.lightbox-open {
   }
 }
 
+/*=============== ADD TO BAG FEEDBACK ===============*/
+.cart-confirmation-toast {
+  position: fixed;
+  z-index: 1500;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 16px;
+  background: rgba(22, 22, 22, 0.94);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #f5f5f5;
+  font-family: var(--body-font, "Roboto", sans-serif);
+  font-size: 0.813rem;
+  font-weight: var(--font-medium, 500);
+  letter-spacing: 0.3px;
+  border-radius: 9999px;
+  border: 1px solid hsla(31, 76%, 74%, 0.35);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.45), 0 2px 8px hsla(31, 100%, 70%, 0.15);
+  pointer-events: none;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translate(-50%, 8px);
+  transition: opacity 0.28s cubic-bezier(0.16, 1, 0.3, 1), transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+}
+
+.cart-confirmation-toast.show {
+  opacity: 1;
+  transform: translate(-50%, -4px);
+}
+
+.cart-confirmation-toast.hide {
+  opacity: 0;
+  transform: translate(-50%, -12px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.cart-confirmation-toast .toast-check {
+  color: var(--first-color, hsl(31, 100%, 70%));
+  font-weight: var(--font-bold, 700);
+  font-size: 0.938rem;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Subtle pulse for bag icon */
+@keyframes cartShopPulse {
+  0% {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(1.2);
+  }
+  75% {
+    transform: scale(0.97);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.cart-shop-pulse {
+  animation: cartShopPulse 0.38s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+

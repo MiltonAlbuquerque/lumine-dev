@@ -185,6 +185,71 @@ window.updateCartBadge = updateCartBadge;
 document.addEventListener('DOMContentLoaded', updateCartBadge);
 window.addEventListener('storage', updateCartBadge);
 
+/*=============== ADD TO BAG FEEDBACK ===============*/
+function showAddToCartFeedback(buttonEl) {
+  // 1. Subtle pulse animation on the cart icon in navbar
+  const cartShopEl = document.getElementById('cart-shop');
+  if (cartShopEl) {
+    cartShopEl.classList.remove('cart-shop-pulse');
+    void cartShopEl.offsetWidth; // Trigger reflow
+    cartShopEl.classList.add('cart-shop-pulse');
+    setTimeout(() => {
+      cartShopEl.classList.remove('cart-shop-pulse');
+    }, 450);
+  }
+
+  // 2. Subtle confirmation message "✓ Adicionado à sacola" near the button
+  if (!buttonEl) return;
+
+  const existingToast = document.querySelector('.cart-confirmation-toast');
+  if (existingToast) {
+    existingToast.remove();
+  }
+
+  const toast = document.createElement('div');
+  toast.className = 'cart-confirmation-toast';
+  toast.setAttribute('role', 'status');
+  toast.setAttribute('aria-live', 'polite');
+  toast.innerHTML = `<span class="toast-check">✓</span> Adicionado à sacola`;
+  document.body.appendChild(toast);
+
+  const rect = buttonEl.getBoundingClientRect();
+  const toastHeight = 36;
+
+  // Position above button if enough room in viewport, otherwise below
+  let top = rect.top - toastHeight - 8;
+  if (top < 15) {
+    top = rect.bottom + 10;
+  }
+
+  // Center horizontally relative to button, clamped to screen bounds
+  let left = rect.left + rect.width / 2;
+  const minLeft = 85;
+  const maxLeft = window.innerWidth - 85;
+  left = Math.max(minLeft, Math.min(left, maxLeft));
+
+  toast.style.top = `${top}px`;
+  toast.style.left = `${left}px`;
+
+  requestAnimationFrame(() => {
+    toast.classList.add('show');
+  });
+
+  // Keep visible for ~2 seconds, then smoothly fade out
+  setTimeout(() => {
+    toast.classList.remove('show');
+    toast.classList.add('hide');
+    setTimeout(() => {
+      if (toast.parentNode) {
+        toast.parentNode.removeChild(toast);
+      }
+    }, 320);
+  }, 2000);
+}
+
+window.showAddToCartFeedback = showAddToCartFeedback;
+
+
 /*=============== PRODUCT IMAGE LIGHTBOX ===============*/
 function initProductLightbox() {
   let lightbox = document.getElementById('image-lightbox');

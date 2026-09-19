@@ -1313,6 +1313,9 @@
               }
 
               addToCart(name, price, img);
+              if (window.showAddToCartFeedback) {
+                window.showAddToCartFeedback(button);
+              }
             });
           });
 
