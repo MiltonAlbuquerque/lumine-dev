@@ -5,8 +5,7 @@
 
 /* Base Services Page Spacing & Container */
 .services-page {
-  padding-top: calc(var(--header-height) + 2rem);
-  padding-bottom: 4rem;
+  padding-top: calc(var(--header-height) + 0.5rem);
 }
 
 /*=============== HERO SECTION ===============*/
